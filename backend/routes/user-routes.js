@@ -13,6 +13,6 @@ router.get('/', (req, res, next) => {
     res.json({ message: "We're live bitch"})
 })
 
-router.post("new", userControllers.createNewUser)
+// router.post("new", userControllers.createNewUser)
 
 module.exports = router

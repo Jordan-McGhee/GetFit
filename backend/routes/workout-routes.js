@@ -6,14 +6,14 @@ const workoutControllers = require("../controllers/workout-controllers")
 
 const router = express.Router()
 
-router.get("/:workoutID", workoutControllers.getWorkout)
+// router.get("/:workoutID", workoutControllers.getWorkout)
 
-router.post("/", workoutControllers.createWorkout)
+// router.post("/", workoutControllers.createWorkout)
 
-router.get("/:workoutID/edit", workoutControllers.editWorkout)
+// router.get("/:workoutID/edit", workoutControllers.editWorkout)
 
-router.patch("/:workoutID", workoutControllers.updateWorkout)
+// router.patch("/:workoutID", workoutControllers.updateWorkout)
 
-router.delete("/:workoutID", workoutControllers.deleteWorkout)
+// router.delete("/:workoutID", workoutControllers.deleteWorkout)
 
 module.exports = router

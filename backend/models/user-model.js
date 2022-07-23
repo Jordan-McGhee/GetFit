@@ -5,13 +5,14 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    age: { type: Number, required: true },
-    bodyweight: { type: Number, required: true },
+    age: { type: Number, required: false, default: 0 },
+    bodyweight: { type: Number, required: false, default: 0 },
     mainLiftMaxes: {
         benchPress: { type: Number, required: false },
         squat: { type: Number, required: false },
         deadlift: { type: Number, required: false },
         overHeadPress: { type: Number, required: false },
+        default: {}
     },
 
     workouts: [{
