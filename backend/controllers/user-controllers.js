@@ -43,6 +43,8 @@ const updateUserInfo = async (req, res, next) => {
             "Something went wrong! Could not update your main lifts. Please try again!",
             500
         )
+
+        return next(err)
     }
 
     const mainLifts = user.mainLiftMaxes

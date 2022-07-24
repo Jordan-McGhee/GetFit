@@ -29,7 +29,7 @@ app.use(bodyParser.json())
 // app.use("/", homepageRoutes)
 app.use("/auth", authRoutes)
 app.use("/user", userRoutes)
-// app.use("/workout", workoutRoutes)
+app.use("/workout", workoutRoutes)
 
 
 

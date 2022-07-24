@@ -6,9 +6,9 @@ const workoutControllers = require("../controllers/workout-controllers")
 
 const router = express.Router()
 
-// router.get("/:workoutID", workoutControllers.getWorkout)
+router.post("/", check('workoutTitle').notEmpty(), workoutControllers.createWorkout)
 
-// router.post("/", workoutControllers.createWorkout)
+router.get("/:workoutID", workoutControllers.getWorkout)
 
 // router.get("/:workoutID/edit", workoutControllers.editWorkout)
 
