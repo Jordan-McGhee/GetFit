@@ -7,12 +7,12 @@ const userControllers = require("../controllers/user-controllers")
 const router = express.Router()
 
 
-router.get('/', (req, res, next) => {
-    console.log("GET REQUEST IN USER")
+// router.get('/', (req, res, next) => {
+//     console.log("GET REQUEST IN USER")
 
-    res.json({ message: "We're live bitch"})
-})
+//     res.json({ message: "We're live bitch"})
+// })
 
-// router.post("new", userControllers.createNewUser)
+router.post("/:userID/updateInfo", userControllers.updateUserInfo)
 
 module.exports = router
