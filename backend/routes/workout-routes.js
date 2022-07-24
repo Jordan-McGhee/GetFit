@@ -10,10 +10,10 @@ router.post("/", check('workoutTitle').notEmpty(), workoutControllers.createWork
 
 router.get("/:workoutID", workoutControllers.getWorkout)
 
-// router.get("/:workoutID/edit", workoutControllers.editWorkout)
+router.get("/:workoutID/edit", workoutControllers.getWorkout)
 
 // router.patch("/:workoutID", workoutControllers.updateWorkout)
 
-// router.delete("/:workoutID", workoutControllers.deleteWorkout)
+router.delete("/:workoutID", workoutControllers.deleteWorkout)
 
 module.exports = router

@@ -92,5 +92,55 @@ const getWorkout = async (req, res, next) => {
     res.json({ message: "Found the workout!", workout: workout.toObject({ getters: true }) })
 }
 
+const deleteWorkout = async (req, res, next) => {
+
+    let workout
+
+    try {
+        workout = await Workout.findById(req.params.workoutID).populate("workoutCreator")
+    } catch(err) {
+        console.log(`Error trying to find workout ${err}`)
+        const error = new HttpError(
+            `Something went wrong finding this workout. Please try again!`, 500
+        )
+        
+        return next(error)
+    }
+
+    if (!workout) {
+        const error = new HttpError(
+            "Could not find that workout!", 404
+        )
+
+        return next(error)
+    }
+
+    // console.log(`Workout Creator Workouts: ${workout.workoutCreator.workouts}`)
+
+    try {
+
+        const session = await mongoose.startSession()
+        session.startTransaction()
+
+        await workout.remove({ session: session })
+
+        workout.workoutCreator.workouts.pull(workout)
+        await workout.workoutCreator.save({ session: session })
+
+        await session.commitTransaction()
+
+    } catch(err) {
+        console.log(`Error trying to delete workout: ${err}`)
+        const error = new HttpError(
+            `Error trying to delete the workout. Please try again!`, 500
+        )
+
+        return next(error)
+    }
+
+    res.status(200).json({ message: "Deleted workout."})
+}
+
 exports.createWorkout = createWorkout
 exports.getWorkout = getWorkout
+exports.deleteWorkout = deleteWorkout
