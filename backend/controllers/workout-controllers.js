@@ -21,7 +21,7 @@ const createWorkout = async (req, res, next) => {
     let user
 
     try {
-        user = await User.findById("62dc8ebede986f891ffd0388")
+        user = await User.findById("62df2accc886aa06f5636310")
     } catch(err) {
         console.log(`Error finding user: ${err}`)
         const error = new HttpError(

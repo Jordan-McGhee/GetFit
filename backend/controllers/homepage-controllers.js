@@ -11,7 +11,7 @@ const getHomePage = async (req, res, next) => {
     let loggedInUser
 
     try {
-        loggedInUser = await User.findById("62dc8ebede986f891ffd0388")
+        loggedInUser = await User.findById("62df2accc886aa06f5636310")
     } catch(err) {
         console.log(`Error finding user: ${err}`)
         return next(

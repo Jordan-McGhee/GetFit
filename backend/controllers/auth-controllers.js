@@ -1,5 +1,6 @@
 const HttpError = require("../models/http-error")
 const { validationResult } = require("express-validator")
+const bcrypt = require("bcryptjs")
 
 // models
 const User = require("../models/user-model")
@@ -46,12 +47,26 @@ const signUp = async (req, res, next) => {
         return next(error)
     }
 
-    // if we reach here, there aren't any errors with the inputs or an existing user, so we create a new one and save to the database
+    // use bcrypt to hash the entered password to protect the user's data
+    let hashedPassword
+
+    try {
+        hashedPassword = await bcrypt.hash(password, 12)
+    } catch(err) {
+        console.log(`Error hashing password: ${err}`)
+        return next(
+            new HttpError(
+                "Could not hash entered password. Please try again!", 500
+            )
+        )
+    }
+
+    // if we reach here, there aren't any errors with the inputs or an existing user, so we create a new user with the hashed password and save to the database
     const newUser = new User({
         firstName,
         lastName,
         email,
-        password
+        password: hashedPassword
     })
 
     try {
@@ -94,12 +109,26 @@ const login = async (req, res, next) => {
         return next(error)
     }
 
-    if (existingUser.password !== password) {
-        const error = new HttpError(
-            "Incorrect password. Please try again!", 401
-        )
+    // check if entered password matches the hashed password in our database
+    let isValidPassword = false
 
-        return next(error)
+    try {
+        isValidPassword = await bcrypt.compare(password, existingUser.password)
+    } catch(err) {
+        console.log(`Error comparing entered password to user's password. ${err}`)
+        return next(
+            new HttpError(
+                "Could not log you in. Please try again!", 500
+            )
+        )
+    }
+
+    if (!isValidPassword) {
+        return next(
+            new HttpError(
+                "Incorrect password. Please try again!", 401
+            )
+        )
     }
 
     // else there were no issues

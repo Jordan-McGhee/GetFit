@@ -8,3 +8,5 @@ Backend
             ~ createWorkout: remove placeholder code to find user
             ~ add ID to exercises --DONE
             ~ updateWorkout: add code block to validate logged in user is the workoutCreator
+        - homepage-controllers
+            ~ update code for logged in user

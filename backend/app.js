@@ -2,6 +2,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
 const mongoose = require("mongoose")
+const HttpError = require("./models/http-error")
 
 // FOR CONNECTING TO MONGODB SERVER
 const password = "KIV8qYHrFoWOPhPy"
@@ -31,8 +32,13 @@ app.use("/auth", authRoutes)
 app.use("/user", userRoutes)
 app.use("/workout", workoutRoutes)
 
-
-
+// middleware for requests that didn't get a response from our above routes
+// if a user goes to a page that isn't part of our API
+// make sure to pass the new error object we created through next so it enters our default error middleware below
+app.use((req, res, next) => {
+    const error = new HttpError("Could not find this page!", 404)
+    next(error)
+})
 
 // ERROR ROUTE
 // middleware with 4 parameters is treated as a special middleware by express and will only be executed on requests that have an error associated with it
