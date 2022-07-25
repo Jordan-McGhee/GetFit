@@ -12,7 +12,7 @@ router.get("/:workoutID", workoutControllers.getWorkout)
 
 router.get("/:workoutID/edit", workoutControllers.getWorkout)
 
-// router.patch("/:workoutID", workoutControllers.updateWorkout)
+router.patch("/:workoutID", check('workoutTitle').notEmpty(), workoutControllers.updateWorkout)
 
 router.delete("/:workoutID", workoutControllers.deleteWorkout)
 

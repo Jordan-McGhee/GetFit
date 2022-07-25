@@ -6,4 +6,5 @@ Backend
             ~ add placeholder functions to create user & login --DONE
         - workout-controller:
             ~ createWorkout: remove placeholder code to find user
-            ~ add ID to exercises
+            ~ add ID to exercises --DONE
+            ~ updateWorkout: add code block to validate logged in user is the workoutCreator

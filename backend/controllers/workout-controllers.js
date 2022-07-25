@@ -92,6 +92,50 @@ const getWorkout = async (req, res, next) => {
     res.json({ message: "Found the workout!", workout: workout.toObject({ getters: true }) })
 }
 
+const updateWorkout = async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        console.log(errors)
+        return next(
+            new HttpError("Your workout title can't be empty!", 422)
+        )
+    }
+
+    let updatedWorkout
+
+    try {
+        updatedWorkout = await Workout.findById(req.params.workoutID)
+    } catch(err) {
+        console.log(`Error trying to find workout. ${err}`)
+        return next(
+            new HttpError(
+                "Could not find this workout. Please try again!", 500
+            )
+        )
+    }
+
+    // ADD CODE TO VALIDATE USER THAT IS EDITING THIS WORKOUT IS THE USER THAT CREATED IT!!!
+
+    const { workoutTitle, exercises } = req.body
+
+    updatedWorkout.workoutTitle = workoutTitle
+    updatedWorkout.exercises = exercises
+
+    try {
+        await updatedWorkout.save()
+    } catch(err) {
+        console.log(`Error trying to save updated workout ${err}`)
+        return next(
+            new HttpError(
+                "Could not update this workout. Please try again!", 500
+            )
+        )
+    }
+
+    res.status(200).json({ message: "Updated workout!", updatedWorkout: updatedWorkout})
+}
+
 const deleteWorkout = async (req, res, next) => {
 
     let workout
@@ -143,4 +187,5 @@ const deleteWorkout = async (req, res, next) => {
 
 exports.createWorkout = createWorkout
 exports.getWorkout = getWorkout
+exports.updateWorkout = updateWorkout
 exports.deleteWorkout = deleteWorkout
