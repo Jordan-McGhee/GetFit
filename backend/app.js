@@ -15,7 +15,7 @@ mongoose.connect(url).then(() =>{
 })
 
 // ROUTE VARIABLES
-// const homepageRoutes = require("./routes/homepage-routes")
+const homepageRoutes = require("./routes/homepage-routes")
 const authRoutes = require("./routes/auth-routes")
 const userRoutes = require("./routes/user-routes")
 const workoutRoutes = require("./routes/workout-routes")
@@ -26,7 +26,7 @@ const app = express()
 // this converts all incoming json data into regular javascript
 app.use(bodyParser.json())
 
-// app.use("/", homepageRoutes)
+app.use("/", homepageRoutes)
 app.use("/auth", authRoutes)
 app.use("/user", userRoutes)
 app.use("/workout", workoutRoutes)
