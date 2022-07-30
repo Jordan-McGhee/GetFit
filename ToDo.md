@@ -10,3 +10,9 @@ Backend
             ~ updateWorkout: add code block to validate logged in user is the workoutCreator
         - homepage-controllers
             ~ update code for logged in user
+
+Frontend
+    - have modal come up when user wants to change their lifts
+    - add a modal
+    - conditional formatting for new account ("There's nothing here!")
+    - Add all pages and routes to app.js
