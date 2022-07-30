@@ -16,3 +16,12 @@ Frontend
     - add a modal
     - conditional formatting for new account ("There's nothing here!")
     - Add all pages and routes to app.js
+    - Router not directing to NewWorkout.js Fix this!!!!
+
+    - NewWorkout.js
+        ~ redirect to view workout page after creating workout
+        ~ change form to not allow submission if there are any errors
+
+    - ExerciseInput.js
+        ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database
+        ~ figure out button to add another exercise input to form
