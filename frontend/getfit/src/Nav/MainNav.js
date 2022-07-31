@@ -24,7 +24,7 @@ const MainNav = () => {
                         </li>
 
                         <li>
-                            <NavLink to="/workout/new">
+                            <NavLink to="/workout/create">
                                 <p>Create</p>
                             </NavLink>
                         </li>

@@ -16,9 +16,9 @@ function App() {
   routes = (
     <Routes>
       <Route path="/" element={ <HomePage /> } />
-      <Route path="/workout/new" element = { <NewWorkout /> } />
-      <Route path="/workout/view/:workoutID" element = { <ViewWorkout /> } />
-      <Route path="/workout/edit/:workoutID" element = { <EditWorkout /> } />
+      <Route path="/workout/create" element = { <NewWorkout /> } />
+      <Route path="/workout/:workoutID/view" element = { <ViewWorkout /> } />
+      <Route path="/workout/:workoutID/edit" element = { <EditWorkout /> } />
       {/* <Route path="*" element={ <Navigate to="/" replace /> } /> */}
     </Routes>
   )

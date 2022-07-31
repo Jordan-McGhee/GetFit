@@ -17,6 +17,7 @@ Frontend
     - conditional formatting for new account ("There's nothing here!")
     - Add all pages and routes to app.js
     - Router not directing to NewWorkout.js Fix this!!!!
+        ~ issue is with input component
 
     - NewWorkout.js
         ~ redirect to view workout page after creating workout
