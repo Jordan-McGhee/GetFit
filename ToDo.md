@@ -13,11 +13,11 @@ Backend
 
 Frontend
     - have modal come up when user wants to change their lifts
-    - add a modal
+    - add a modal --DONE
     - conditional formatting for new account ("There's nothing here!")
     - Add all pages and routes to app.js
-    - Router not directing to NewWorkout.js Fix this!!!!
-        ~ issue is with input component
+    - Router not directing to NewWorkout.js Fix this!!!! --DONE
+        ~ issue is with input component --DONE
 
     - NewWorkout.js
         ~ redirect to view workout page after creating workout

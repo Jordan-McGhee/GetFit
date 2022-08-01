@@ -30,7 +30,7 @@ const MainNav = () => {
                         </li>
 
                         <li>
-                            <NavLink to="/workout/view/test">
+                            <NavLink to="/workout/test/view">
                                 <p>Workouts</p>
                             </NavLink>
                         </li>

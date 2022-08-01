@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Input = props => {
 
     const [ inputValue, setInputValue ] = useState(props.value ? props.value : "")
+
     const [ inputTouched, setInputTouched ] = useState(false)
 
     const inputIsValid = inputValue.trim() !== "" && inputValue !== 0
@@ -31,7 +32,10 @@ const Input = props => {
 
     return (
         <div className="">
-            <label htmlFor={ props.id } style = { inputHasError ? "invalid" : ""}>{ props.label }</label>
+            <label htmlFor={ props.id }>
+                { props.label }
+            </label>
+            
             { element }
             { inputHasError && <p>{ props.errorText }</p> }
         </div>

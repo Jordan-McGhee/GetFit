@@ -26,10 +26,10 @@ const NewWorkout = () => {
                     placeholder = "Enter a title."
                     errorText = "Please enter a title!"
                 />
-{/* 
+
                 <ExerciseInput />
                 <ExerciseInput />
-                <ExerciseInput /> */}
+                <ExerciseInput />
 
                 <footer>
                     <Button
