@@ -27,7 +27,7 @@ const Input = props => {
             placeholder = { props.placeholder || ""}
             onChange = { changeHandler }
             onBlur = { blurHandler }
-            value = { props.value || ""}
+            value = { inputValue }
         />
 
     return (
