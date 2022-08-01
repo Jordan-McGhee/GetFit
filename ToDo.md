@@ -12,7 +12,9 @@ Backend
             ~ update code for logged in user
 
 Frontend
-    - have modal come up when user wants to change their lifts
+    - MODAL LIST:
+        ~ discard changes/delete workout
+        ~ when user wants to change their lifts
     - add a modal --DONE
     - conditional formatting for new account ("There's nothing here!")
     - Add all pages and routes to app.js
@@ -26,3 +28,7 @@ Frontend
     - ExerciseInput.js
         ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database
         ~ figure out button to add another exercise input to form
+
+    - EditWorkout.js
+        ~ fix form to be able to change values and save changes
+            - maybe have the state update in the component that is using Input/ExerciseInput?

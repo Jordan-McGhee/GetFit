@@ -13,6 +13,7 @@ const ExerciseInput = props => {
                 type = "text"
                 placeholder = "Enter a name."
                 errorText = "Please enter a name!"
+                value = { props.exerciseName || null }
             />
 
             <Input
@@ -21,6 +22,7 @@ const ExerciseInput = props => {
                 type = "number"
                 placeholder = "1"
                 errorText = "Please enter a set count!"
+                value = { props.exerciseSets || null }
             />
 
             <Input
@@ -29,6 +31,7 @@ const ExerciseInput = props => {
                 type = "number"
                 placeholder = "1"
                 errorText = "Please enter a rep count!"
+                value = { props.exerciseReps || null }
             />
 
             <Input
@@ -37,6 +40,7 @@ const ExerciseInput = props => {
                 type = "number"
                 placeholder = "1"
                 errorText = "Please enter a the weight you used!"
+                value = { props.exerciseWeightUsed || null }
             />
 
         </div>

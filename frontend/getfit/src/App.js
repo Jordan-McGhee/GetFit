@@ -20,7 +20,7 @@ function App() {
     <Routes>
       <Route path="/" element={ <HomePage /> } />
       <Route path="/workout/create" element = { <NewWorkout /> } />
-      <Route path="/workout/:workoutID/view" element = { <ViewWorkout workout = { DUMMY_WORKOUT } /> } />
+      <Route path="/workout/:workoutID/view" element = { <ViewWorkout /> } />
       <Route path="/workout/:workoutID/edit" element = { <EditWorkout /> } />
       {/* <Route path="*" element={ <Navigate to="/" replace /> } /> */}
     </Routes>

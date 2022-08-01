@@ -16,6 +16,7 @@ const DUMMY_USER = {
 }
 
 const DUMMY_WORKOUT = {
+    id: "test",
     workoutTitle: "Example Workout",
     workoutCreator: DUMMY_USER,
     exercises: [

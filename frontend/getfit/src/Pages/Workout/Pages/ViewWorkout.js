@@ -1,23 +1,25 @@
+import { DUMMY_WORKOUT } from "../../../DUMMY/DUMMY_DATA";
+
 import React from "react";
+
+import Button from "../../../Components/FormElements/Button";
 
 const ViewWorkout = props => {
 
-    let exercises
-
-    exercises = props.workout.exercises
-    console.log(exercises)
+    const workout = DUMMY_WORKOUT
+    const exercises = workout.exercises
 
     return (
         <div>
             <h1>
-                { props.workout.workoutTitle}
+                { workout.workoutTitle}
             </h1>
 
             <ul>
 
                 {/* ITERATE OVER EXERCISES TO DISPLAY THEM */}
                 { exercises.map(exercise => (
-                    <li>
+                    <li key = { exercise.id }>
                         <h4>
                             { exercise.exerciseName }
                         </h4>
@@ -31,6 +33,18 @@ const ViewWorkout = props => {
                 ))}
 
             </ul>
+
+            <footer>
+                <Button
+                    type = "text"
+                    text = "Delete Workout"
+                />
+                <Button
+                    link = {`/workout/${workout.id}/edit`}
+                    type = "text"
+                    text = "Edit Workout"
+                />
+            </footer>
         </div>
     )
 }
