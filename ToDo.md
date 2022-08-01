@@ -12,6 +12,8 @@ Backend
             ~ update code for logged in user
 
 Frontend
+    - CARDL
+        ~ Add a footer for buttons
     - MODAL LIST:
         ~ discard changes/delete workout
         ~ when user wants to change their lifts

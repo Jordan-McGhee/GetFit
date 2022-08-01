@@ -2,6 +2,7 @@ import React from "react"
 
 
 // component imports
+import Card from "../../Components/UIElements/Card"
 import MainLiftList from "./Components/MainLiftList"
 import WorkoutList from "./Components/WorkoutList"
 
@@ -9,18 +10,19 @@ const HomePage = (props) => {
     
 
     return (
-        <div>
+        <Card>
 
-            <div>
-                <h1>Your Main Lifts</h1>
+            <Card header = { <h1>Your Main Lifts</h1> }>
+                
                 <MainLiftList />
-            </div>
+            </Card>
 
-            <div>
-                <h1>Your Workouts</h1>
+            <Card header = { <h1>Your Workouts</h1> }>
+                
                 <WorkoutList />
-            </div>
-        </div>
+            </Card>
+
+        </Card>
     )
 }
 
