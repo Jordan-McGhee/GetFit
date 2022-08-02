@@ -12,14 +12,14 @@ const HomePage = (props) => {
     return (
         <Card>
 
-            <Card header = { <h1>Your Main Lifts</h1> }>
-                
-                <MainLiftList />
-            </Card>
-
             <Card header = { <h1>Your Workouts</h1> }>
                 
                 <WorkoutList />
+            </Card>
+
+            <Card header = { <h1>Your Main Lifts</h1> }>
+                
+                <MainLiftList />
             </Card>
 
         </Card>

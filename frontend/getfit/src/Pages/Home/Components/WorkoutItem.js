@@ -1,12 +1,15 @@
 import React from "react"
+import Card from "../../../Components/UIElements/Card"
 
 const WorkoutItem = (props) => {
     
 
     return (
-        <div>
-            <p>Placeholder text</p>
-        </div>
+        <li>
+            <Card header = { props.workoutTitle }>
+                <p>{`${ props.exercises.length } Exercises`}</p>
+            </Card>
+        </li>
     )
 }
 
