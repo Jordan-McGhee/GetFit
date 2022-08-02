@@ -27,6 +27,8 @@ const Card = props => {
 
             
             { props.children }
+
+            { footer ? footer : null }
         </div>
     )
 }

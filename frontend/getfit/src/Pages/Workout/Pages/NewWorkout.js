@@ -13,9 +13,31 @@ const NewWorkout = () => {
 
     }
 
+    const newWorkoutFooter = (
+        <div>
+            <Button
+                type = "text"
+                text = "Discard"
+            />
+            <Button 
+                type = "submit"
+                text = "Create Workout"
+            />
+        </div>
+    )
+
+    let exerciseInputs = [], count = 3
+    
+    // const addExerciseInput = 
+
+    console.log(exerciseInputs)
+    console.log(count)
+
+
+
     return (
         
-        <Card header = {"New Workout"}>
+        <Card header = {"New Workout"} footer = { newWorkoutFooter }>
 
             <form onSubmit={ submitHandler }>
                 <Input
@@ -29,17 +51,6 @@ const NewWorkout = () => {
                 <ExerciseInput />
                 <ExerciseInput />
                 <ExerciseInput />
-
-                <footer>
-                    <Button
-                        type = ""
-                        text = "Discard"
-                    />
-                    <Button 
-                        type = "submit"
-                        text = "Create Workout"
-                    />
-                </footer>
 
             </form>
 

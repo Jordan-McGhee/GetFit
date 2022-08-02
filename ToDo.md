@@ -12,16 +12,25 @@ Backend
             ~ update code for logged in user
 
 Frontend
-    - CARDL
-        ~ Add a footer for buttons
-    - MODAL LIST:
-        ~ discard changes/delete workout
-        ~ when user wants to change their lifts
     - add a modal --DONE
     - conditional formatting for new account ("There's nothing here!")
     - Add all pages and routes to app.js
     - Router not directing to NewWorkout.js Fix this!!!! --DONE
         ~ issue is with input component --DONE
+    - add LoadingSpinner
+
+    - Input
+        ~ Move validation to individual components that use the input?
+
+    - CARD
+        ~ Add a footer for buttons --DONE
+
+    - MODAL LIST:
+        ~ discard changes/delete workout
+        ~ when user wants to change their lifts
+
+    - AuthPage.js
+        ~ add button to change between login/signup
 
     - NewWorkout.js
         ~ redirect to view workout page after creating workout

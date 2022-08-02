@@ -2,6 +2,7 @@ import React from "react"
 
 
 // component imports
+import Button from "../../Components/FormElements/Button"
 import Card from "../../Components/UIElements/Card"
 import MainLiftList from "./Components/MainLiftList"
 import WorkoutList from "./Components/WorkoutList"

@@ -11,6 +11,7 @@ import HomePage from "./Pages/Home/HomePage";
 import NewWorkout from "./Pages/Workout/Pages/NewWorkout";
 import ViewWorkout from "./Pages/Workout/Pages/ViewWorkout";
 import EditWorkout from "./Pages/Workout/Pages/EditWorkout"
+import AuthPage from "./Pages/Auth/AuthPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
   routes = (
     <Routes>
       <Route path="/" element={ <HomePage /> } />
+      <Route path="/auth" element = { <AuthPage />} />
       <Route path="/workout/create" element = { <NewWorkout /> } />
       <Route path="/workout/:workoutID/view" element = { <ViewWorkout /> } />
       <Route path="/workout/:workoutID/edit" element = { <EditWorkout /> } />
