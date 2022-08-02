@@ -11,4 +11,13 @@
 
 .card header {
     border-bottom: 1px solid black;
+    margin-bottom: .75rem;
+    padding-bottom: .75rem;
+    font-size: large;
+}
+
+.card footer {
+    border-top: 1px solid black;
+    margin-top: .75rem;
+    padding-top: .75rem;
 }

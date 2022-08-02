@@ -9,6 +9,13 @@ const workoutSchema = new mongoose.Schema({
         reps: { type: Number, required: true },
         weightUsed: []
     }]
-})
+    },
+    {
+        timestamps: {
+            createdAt: 'created_at',
+            updatedAt: 'updated_at'
+        }
+    }
+)
 
 module.exports = mongoose.model("Workout", workoutSchema)

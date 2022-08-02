@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../../Components/FormElements/Button";
 
 import Input from "../../../Components/FormElements/Input";
+import Card from "../../../Components/UIElements/Card";
 import ExerciseInput from "../Components/ExerciseInput";
 
 const NewWorkout = () => {
@@ -14,9 +15,7 @@ const NewWorkout = () => {
 
     return (
         
-        <div>
-
-            <h1>New Workout</h1>
+        <Card header = {"New Workout"}>
 
             <form onSubmit={ submitHandler }>
                 <Input
@@ -44,7 +43,7 @@ const NewWorkout = () => {
 
             </form>
 
-        </div>
+        </Card>
     )
 }
 

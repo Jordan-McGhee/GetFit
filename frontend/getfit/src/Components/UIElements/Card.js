@@ -4,13 +4,20 @@ import "./Card.css"
 
 const Card = props => {
 
-    let header
+    let header, footer
 
-    if (props.header) {
+    if ( props.header ) {
         header = 
             <header>
             { props.header }
             </header>
+    }
+
+    if ( props.footer ) {
+        footer = 
+            <footer>
+                { props.footer }
+            </footer>
     }
 
     return(

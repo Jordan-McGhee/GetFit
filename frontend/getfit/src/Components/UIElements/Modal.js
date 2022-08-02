@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group"
 import "./Modal.css"
 
 import Backdrop from "./Backdrop"
+import Card from './Card'
 
 // render a component inside of the main component, but only return the main component
 // use a portal to have this modal display over the actual app. Added a reference point in the index.html file
@@ -26,12 +27,28 @@ import Backdrop from "./Backdrop"
 
 
 const ModalOverlay = props => {
-    const content = (
-        <div className= { `modal ${props.className}` } style={ props.style }>
 
-            <header className={ `modal__header ${props.headerClass}` }>
-                <h2>{ props.header }</h2>
-            </header>
+    let header, footer
+
+    header = (
+        <header className={ `modal__header ${props.headerClass}` }>
+            <h2>{ props.header }</h2>
+        </header>
+    )
+
+    footer = (
+        <footer className={ `modal__footer ${props.footerClass}`}>
+            { props.footer }
+        </footer>
+    )
+
+    const content = (
+        <Card
+            className= { `modal ${props.className}` }
+            style={ props.style }
+            header = { header }
+            footer = { footer }
+        >
 
             <form onSubmit={ props.onSubmit ? props.onSubmit : event => event.preventDefault() }>
 
@@ -40,12 +57,9 @@ const ModalOverlay = props => {
                     { props.children}
                 </div>
 
-                {/* footer for any buttons for better styling */}
-                <footer className={ `modal__footer ${props.footerClass}`}>
-                { props.footer }
-                </footer>
             </form>
-        </div>
+            
+        </Card>
     )
     
     return ReactDOM.createPortal(content, document.getElementById('modal-hook'))
