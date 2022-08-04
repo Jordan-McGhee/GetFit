@@ -35,6 +35,7 @@ Frontend
     - NewWorkout.js
         ~ redirect to view workout page after creating workout
         ~ change form to not allow submission if there are any errors
+        ~ change add another exercise button to disabled if previous inputs have errors
 
     - ExerciseInput.js
         ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database

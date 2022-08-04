@@ -8,7 +8,7 @@ const ExerciseInput = props => {
         <div>
 
             <Input
-                id = "exercise"
+                id = {`exercise${props.inputNumber}`}
                 label = "Exercise Name"
                 type = "text"
                 placeholder = "Enter a name."
@@ -17,7 +17,7 @@ const ExerciseInput = props => {
             />
 
             <Input
-                id = "exercise-sets"
+                id = {`exercise${props.inputNumber}-sets`}
                 label = "Sets"
                 type = "number"
                 placeholder = "1"
@@ -26,7 +26,7 @@ const ExerciseInput = props => {
             />
 
             <Input
-                id = "exercise-reps"
+                id = {`exercise${props.inputNumber}-reps`}
                 label = "Reps"
                 type = "number"
                 placeholder = "1"
@@ -35,7 +35,7 @@ const ExerciseInput = props => {
             />
 
             <Input
-                id = "exercise-weight"
+                id = {`exercise${props.inputNumber}-weight`}
                 label = "Weight"
                 type = "number"
                 placeholder = "1"

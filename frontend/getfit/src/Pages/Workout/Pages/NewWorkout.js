@@ -7,26 +7,40 @@ import ExerciseInput from "../Components/ExerciseInput";
 
 const NewWorkout = () => {
 
+    // starting list of inputs for newWorkout form
     let exerciseInputs = [
-        <ExerciseInput />,
-        <ExerciseInput />,
-        <ExerciseInput />
+        <ExerciseInput inputNumber = { 1 } key = { 1 } />,
+        <ExerciseInput inputNumber = { 2 } key = { 2 } />,
+        <ExerciseInput inputNumber = { 3 } key = { 3 } />
     ]
 
-    let newInput = <ExerciseInput />
-
+    // states to update the array of exerciseInputs and input counter to pass via props to individual imports
     const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
+    const [ inputCount, setInputCount ] = useState(1)
 
+    // newInput to push to inputs array
+    let newInput =
+        <ExerciseInput
+            inputNumber = { exerciseInputs.length + inputCount }
+            key = { exerciseInputs.length + inputCount }
+        />
+
+    // addInput handler function
     const addExerciseInput = () => {
         setExerciseInputsList([ ...exerciseInputsList, newInput ])
+        setInputCount(inputCount + 1)
+        console.log(exerciseInputsList)
     }
 
     const submitHandler = event => {
         event.preventDefault()
 
-
+        // reset form inputs after
+        setExerciseInputsList(exerciseInputs)
+        setInputCount(1)
     }
 
+    // footer for form card
     const newWorkoutFooter = (
         <div>
             <Button
@@ -40,7 +54,8 @@ const NewWorkout = () => {
         </div>
     )
 
-    console.log(exerciseInputsList)
+    // troubleshooting console.log
+    // console.log(exerciseInputsList)
 
 
     return (
