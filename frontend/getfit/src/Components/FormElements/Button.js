@@ -15,7 +15,7 @@ const Button = props => {
         )
     } else {
         return (
-            <button className="button" style={ props.style } type = { props.type }>
+            <button className="button" style={ props.style } type = { props.type } onClick = { props.onClick }>
                 { props.text }
             </button>
         )

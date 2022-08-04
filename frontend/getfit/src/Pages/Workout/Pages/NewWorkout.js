@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../../Components/FormElements/Button";
 
 import Input from "../../../Components/FormElements/Input";
@@ -6,6 +6,20 @@ import Card from "../../../Components/UIElements/Card";
 import ExerciseInput from "../Components/ExerciseInput";
 
 const NewWorkout = () => {
+
+    let exerciseInputs = [
+        <ExerciseInput />,
+        <ExerciseInput />,
+        <ExerciseInput />
+    ]
+
+    let newInput = <ExerciseInput />
+
+    const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
+
+    const addExerciseInput = () => {
+        setExerciseInputsList([ ...exerciseInputsList, newInput ])
+    }
 
     const submitHandler = event => {
         event.preventDefault()
@@ -26,23 +40,7 @@ const NewWorkout = () => {
         </div>
     )
 
-    let exerciseInputs = [
-        <ExerciseInput />,
-        <ExerciseInput />,
-        <ExerciseInput />
-    ]
-    
-    const addExerciseInput = () => {
-        exerciseInputs.push(
-            <ExerciseInput />
-        )
-
-        console.log("clicked")
-    }
-
-    console.log(exerciseInputs)
-    // console.log(count)
-
+    console.log(exerciseInputsList)
 
 
     return (
@@ -58,12 +56,12 @@ const NewWorkout = () => {
                     errorText = "Please enter a title!"
                 />
 
-                { exerciseInputs }
+                { exerciseInputsList }
 
                 <Button
-                    text = "Add Another Exercise"
-                    type = "text"
+                    type = "button"
                     onClick = { addExerciseInput }
+                    text = "Add Another Exercise"
                 />
 
             </form>
