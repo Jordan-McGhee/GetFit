@@ -26,12 +26,22 @@ const NewWorkout = () => {
         </div>
     )
 
-    let exerciseInputs = [], count = 3
+    let exerciseInputs = [
+        <ExerciseInput />,
+        <ExerciseInput />,
+        <ExerciseInput />
+    ]
     
-    // const addExerciseInput = 
+    const addExerciseInput = () => {
+        exerciseInputs.push(
+            <ExerciseInput />
+        )
+
+        console.log("clicked")
+    }
 
     console.log(exerciseInputs)
-    console.log(count)
+    // console.log(count)
 
 
 
@@ -48,9 +58,13 @@ const NewWorkout = () => {
                     errorText = "Please enter a title!"
                 />
 
-                <ExerciseInput />
-                <ExerciseInput />
-                <ExerciseInput />
+                { exerciseInputs }
+
+                <Button
+                    text = "Add Another Exercise"
+                    type = "text"
+                    onClick = { addExerciseInput }
+                />
 
             </form>
 
