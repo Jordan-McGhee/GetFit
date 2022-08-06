@@ -36,6 +36,7 @@ Frontend
         ~ redirect to view workout page after creating workout
         ~ change form to not allow submission if there are any errors
         ~ change add another exercise button to disabled if previous inputs have errors
+        ~ add remove exercise button conditionally if there are at least 3 exercises
 
     - ExerciseInput.js
         ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database
@@ -44,3 +45,4 @@ Frontend
     - EditWorkout.js
         ~ fix form to be able to change values and save changes
             - maybe have the state update in the component that is using Input/ExerciseInput?
+        ~ add ability to add more inputs in the edit

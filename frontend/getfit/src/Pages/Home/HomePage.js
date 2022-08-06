@@ -11,7 +11,7 @@ const HomePage = (props) => {
     
 
     return (
-        <Card>
+        <div>
 
             <Card header = { <h1>Your Workouts</h1> }>
                 
@@ -23,7 +23,7 @@ const HomePage = (props) => {
                 <MainLiftList />
             </Card>
 
-        </Card>
+        </div>
     )
 }
 
