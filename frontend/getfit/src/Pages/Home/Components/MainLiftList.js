@@ -1,18 +1,17 @@
 import React from "react"
 
-import { DUMMY_USER } from "../../../DUMMY/DUMMY_DATA"
+// import { DUMMY_USER } from "../../../DUMMY/DUMMY_DATA"
 
 import MainLiftItem from "./MainLiftItem"
 
 const MainLiftList = (props) => {
     
-    let user = DUMMY_USER
+    let mainLifts = props.lifts
 
-    let userMainLifts = user.mainLiftMaxes
     let userMainLiftsArray = []
 
-    for (const lift in userMainLifts) {
-        userMainLiftsArray.push([lift, userMainLifts[lift]])
+    for (const lift in mainLifts) {
+        userMainLiftsArray.push([lift, mainLifts[lift]])
     }
 
     // console.log(userMainLiftsArray)
@@ -25,7 +24,7 @@ const MainLiftList = (props) => {
         />
     ))
 
-    console.log(items)
+    // console.log(items)
 
     return (
         <div>

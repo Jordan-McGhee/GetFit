@@ -1,15 +1,14 @@
 import React from "react"
-import { DUMMY_USER } from "../../../DUMMY/DUMMY_DATA"
+// import { DUMMY_USER } from "../../../DUMMY/DUMMY_DATA"
 import WorkoutItem from "./WorkoutItem"
 
 const WorkoutsList = (props) => {
-    
-    let user = DUMMY_USER
 
-    let workouts = user.workouts
+    let workouts = props.workouts
 
     const items = workouts.map((workout) => (
-        <WorkoutItem 
+        <WorkoutItem
+            key = { workout.workoutTitle }
             workoutTitle = { workout.workoutTitle }
             exercises = { workout.exercises }
         />
