@@ -47,3 +47,6 @@ Frontend
         ~ fix form to be able to change values and save changes
             - maybe have the state update in the component that is using Input/ExerciseInput?
         ~ add ability to add more inputs in the edit
+
+    - HomePage.js
+        ~ fix fetch hook to communicate to backend

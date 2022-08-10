@@ -27,6 +27,22 @@ const app = express()
 // this converts all incoming json data into regular javascript
 app.use(bodyParser.json())
 
+// middleware to work around CORS errors since our front and backend are on separate servers
+// attaches headers on its responses to prevent the browser from blocking the response
+app.use((req, res, next) => {
+    // determines which domains have access, the * means all are acceptable
+    res.setHeader("Access-Control-Allow-Origin", "*")
+
+    // specifies which headers are allowed on incoming requests to be handled by this API
+    // Content-Type and Authorization are the only 2 that aren't default in this group
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-Width, Content-Type, Accept, Authorization")
+
+    // allowed methods for incoming requests
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE")
+    
+    next()
+})
+
 app.use("/", homepageRoutes)
 app.use("/auth", authRoutes)
 app.use("/user", userRoutes)

@@ -39,6 +39,8 @@ const getHomePage = async (req, res, next) => {
         workouts = []
     }
 
+    console.log("Reached backend HomePage route")
+
     res.json({ message: "Found user and their workouts!", user: loggedInUser, workouts: workouts })
 }
 
