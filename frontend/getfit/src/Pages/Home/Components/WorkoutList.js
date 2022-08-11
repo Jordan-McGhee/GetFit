@@ -9,6 +9,7 @@ const WorkoutsList = (props) => {
     const items = workouts.map((workout) => (
         <WorkoutItem
             key = { workout.workoutTitle }
+            id = { workout._id }
             workoutTitle = { workout.workoutTitle }
             exercises = { workout.exercises }
         />

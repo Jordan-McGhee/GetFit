@@ -12,36 +12,35 @@ import Card from "../../../Components/UIElements/Card";
 
 const EditWorkout = props => {
 
-    const [ loadedWorkout, setLoadedWorkout ] = useState()
+    const [ loadedWorkout, setLoadedWorkout ] = useState(null)
 
     const { isLoading, hasError, sendRequest, clearError } = useFetch()
 
-    const { workoutID } = useParams()
+    const workoutID = useParams().workoutID
 
     useEffect(() => {
 
         const fetchWorkout = async () => {
-            
-            try {
-                const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}`)
 
-                // console.log(`Response Data: ${responseData}`)
+            try {
+                const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}/view`)
+
+                console.log(responseData.message)
+                console.log(responseData.workout)
 
                 setLoadedWorkout(responseData.workout)
-
-                // console.log(loadedWorkout)
 
             } catch(err) {
                 console.log(err)
             }
-            
+
         }
 
         fetchWorkout()
 
-    }, [ sendRequest ])
+    }, [ sendRequest, workoutID ])
 
-    let exercises = loadedWorkout.exercises
+    // let exercises = loadedWorkout.exercises
 
     
     const submitHandler = event => {
@@ -53,15 +52,19 @@ const EditWorkout = props => {
     return (
         <Card>
             <form onSubmit={ submitHandler }>
-                <Input
-                    id="workoutTitle"
-                    type="text"
-                    value = { loadedWorkout.workoutTitle }
-                />
+
+                {
+                    loadedWorkout && 
+                    <Input
+                        id="workoutTitle"
+                        type="text"
+                        value = { loadedWorkout.workoutTitle }
+                    />
+                }
 
                 <ul>
                     {
-                        exercises.map(exercise => (
+                        loadedWorkout && loadedWorkout.exercises.map(exercise => (
                             <li key = { exercise.id }>
                                 <ExerciseInput
                                     exerciseName = { exercise.exerciseName }
