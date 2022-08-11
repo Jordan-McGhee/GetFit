@@ -21,8 +21,8 @@ const ViewWorkout = props => {
             try {
                 const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}/view`)
 
-                console.log(responseData.message)
-                console.log(responseData.workout)
+                // console.log(responseData.message)
+                // console.log(responseData.workout)
 
                 setLoadedWorkout(responseData.workout)
 
