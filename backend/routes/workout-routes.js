@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.post("/", check('workoutTitle').notEmpty(), workoutControllers.createWorkout)
 
-router.get("/:workoutID", workoutControllers.getWorkout)
+router.get("/:workoutID/view", workoutControllers.getWorkout)
 
 router.get("/:workoutID/edit", workoutControllers.getWorkout)
 

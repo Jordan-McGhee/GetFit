@@ -1,7 +1,9 @@
 import { DUMMY_WORKOUT } from "../../../DUMMY/DUMMY_DATA";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import { useFetch } from "../../../Hooks/useFetch";
 
 import Button from "../../../Components/FormElements/Button";
 import Input from "../../../Components/FormElements/Input";
@@ -10,14 +12,38 @@ import Card from "../../../Components/UIElements/Card";
 
 const EditWorkout = props => {
 
-    // CODE FOR WHEN CONNECTING TO BACKEND/DATABASE
-    // const params = useParams()
+    const [ loadedWorkout, setLoadedWorkout ] = useState()
 
-    // const workout = 
+    const { isLoading, hasError, sendRequest, clearError } = useFetch()
 
-    const workout = DUMMY_WORKOUT
-    const exercises = workout.exercises
+    const { workoutID } = useParams()
 
+    useEffect(() => {
+
+        const fetchWorkout = async () => {
+            
+            try {
+                const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}`)
+
+                // console.log(`Response Data: ${responseData}`)
+
+                setLoadedWorkout(responseData.workout)
+
+                // console.log(loadedWorkout)
+
+            } catch(err) {
+                console.log(err)
+            }
+            
+        }
+
+        fetchWorkout()
+
+    }, [ sendRequest ])
+
+    let exercises = loadedWorkout.exercises
+
+    
     const submitHandler = event => {
         event.preventDefault()
 
@@ -30,7 +56,7 @@ const EditWorkout = props => {
                 <Input
                     id="workoutTitle"
                     type="text"
-                    value = { workout.workoutTitle }
+                    value = { loadedWorkout.workoutTitle }
                 />
 
                 <ul>
@@ -50,7 +76,7 @@ const EditWorkout = props => {
 
                 <footer>
                     <Button
-                        link = {`/workout/${workout.id}/view`}
+                        link = {`/workout/${workoutID}/view`}
                         type = "text"
                         text = "Discard Changes"
                     />

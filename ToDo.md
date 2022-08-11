@@ -19,6 +19,8 @@ Frontend
         ~ issue is with input component --DONE
     - add LoadingSpinner
 
+    -  add an all workouts page to align with Navbar
+
     - Input
         ~ Move validation to individual components that use the input?
 
@@ -39,14 +41,17 @@ Frontend
         ~ add remove exercise button conditionally if there are at least 3 exercises
         ~ add form submission and work on passing values to backend/database
 
-    - ExerciseInput.js
-        ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database
-        ~ figure out button to add another exercise input to form
-
     - EditWorkout.js
         ~ fix form to be able to change values and save changes
             - maybe have the state update in the component that is using Input/ExerciseInput?
         ~ add ability to add more inputs in the edit
+
+    - ViewWorkout.js
+        ~ update code to include loading spinner and errors
+
+    - ExerciseInput.js
+        ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database
+        ~ figure out button to add another exercise input to form
 
     - HomePage.js
         ~ fix fetch hook to communicate to backend
