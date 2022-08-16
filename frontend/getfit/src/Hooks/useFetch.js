@@ -7,7 +7,7 @@ export const useFetch = (props) => {
     // keeps track of any requests created with this hook and it's information that won't change upon re-render cycles
     const activeHttpRequests = useRef([])
 
-    const sendRequest = useCallback(async (url, method = "GET", body = null,  headers = {}) => {
+    const sendRequest = useCallback(async (url, method = "GET", headers = {},  body = null) => {
 
         setIsLoading(true)
         

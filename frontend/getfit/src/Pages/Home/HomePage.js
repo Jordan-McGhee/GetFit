@@ -19,25 +19,15 @@ const HomePage = (props) => {
     const { isLoading, hasError, sendRequest, clearError } = useFetch()
 
     useEffect(() => {
-        // console.log("Entered useEffect")
+        
         const fetchHomePage = async () => {
-            // console.log("Entered fetchHomePage")
+            
             try {
-                // console.log("Entered try block")
-
-                // console.log(`1. user: ${loadedUserLifts}`)
-                // console.log(`1. workouts: ${loadedWorkouts}`)
 
                 const responseData = await sendRequest(`http://localhost:5000`)
 
-                // console.log(`responseData ${responseData.user.mainLiftMaxes.benchPress}`)
-
                 setLoadedUserLifts(responseData.user.mainLiftMaxes)
                 setLoadedWorkouts(responseData.workouts)
-
-                // console.log(`2. user: ${loadedUserLifts}`)
-                // console.log(`2. workouts: ${loadedWorkouts}`)
-            
 
             } catch (err) {
                 console.log(`Error!!! ${err}`)
@@ -48,32 +38,6 @@ const HomePage = (props) => {
         fetchHomePage()
 
     }, [ sendRequest ])
-
-    // useEffect(() => {
-    //     const sendRequest = async () => {
-
-    //         try {
-    //             const response = await fetch(`http://localhost:5000`)
-    //             console.log(`Response: ${response}`)
-
-    //             const responseData = await response.json()
-
-    //             if (!response.ok) {
-    //                 console.log("BAD RESPONSE")
-    //                 throw new Error(responseData.message)
-    //             }
-
-    //             setLoadedUser(responseData.user)
-    //             setLoadedWorkouts(responseData.workouts)
-
-    //         } catch(err) {
-    //             console.log(err)
-    //         }
-    //     }
-
-    //     sendRequest()
-    // }, [ sendRequest ])
-
 
     return (
         <div>

@@ -8,7 +8,7 @@ const ExerciseInput = props => {
         <div>
 
             <Input
-                id = {`exercise${props.inputNumber}`}
+                id = {`exercise${props.inputNumber}-name`}
                 label = "Exercise Name"
                 type = "text"
                 placeholder = "Enter a name."

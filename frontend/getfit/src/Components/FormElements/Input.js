@@ -12,6 +12,7 @@ const Input = props => {
 
     const changeHandler = event => {
         setInputValue(event.target.value)
+        // console.log(inputValue)
     }
 
     const blurHandler = event => {
@@ -28,11 +29,12 @@ const Input = props => {
             onChange = { changeHandler }
             onBlur = { blurHandler }
             value = { inputValue }
+            // value = { props.value || inputValue } ?? 
         />
 
     return (
         <div className="">
-            <label htmlFor={ props.id }>
+            <label htmlFor={ props.id } name = { props.id}>
                 { props.label }
             </label>
             
