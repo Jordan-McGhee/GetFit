@@ -7,11 +7,11 @@ const Button = props => {
 
     if (props.link) {
         return (
-            <Link to= { props.link }>
-                <button className="button" style={ props.style } type = { props.type }>
+            <button className="button" style={ props.style } type = { props.type }>
+                <Link to= { props.link }>
                     { props.text }
-                </button>
-            </Link>
+                </Link>
+            </button>
         )
     } else {
         return (

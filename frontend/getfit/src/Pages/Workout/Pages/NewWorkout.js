@@ -60,28 +60,24 @@ const NewWorkout = () => {
         // push newly created exercise object into formData.exercises array and reset as I iterate
 
         formData.workoutTitle = target[0].value
-        console.log(`Workout Title: ${formData.workoutTitle}`)
-        exercise.exerciseName = target[1].value
-        console.log(`Exercise 1 Name: ${exercise.exerciseName}`)
 
         for (let i = 1; i < target.length-2; i++ ) {
             // first input for exercise
             if (i%4 === 1) {
                 exercise.exerciseName = target[i].value
-                console.log(`Exercise Title: ${target[i].value}`)
+                // console.log(`Exercise Title: ${target[i].value}`)
             // second input
             } else if (i%4 === 2) {
-                exercise.sets = Number(target[i].value)
-                console.log(`Exercise Sets: ${target[i].value}`)
+                exercise.sets = target[i].value
+                // console.log(`Exercise Sets: ${target[i].value}`)
             // third input
             } else if (i%4 === 3) {
-                console.log(`Entered Rep if/else. Index = $`)
-                exercise.reps = Number(target[i].value)
-                console.log(`Exercise Reps: ${target[i].value}`)
+                exercise.reps = target[i].value
+                // console.log(`Exercise Reps: ${target[i].value}`)
             // last input, push to exercise array and reset exercise object
             } else {
-                exercise.weightUsed.push(Number(target[i].value))
-                console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
+                exercise.weightUsed.push(target[i].value)
+                // console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
                 // console.log(`Full Exercise:
                 //     ${exercise.exerciseName}
                 //     ${exercise.sets}
@@ -142,7 +138,7 @@ const NewWorkout = () => {
 
     return (
         
-        <Card header = {"New Workout"} footer = { newWorkoutFooter }>
+        <Card header = {"New Workout"} >
 
             <form onSubmit={ submitHandler }>
                 <Input
@@ -163,9 +159,17 @@ const NewWorkout = () => {
                     />
                 }
 
-                <button type="submit" >
-                    Submit
-                </button>
+                <footer>
+                    <Button
+                        link = {"/"}
+                        type = "button"
+                        text = "Discard"
+                    />
+                    <Button 
+                        type = "submit"
+                        text = "Create Workout"
+                    />
+                </footer>
 
             </form>
 

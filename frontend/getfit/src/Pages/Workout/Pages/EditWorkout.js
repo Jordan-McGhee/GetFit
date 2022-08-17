@@ -40,7 +40,21 @@ const EditWorkout = props => {
 
     }, [ sendRequest, workoutID ])
 
-    // let exercises = loadedWorkout.exercises
+    // const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
+    // const [ inputCount, setInputCount ] = useState(exerciseInputs.length)
+
+    // let newInput = 
+    //     <ExerciseInput
+    //         inputNumber = { exerciseInputs.length + inputCount }
+    //         key = { exerciseInputs.length + inputCount }
+    //     />
+
+    // // addInput handler function
+    // const addExerciseInput = () => {
+    //     setExerciseInputsList([ ...exerciseInputsList, newInput ])
+    //     setInputCount(inputCount + 1)
+    //     console.log(exerciseInputsList)
+    // }
 
     
     const submitHandler = event => {
