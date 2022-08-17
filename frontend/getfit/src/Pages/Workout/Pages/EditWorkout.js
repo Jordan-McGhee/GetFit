@@ -40,8 +40,13 @@ const EditWorkout = props => {
 
     }, [ sendRequest, workoutID ])
 
+    // console.log(`Before exerciseInputs: ${loadedWorkout.exercises}`)
+
+    // let exerciseCount = 0
+    // let exerciseInputs = []
+
     // const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
-    // const [ inputCount, setInputCount ] = useState(exerciseInputs.length)
+    // const [ inputCount, setInputCount ] = useState(exerciseCount)
 
     // let newInput = 
     //     <ExerciseInput
@@ -56,7 +61,6 @@ const EditWorkout = props => {
     //     console.log(exerciseInputsList)
     // }
 
-    
     const submitHandler = event => {
         event.preventDefault()
 
@@ -64,47 +68,51 @@ const EditWorkout = props => {
     }
 
     return (
-        <Card>
-            <form onSubmit={ submitHandler }>
+        <div>
+            { !isLoading && loadedWorkout && (
+                <Card>
+                    <form onSubmit={ submitHandler }>
 
-                {
-                    loadedWorkout && 
-                    <Input
-                        id="workoutTitle"
-                        type="text"
-                        value = { loadedWorkout.workoutTitle }
-                    />
-                }
+                        {
+                            loadedWorkout && 
+                            <Input
+                                id="workoutTitle"
+                                type="text"
+                                value = { loadedWorkout.workoutTitle }
+                            />
+                        }
 
-                <ul>
-                    {
-                        loadedWorkout && loadedWorkout.exercises.map(exercise => (
-                            <li key = { exercise.id }>
-                                <ExerciseInput
-                                    exerciseName = { exercise.exerciseName }
-                                    exerciseSets = { exercise.sets }
-                                    exerciseReps = { exercise.reps }
-                                    exerciseWeightUsed = { exercise.weightUsed }
-                                />
-                            </li>
-                        ))
-                    }
-                </ul>
+                        <ul>
+                            {
+                                loadedWorkout && loadedWorkout.exercises.map(exercise => (
+                                    <li key = { exercise.id }>
+                                        <ExerciseInput
+                                            exerciseName = { exercise.exerciseName }
+                                            exerciseSets = { exercise.sets }
+                                            exerciseReps = { exercise.reps }
+                                            exerciseWeightUsed = { exercise.weightUsed }
+                                        />
+                                    </li>
+                                ))
+                            }
+                        </ul>
 
-                <footer>
-                    <Button
-                        link = {`/workout/${workoutID}/view`}
-                        type = "text"
-                        text = "Discard Changes"
-                    />
-                    <Button
-                        type = "submit"
-                        text = "Save Changes"
-                    />
-                </footer>
-                
-            </form>
-        </Card>
+                        <footer>
+                            <Button
+                                link = {`/workout/${workoutID}/view`}
+                                type = "text"
+                                text = "Discard Changes"
+                            />
+                            <Button
+                                type = "submit"
+                                text = "Save Changes"
+                            />
+                        </footer>
+                        
+                    </form>
+                </Card>
+            )}
+        </div>
     )
 }
 

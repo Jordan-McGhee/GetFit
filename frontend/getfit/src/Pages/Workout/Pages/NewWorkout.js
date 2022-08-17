@@ -43,6 +43,7 @@ const NewWorkout = () => {
 
         let target = event.target
 
+        // variables to add exercises to the body of the form data so it will save correctly to the backend
         let exercise = {
             exerciseName: "",
             sets: 0,
@@ -50,11 +51,13 @@ const NewWorkout = () => {
             weightUsed: []
         }
 
+        // this is what the backend is expecting, so I will store everything here
         let formData = {
             workoutTitle: "",
             exercises: []
         }
 
+        // GRABBING INPUTS FROM THE FORM SINCE THE LENGTH IS VARIABLE
         // grab first input value for workout title
         // loop over exercise inputs and add them to exercise object
         // push newly created exercise object into formData.exercises array and reset as I iterate
@@ -85,8 +88,10 @@ const NewWorkout = () => {
                 //     ${exercise.weightUsed}
                 // `)
 
+                // Add newly created exercise to array in formData object
                 formData.exercises.push(exercise)
 
+                // reset exercise variable. Only really necessary for the weightUsed array
                 exercise = {
                     exerciseName: "",
                     sets: 0,
@@ -96,6 +101,7 @@ const NewWorkout = () => {
             }
         }
 
+        // send the request to the backend to save
         try {
             await sendRequest(
                 // URL
