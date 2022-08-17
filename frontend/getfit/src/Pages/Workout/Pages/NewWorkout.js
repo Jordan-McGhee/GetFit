@@ -157,7 +157,7 @@ const NewWorkout = () => {
 
                 { exerciseInputsList }
                 
-                { exerciseInputsList.length >= 3 && exerciseInputsList.length < 10 &&
+                { exerciseInputsList.length < 10 &&
                     <Button
                         type = "button"
                         onClick = { addExerciseInput }

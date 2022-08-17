@@ -12,7 +12,12 @@ import Card from "../../../Components/UIElements/Card";
 
 const EditWorkout = props => {
 
+    let exerciseInputs = []
+
     const [ loadedWorkout, setLoadedWorkout ] = useState(null)
+    const [ loadedExercises, setLoadedExercises ] = useState(null)
+    const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
+    const [ inputCount, setInputCount ] = useState(0)
 
     const { isLoading, hasError, sendRequest, clearError } = useFetch()
 
@@ -29,6 +34,8 @@ const EditWorkout = props => {
                 console.log(responseData.workout)
 
                 setLoadedWorkout(responseData.workout)
+                setLoadedExercises(responseData.workout.exercises)
+                setInputCount(responseData.workout.exercises.length)
 
             } catch(err) {
                 console.log(err)
@@ -40,26 +47,21 @@ const EditWorkout = props => {
 
     }, [ sendRequest, workoutID ])
 
-    // console.log(`Before exerciseInputs: ${loadedWorkout.exercises}`)
+    console.log(`Before exerciseInputs: ${loadedExercises}`)
+    console.log(`Input Count: ${inputCount}`)
 
-    // let exerciseCount = 0
-    // let exerciseInputs = []
+    let newInput = 
+        <ExerciseInput
+            inputNumber = { exerciseInputs.length + inputCount + 1}
+            key = { exerciseInputs.length + inputCount + 1}
+        />
 
-    // const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
-    // const [ inputCount, setInputCount ] = useState(exerciseCount)
-
-    // let newInput = 
-    //     <ExerciseInput
-    //         inputNumber = { exerciseInputs.length + inputCount }
-    //         key = { exerciseInputs.length + inputCount }
-    //     />
-
-    // // addInput handler function
-    // const addExerciseInput = () => {
-    //     setExerciseInputsList([ ...exerciseInputsList, newInput ])
-    //     setInputCount(inputCount + 1)
-    //     console.log(exerciseInputsList)
-    // }
+    // addInput handler function
+    const addExerciseInput = () => {
+        setExerciseInputsList([ ...exerciseInputsList, newInput ])
+        setInputCount(inputCount + 1)
+        console.log(exerciseInputsList)
+    }
 
     const submitHandler = event => {
         event.preventDefault()
@@ -96,6 +98,17 @@ const EditWorkout = props => {
                                 ))
                             }
                         </ul>
+
+                        
+                        { exerciseInputsList }
+
+                        { inputCount < 10 &&
+                            <Button
+                            type = "button"
+                            onClick = { addExerciseInput }
+                            text = "Add Another Exercise"
+                            />
+                        }
 
                         <footer>
                             <Button
