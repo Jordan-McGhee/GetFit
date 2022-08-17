@@ -60,13 +60,90 @@ const EditWorkout = props => {
     const addExerciseInput = () => {
         setExerciseInputsList([ ...exerciseInputsList, newInput ])
         setInputCount(inputCount + 1)
-        console.log(exerciseInputsList)
     }
 
-    const submitHandler = event => {
+    const submitHandler = async (event) => {
         event.preventDefault()
 
+        let target = event.target
 
+        // similar code to what's in NewWorkout
+        // looping over the form inputs and appending them to the data I send to the backend
+
+        // variables to add exercises to the body of the form data so it will save correctly to the backend
+        let exercise = {
+            exerciseName: "",
+            sets: 0,
+            reps: 0,
+            weightUsed: []
+        }
+
+        // this is what the backend is expecting, so I will store everything here
+        let formData = {
+            workoutTitle: "",
+            exercises: []
+        }
+
+        // formData.workoutTitle = target[0].value
+
+        // for (let i = 1; i < target.length-2; i++) {
+        //     // first input for exercise
+        //     if (i%4 === 1) {
+        //         exercise.exerciseName = target[i].value
+        //         console.log(`Exercise Title: ${target[i].value}`)
+        //     // second input
+        //     } else if (i%4 === 2) {
+        //         exercise.sets = target[i].value
+        //         console.log(`Exercise Sets: ${target[i].value}`)
+        //     // third input
+        //     } else if (i%4 === 3) {
+        //         exercise.reps = target[i].value
+        //         console.log(`Exercise Reps: ${target[i].value}`)
+        //     // last input, push to exercise array and reset exercise object
+        //     } else {
+        //         exercise.weightUsed.push(target[i].value)
+        //         console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
+        //         console.log(`Full Exercise:
+        //             ${exercise.exerciseName}
+        //             ${exercise.sets}
+        //             ${exercise.reps}
+        //             ${exercise.weightUsed}
+        //         `)
+
+        //         // Add newly created exercise to array in formData object
+        //         formData.exercises.push(exercise)
+
+        //         // reset exercise variable. Only really necessary for the weightUsed array
+        //         exercise = {
+        //             exerciseName: "",
+        //             sets: 0,
+        //             reps: 0,
+        //             weightUsed: []
+        //         }
+        //     }
+        // }
+
+        // send request to backend to update
+        try {
+            await sendRequest(
+                // URL
+                `http://localhost:5000/workout/${workoutID}`,
+                // METHOD
+                "PATCH",
+                // HEADERS
+                {
+                    'Content-Type': 'application/json'
+                },
+                // BODY
+                JSON.stringify({
+                    workoutTitle: formData.workoutTitle,
+                    exercies: formData.exercises
+                })
+            )
+        } catch(err) {
+            console.log("Error updating workout")
+            console.log(err)
+        }
     }
 
     return (
