@@ -64,7 +64,7 @@ const NewWorkout = () => {
 
         formData.workoutTitle = target[0].value
 
-        for (let i = 1; i < target.length-2; i++ ) {
+        for (let i = 1; i < target.length-3; i++ ) {
             // first input for exercise
             if (i%4 === 1) {
                 exercise.exerciseName = target[i].value
