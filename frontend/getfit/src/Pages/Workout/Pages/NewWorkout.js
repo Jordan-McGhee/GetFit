@@ -7,6 +7,7 @@ import Button from "../../../Components/FormElements/Button";
 import Input from "../../../Components/FormElements/Input";
 import Card from "../../../Components/UIElements/Card";
 import ExerciseInput from "../Components/ExerciseInput";
+import ErrorModal from "../../../Components/UIElements/ErrorModal";
 
 const NewWorkout = () => {
 
@@ -37,7 +38,7 @@ const NewWorkout = () => {
 
 
 
-    const { isLoading, hasError, sendRequest, clearError } = useFetch()
+    const { hasError, sendRequest, clearError } = useFetch()
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -145,42 +146,48 @@ const NewWorkout = () => {
 
     return (
         
-        <Card header = {"New Workout"} >
+        <React.Fragment>
 
-            <form onSubmit={ submitHandler }>
-                <Input
-                    id = "workoutTitle"
-                    label = "Workout Title"
-                    type = "text"
-                    placeholder = "Enter a title."
-                    errorText = "Please enter a title!"
-                />
+            <ErrorModal error = { hasError } onClear = { clearError } />
 
-                { exerciseInputsList }
-                
-                { exerciseInputsList.length < 10 &&
-                    <Button
-                        type = "button"
-                        onClick = { addExerciseInput }
-                        text = "Add Another Exercise"
+            <Card header = {"New Workout"} >
+
+                <form onSubmit={ submitHandler }>
+                    <Input
+                        id = "workoutTitle"
+                        label = "Workout Title"
+                        type = "text"
+                        placeholder = "Enter a title."
+                        errorText = "Please enter a title!"
                     />
-                }
 
-                <footer>
-                    <Button
-                        link = {"/"}
-                        type = "button"
-                        text = "Discard"
-                    />
-                    <Button 
-                        type = "submit"
-                        text = "Create Workout"
-                    />
-                </footer>
+                    { exerciseInputsList }
+                    
+                    { exerciseInputsList.length < 10 &&
+                        <Button
+                            type = "button"
+                            onClick = { addExerciseInput }
+                            text = "Add Another Exercise"
+                        />
+                    }
 
-            </form>
+                    <footer>
+                        <Button
+                            link = {"/"}
+                            type = "button"
+                            text = "Discard"
+                        />
+                        <Button 
+                            type = "submit"
+                            text = "Create Workout"
+                        />
+                    </footer>
 
-        </Card>
+                </form>
+
+            </Card>
+
+        </React.Fragment>
     )
 }
 

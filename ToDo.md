@@ -14,15 +14,16 @@ Backend
 Frontend
     - add a modal --DONE
     - conditional formatting for new account ("There's nothing here!")
-    - Add all pages and routes to app.js
+    - Add all pages and routes to app.js --DONE
     - Router not directing to NewWorkout.js Fix this!!!! --DONE
         ~ issue is with input component --DONE
-    - add LoadingSpinner
-
-    -  add an all workouts page to align with Navbar
+    - add LoadingSpinner --DONE
+    - Update routes with .env variable
+    - add an all workouts page to align with Navbar --DONE
+    - 404 Not Found Page
 
     - Input
-        ~ Move validation to individual components that use the input?
+        ~ Move validation to individual components that use the input? --DONE
 
     - CARD
         ~ Add a footer for buttons --DONE
@@ -50,12 +51,12 @@ Frontend
         ~ update code to include loading spinner and errors
 
     - ExerciseInput.js
-        ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database
-        ~ figure out button to add another exercise input to form
+        ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database --DONE
+        ~ figure out button to add another exercise input to form --DONE
 
     - HomePage.js
-        ~ fix fetch hook to communicate to backend
-        ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component
+        ~ fix fetch hook to communicate to backend --DONE
+        ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component --DONE
 
     - WorkoutsPage
         ~ Add sorting based on frequency, recency and something else maybe idk

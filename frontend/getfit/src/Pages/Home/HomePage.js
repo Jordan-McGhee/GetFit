@@ -5,10 +5,11 @@ import Button from "../../Components/FormElements/Button"
 import Card from "../../Components/UIElements/Card"
 import MainLiftList from "./Components/MainLiftList"
 import WorkoutList from "./Components/WorkoutList"
+import LoadingSpinner from "../../Components/UIElements/LoadingSpinner"
+import ErrorModal from "../../Components/UIElements/ErrorModal"
 
 // hook imports
 import { useFetch } from "../../Hooks/useFetch"
-import { DUMMY_USER, DUMMY_WORKOUT } from "../../DUMMY/DUMMY_DATA"
 
 const HomePage = (props) => {
 
@@ -48,7 +49,15 @@ const HomePage = (props) => {
     )
 
     return (
-        <div>
+        <React.Fragment>
+
+            <ErrorModal error = { hasError } onClear = { clearError } />
+
+            { isLoading &&
+                <div>
+                    <LoadingSpinner asOverlay />
+                </div>
+            }
 
             <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter }>
                 
@@ -60,7 +69,7 @@ const HomePage = (props) => {
                 <MainLiftList lifts = { loadedUserLifts } />
             </Card>
 
-        </div>
+        </React.Fragment>
     )
 }
 

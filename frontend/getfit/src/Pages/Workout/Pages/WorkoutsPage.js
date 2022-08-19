@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react"
 import Card from "../../../Components/UIElements/Card"
 import WorkoutsPageLiftList from "../Components/WorkoutsPageLiftList"
 import Button from "../../../Components/FormElements/Button"
+import LoadingSpinner from "../../../Components/UIElements/LoadingSpinner"
+import ErrorModal from "../../../Components/UIElements/ErrorModal"
 
 // hook imports
 import { useFetch } from "../../../Hooks/useFetch"
@@ -43,13 +45,22 @@ const WorkoutsPage = () => {
     )
 
     return(
-        <div>
+        <React.Fragment>
+
+            <ErrorModal error = { hasError } onClear = { clearError } />
+
+            { isLoading &&
+                <div>
+                    <LoadingSpinner asOverlay />
+                </div>
+            }
+
             <Card header = { <h1>Your Workouts</h1> } footer = { cardFooter } >
 
                 <WorkoutsPageLiftList workouts = { loadedWorkouts }/>
 
             </Card>
-        </div>
+        </React.Fragment>
     )
 }
 

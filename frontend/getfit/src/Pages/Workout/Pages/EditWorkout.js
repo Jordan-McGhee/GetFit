@@ -9,6 +9,8 @@ import Button from "../../../Components/FormElements/Button";
 import Input from "../../../Components/FormElements/Input";
 import ExerciseInput from "../Components/ExerciseInput";
 import Card from "../../../Components/UIElements/Card";
+import LoadingSpinner from "../../../Components/UIElements/LoadingSpinner";
+import ErrorModal from "../../../Components/UIElements/ErrorModal";
 
 const EditWorkout = props => {
 
@@ -147,15 +149,26 @@ const EditWorkout = props => {
     }
 
     return (
-        <div>
+
+        <React.Fragment>
+
+        <ErrorModal error = { hasError } onClear = { clearError } />
+
+        { isLoading &&
+            <div>
+                <LoadingSpinner asOverlay />
+            </div>
+        }
+
             { !isLoading && loadedWorkout && (
-                <Card>
+                <Card header = { <h2>Edit Workout: {loadedWorkout.workoutTitle}</h2>}>
                     <form onSubmit={ submitHandler }>
 
                         {
                             loadedWorkout && 
                             <Input
                                 id="workoutTitle"
+                                label = "Workout Title"
                                 type="text"
                                 value = { loadedWorkout.workoutTitle }
                             />
@@ -202,7 +215,8 @@ const EditWorkout = props => {
                     </form>
                 </Card>
             )}
-        </div>
+
+        </React.Fragment>
     )
 }
 

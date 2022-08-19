@@ -30,17 +30,9 @@ const ModalOverlay = props => {
 
     let header, footer
 
-    header = (
-        <header className={ `modal__header ${props.headerClass}` }>
-            <h2>{ props.header }</h2>
-        </header>
-    )
+    header = props.header
 
-    footer = (
-        <footer className={ `modal__footer ${props.footerClass}`}>
-            { props.footer }
-        </footer>
-    )
+    footer =  props.footer
 
     const content = (
         <Card
