@@ -42,9 +42,17 @@ const HomePage = (props) => {
 
     const workoutFooter = (
         <Button
-        type = "button"
-        text = "View More"
-        link = {`/workout/all`}
+            type = "button"
+            text = "View More"
+            link = {`/workout/all`}
+        />
+    )
+
+    const mainLiftsFooter = (
+        <Button
+            type = "button"
+            text = "Update Lifts"
+            // link = {`/workout/all`}
         />
     )
 
@@ -64,7 +72,7 @@ const HomePage = (props) => {
                 <WorkoutList workouts = { loadedWorkouts } />
             </Card>
 
-            <Card header = { <h1>Your Main Lifts</h1> }>
+            <Card header = { <h1>Your Main Lifts</h1> } footer = { mainLiftsFooter } >
                 
                 <MainLiftList lifts = { loadedUserLifts } />
             </Card>

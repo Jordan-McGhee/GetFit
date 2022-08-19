@@ -13,7 +13,7 @@ const WorkoutsPageLiftItems = (props) => {
     
     return (
         <li>
-            <Card header = { header }>
+            <Card className = {"nestedCard"} header = { header }>
                 <p>{`${ props.exercises.length } Exercises`}</p>
             </Card>
         </li>

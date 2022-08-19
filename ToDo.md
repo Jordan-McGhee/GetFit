@@ -1,4 +1,8 @@
 Backend
+    - Models:
+        ~ update user model to have body weight and lifts be an array? So we can potentially add charts to show change over time
+        ~ add a routine model to hold multiple workouts?
+
     - Controllers:
         — user-controller:
             ~ route to add mainlifts to newly created user --DONE
@@ -58,6 +62,8 @@ Frontend
     - HomePage.js
         ~ fix fetch hook to communicate to backend --DONE
         ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component --DONE
+        ~ modal pop-up to update user's main lifts list
+        ~ add dropdown for exercises to show each one
 
     - WorkoutsPage
         ~ Add sorting based on frequency, recency and something else maybe idk

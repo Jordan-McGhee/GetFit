@@ -6,5 +6,37 @@ ul, li {
   margin: 0%;
   /* border: 0px; */
   padding: 0;
-  
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+/* NAVBAR STYLING */
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 96%;
+  height: 6rem;
+  margin: auto;
+}
+
+.nav-content nav ul {
+  display: flex;
+}
+
+.nav-content nav ul li {
+  margin-left: 2rem;
+  font-size: large;
+}
+
+.nav-content nav ul li:hover {
+  transform: scale(1.1);
 }
