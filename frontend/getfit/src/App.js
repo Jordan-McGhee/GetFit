@@ -13,6 +13,7 @@ import ViewWorkout from "./Pages/Workout/Pages/ViewWorkout";
 import EditWorkout from "./Pages/Workout/Pages/EditWorkout"
 import AuthPage from "./Pages/Auth/AuthPage";
 import WorkoutsPage from "./Pages/Workout/Pages/WorkoutsPage";
+import NotFound from "./Pages/404 Not Found/NotFound";
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
       <Route path="/workout/create" element = { <NewWorkout /> } />
       <Route path="/workout/:workoutID/view" element = { <ViewWorkout /> } />
       <Route path="/workout/:workoutID/edit" element = { <EditWorkout /> } />
-      {/* <Route path="*" element={ <Navigate to="/" replace /> } /> */}
+      <Route path="*" element={ <NotFound /> } />
     </Routes>
   )
 
