@@ -71,3 +71,4 @@ Frontend
 
     - DeleteWorkout
         ~ Figure out how to close Modal and have Error Modal if there is one
+        ~ change to ConfirmDelete/Discard? Use it for discarding a workout form?
