@@ -1,5 +1,4 @@
 import React from "react"
-// import { DUMMY_USER } from "../../../DUMMY/DUMMY_DATA"
 import WorkoutItem from "./WorkoutItem"
 
 const WorkoutsList = (props) => {
@@ -17,7 +16,9 @@ const WorkoutsList = (props) => {
 
     return (
         <div>
-            { items }
+            <ul>
+                { items.slice(0, 3) }
+            </ul>
         </div>
     )
 }

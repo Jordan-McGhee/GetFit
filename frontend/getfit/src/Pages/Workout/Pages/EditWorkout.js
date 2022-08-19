@@ -90,25 +90,25 @@ const EditWorkout = props => {
             // first input for exercise
             if (i%4 === 1) {
                 exercise.exerciseName = target[i].value
-                console.log(`Exercise Title: ${target[i].value} index: ${i}`)
+                // console.log(`Exercise Title: ${target[i].value} index: ${i}`)
             // second input
             } else if (i%4 === 2) {
                 exercise.sets = target[i].value
-                console.log(`Exercise Sets: ${target[i].value} index: ${i}`)
+                // console.log(`Exercise Sets: ${target[i].value} index: ${i}`)
             // third input
             } else if (i%4 === 3) {
                 exercise.reps = target[i].value
-                console.log(`Exercise Reps: ${target[i].value} index: ${i}`)
+                // console.log(`Exercise Reps: ${target[i].value} index: ${i}`)
             // last input, push to exercise array and reset exercise object
             } else {
                 exercise.weightUsed.push(target[i].value)
-                console.log(`Exercise Weight Used: ${exercise.weightUsed} index: ${i}`)
-                console.log(`Full Exercise:
-                    ${exercise.exerciseName}
-                    ${exercise.sets}
-                    ${exercise.reps}
-                    ${exercise.weightUsed}
-                `)
+                // console.log(`Exercise Weight Used: ${exercise.weightUsed} index: ${i}`)
+                // console.log(`Full Exercise:
+                //     ${exercise.exerciseName}
+                //     ${exercise.sets}
+                //     ${exercise.reps}
+                //     ${exercise.weightUsed}
+                // `)
 
                 // Add newly created exercise to array in formData object
                 formData.exercises.push(exercise)
@@ -122,9 +122,6 @@ const EditWorkout = props => {
                 }
             }
         }
-
-        console.log(target.length)
-        console.log(formData.exercises)
 
         // send request to backend to update
         try {

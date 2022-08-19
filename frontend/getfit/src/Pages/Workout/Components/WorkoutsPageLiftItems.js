@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+
+// component imports
 import Card from "../../../Components/UIElements/Card"
 
-const WorkoutItem = (props) => {
-
+const WorkoutsPageLiftItems = (props) => {
     let header = (
         <Link to = {`/workout/${props.id}/view`}>
             { props.workoutTitle }
@@ -19,4 +20,4 @@ const WorkoutItem = (props) => {
     )
 }
 
-export default WorkoutItem
+export default WorkoutsPageLiftItems

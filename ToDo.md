@@ -55,3 +55,8 @@ Frontend
 
     - HomePage.js
         ~ fix fetch hook to communicate to backend
+        ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component
+
+    - WorkoutsPage
+        ~ Add sorting based on frequency, recency and something else maybe idk
+        ~ Figure out what to add to differentiate the workout list here and the home page

@@ -39,10 +39,18 @@ const HomePage = (props) => {
 
     }, [ sendRequest ])
 
+    const workoutFooter = (
+        <Button
+        type = "button"
+        text = "View More"
+        link = {`/workout/all`}
+        />
+    )
+
     return (
         <div>
 
-            <Card header = { <h1>Your Workouts</h1> }>
+            <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter }>
                 
                 <WorkoutList workouts = { loadedWorkouts } />
             </Card>
