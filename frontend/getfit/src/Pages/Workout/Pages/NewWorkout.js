@@ -11,6 +11,7 @@ import ErrorModal from "../../../Components/UIElements/ErrorModal";
 
 const NewWorkout = () => {
 
+    // EXERCISE INPUT CODE
     // starting list of inputs for newWorkout form
     let exerciseInputs = [
         <ExerciseInput inputNumber = { 1 } key = { 1 } />,
@@ -36,6 +37,14 @@ const NewWorkout = () => {
         console.log(exerciseInputsList)
     }
 
+    // NAVIGATION CODE
+    // state will grab the newly created workout's ID and we can use navigate to redirect to the view page upon creation
+    let navigate = useNavigate()
+
+    // this is for the discard button. Goes back to the last page -- need to add modal popup for confirm maybe?
+    const discardHandler = () => {
+        navigate(-1)
+    }
 
 
     const { hasError, sendRequest, clearError } = useFetch()
@@ -70,25 +79,25 @@ const NewWorkout = () => {
             // first input for exercise
             if (i%4 === 1) {
                 exercise.exerciseName = target[i].value
-                console.log(`Exercise Title: ${target[i].value}`)
+                // console.log(`Exercise Title: ${target[i].value}`)
             // second input
             } else if (i%4 === 2) {
                 exercise.sets = target[i].value
-                console.log(`Exercise Sets: ${target[i].value}`)
+                // console.log(`Exercise Sets: ${target[i].value}`)
             // third input
             } else if (i%4 === 3) {
                 exercise.reps = target[i].value
-                console.log(`Exercise Reps: ${target[i].value}`)
+                // console.log(`Exercise Reps: ${target[i].value}`)
             // last input, push to exercise array and reset exercise object
             } else {
                 exercise.weightUsed.push(target[i].value)
-                console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
-                console.log(`Full Exercise:
-                    ${exercise.exerciseName}
-                    ${exercise.sets}
-                    ${exercise.reps}
-                    ${exercise.weightUsed}
-                `)
+                // console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
+                // console.log(`Full Exercise:
+                //     ${exercise.exerciseName}
+                //     ${exercise.sets}
+                //     ${exercise.reps}
+                //     ${exercise.weightUsed}
+                // `)
 
                 // Add newly created exercise to array in formData object
                 formData.exercises.push(exercise)
@@ -103,9 +112,11 @@ const NewWorkout = () => {
             }
         }
 
+        let responseData
+
         // send the request to the backend to save
         try {
-            await sendRequest(
+            responseData = await sendRequest(
                 // URL
                 "http://localhost:5000/workout/",
                 // METHOD
@@ -120,6 +131,7 @@ const NewWorkout = () => {
                     exercises: formData.exercises
                 })
             )
+
         } catch(err) {
 
         }
@@ -127,6 +139,14 @@ const NewWorkout = () => {
         // reset form inputs after
         setExerciseInputsList(exerciseInputs)
         setInputCount(1)
+
+        // grab the newly created workout's id and navigate to the correct page for it
+        const nextPageID = responseData.workout.id
+
+        const navigateHandler = () => navigate(`/workout/${nextPageID}/view`)
+
+        // NAVIGATE TO CREATED WORKOUT'S PAGE AFTER SHORT TIMEOUT TO MAKE SURE THE RESPONSE GOES THROUGH
+        setTimeout(navigateHandler, 500)
     }
 
     // footer for form card
@@ -173,7 +193,8 @@ const NewWorkout = () => {
 
                     <footer>
                         <Button
-                            link = {"/"}
+                            // link = {"/"}
+                            onClick = { discardHandler }
                             type = "button"
                             text = "Discard"
                         />

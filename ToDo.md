@@ -21,6 +21,7 @@ Frontend
     - Update routes with .env variable
     - add an all workouts page to align with Navbar --DONE
     - 404 Not Found Page
+    - modals for confirming delete/discard
 
     - Input
         ~ Move validation to individual components that use the input? --DONE

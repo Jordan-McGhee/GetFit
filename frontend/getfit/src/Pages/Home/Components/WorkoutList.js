@@ -17,7 +17,8 @@ const WorkoutsList = (props) => {
     return (
         <div>
             <ul>
-                { items.slice(0, 3) }
+                {/* shows the 3 most recently created workouts */}
+                { items.reverse().slice(0,3) }
             </ul>
         </div>
     )
