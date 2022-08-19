@@ -19,6 +19,10 @@ a:visited {
 
 /* NAVBAR STYLING */
 
+.nav-header {
+  border-bottom: 1px solid black;
+}
+
 .nav-content {
   display: flex;
   justify-content: space-between;
@@ -47,7 +51,7 @@ a:visited {
   display: flex;
   width: 98%;
   margin: auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .homepage-workouts-list {

@@ -5,6 +5,7 @@ import Button from "../../../Components/FormElements/Button";
 import Card from "../../../Components/UIElements/Card";
 import LoadingSpinner from "../../../Components/UIElements/LoadingSpinner";
 import ErrorModal from "../../../Components/UIElements/ErrorModal";
+import DeleteWorkout from "../Components/DeleteWorkout";
 
 // hook imports
 import { useParams } from "react-router-dom";
@@ -46,11 +47,24 @@ const ViewWorkout = props => {
         </h1>
     )
 
+    const [ showModal, setShowModal ] = useState(false)
+    
+    const showDeleteModalHandler = () => {
+        console.log("Clicked Delete Workout")
+        setShowModal(true)
+    }
+
+    const closeDeleteModalHandler = () => {
+        console.log("Closed Delete Modal")
+        setShowModal(false)
+    }
+
     const workoutFooter = (
         <div>
             <Button
                 type = "text"
                 text = "Delete Workout"
+                onClick = { showDeleteModalHandler}
             />
             <Button
                 link = {`/workout/${workoutID}/edit`}
@@ -61,16 +75,23 @@ const ViewWorkout = props => {
     )
 
 
-
     return (
         <React.Fragment>
 
             <ErrorModal error = { hasError } onClear = { clearError } />
 
-            { isLoading &&
-                <div>
-                    <LoadingSpinner asOverlay />
-                </div>
+            { 
+                isLoading &&
+                <LoadingSpinner asOverlay />
+            }
+
+            {
+                showModal && 
+                <DeleteWorkout
+                    workout = { loadedWorkout ? loadedWorkout : ""}
+                    show = { showModal }
+                    onCancel = { closeDeleteModalHandler }
+                />
             }
 
             <Card header = { workoutHeader } footer = { workoutFooter } >

@@ -68,3 +68,6 @@ Frontend
     - WorkoutsPage
         ~ Add sorting based on frequency, recency and something else maybe idk
         ~ Figure out what to add to differentiate the workout list here and the home page
+
+    - DeleteWorkout
+        ~ Figure out how to close Modal and have Error Modal if there is one
