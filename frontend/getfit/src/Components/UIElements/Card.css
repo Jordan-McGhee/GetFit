@@ -17,9 +17,13 @@
 }
 
 .card footer {
-    border-top: 1px solid black;
+    /* border-top: 1px solid black; */
     margin-top: .75rem;
     padding-top: .75rem;
+}
+
+.nestedCard {
+    margin: .75rem 0rem;
 }
 
 .nestedCard:hover {

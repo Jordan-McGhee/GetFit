@@ -57,7 +57,7 @@ const HomePage = (props) => {
     )
 
     return (
-        <React.Fragment>
+        <div className = "homepage-container">
 
             <ErrorModal error = { hasError } onClear = { clearError } />
 
@@ -67,17 +67,17 @@ const HomePage = (props) => {
                 </div>
             }
 
-            <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter }>
+            <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter } className = "homepage-workouts-list">
                 
                 <WorkoutList workouts = { loadedWorkouts } />
             </Card>
 
-            <Card header = { <h1>Your Main Lifts</h1> } footer = { mainLiftsFooter } >
+            <Card header = { <h1>Your Main Lifts</h1> } footer = { mainLiftsFooter } className = "homepage-main-lifts-list">
                 
                 <MainLiftList lifts = { loadedUserLifts } />
             </Card>
 
-        </React.Fragment>
+        </div>
     )
 }
 
