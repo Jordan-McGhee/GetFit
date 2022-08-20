@@ -65,6 +65,11 @@ Frontend
         ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component --DONE
         ~ modal pop-up to update user's main lifts list
         ~ add dropdown for exercises to show each one
+        ~ maybe refactor closeMainLiftModalHandler to refresh the page differently?
+        ~ modal make age a date instead of number entry
+
+    - ALL FORMS
+        ~ change number entry format
 
     - WorkoutsPage
         ~ Add sorting based on frequency, recency and something else maybe idk

@@ -15,6 +15,9 @@ mongoose.connect(url).then(() =>{
     console.log("Could not connect to database.")
 })
 
+// middleware to check token
+const checkAuth = require('./middleware/check-auth')
+
 // ROUTE VARIABLES
 const homepageRoutes = require("./routes/homepage-routes")
 const authRoutes = require("./routes/auth-routes")
@@ -43,8 +46,13 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use("/", homepageRoutes)
+
 app.use("/auth", authRoutes)
+
+// checks for user token before allowing anyone to access following routes/middleware
+app.use(checkAuth)
+
+app.use("/", homepageRoutes)
 app.use("/user", userRoutes)
 app.use("/workout", workoutRoutes)
 

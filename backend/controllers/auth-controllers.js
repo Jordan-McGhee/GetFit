@@ -1,6 +1,7 @@
 const HttpError = require("../models/http-error")
 const { validationResult } = require("express-validator")
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 // models
 const User = require("../models/user-model")
@@ -73,7 +74,7 @@ const signUp = async (req, res, next) => {
         await newUser.save()
     } catch(err) {
         const error = new HttpError(
-            "Signing up failed. Please try again! Saving user check", 500
+            "Signing up failed. Please try again!", 500
         )
 
         console.log(err)
@@ -81,8 +82,41 @@ const signUp = async (req, res, next) => {
         return next(error)
     }
 
+    // this code generates a token from the server that will be attached to any requests to guarantee that the user submitting the request is the owner of the items
+    let token
+
+    try {
+
+        // this code takes the data from the newUser and encodes it into a string (token) for verification
+        token = jwt.sign(
+            // data from newUser
+            { userID: newUser.id, email: newUser.email },
+            // key phrase, will change and hide later
+            "secret_key",
+            // token will automatically expire in an hour for better security
+            { expiresIn: '1h'}
+        )
+
+    } catch(err) {
+        const error = new HttpError(
+            "Creating token failed. Please try again!", 500
+        )
+
+        console.log(err)
+
+        return next(error)
+    }
+
+
     // response
-    res.json({ message: "Creating user successful!", user: newUser.toObject({ getters: true }) })
+    res
+        .status(201)
+        .json({
+            message: "Creating user successful!",
+            userID: newUser.id,
+            email: newUser.email,
+            token: token
+        })
 }
 
 const login = async (req, res, next) => {
@@ -131,8 +165,44 @@ const login = async (req, res, next) => {
         )
     }
 
+        // this code generates a token from the server that will be attached to any requests to guarantee that the user submitting the request is the owner of the items
+        let token
+
+        try {
+    
+            // this code takes the data from the existingUser and encodes it into a string (token) for verification
+            token = jwt.sign(
+                // data from existingUser
+                { userID: existingUser.id, email: existingUser.email },
+                // key phrase, will change and hide later
+                "secret_key",
+                // token will automatically expire in an hour for better security
+                { expiresIn: '1h'}
+            )
+    
+        } catch(err) {
+            const error = new HttpError(
+                "Creating token failed. Please try again!", 500
+            )
+    
+            console.log(err)
+    
+            return next(error)
+        }
+    
+
     // else there were no issues
-    res.json({message: "Successfully logged in!", user: existingUser.toObject({ getters: true })})
+    // response
+    res
+    .status(201)
+    .json({
+        message: "Logging in successful!",
+        userID: existingUser.id,
+        email: existingUser.email,
+        token: token
+    })
+    
+    // res.json({message: "Successfully logged in!", user: existingUser.toObject({ getters: true })})
 }
 
 exports.signUp = signUp
