@@ -50,12 +50,10 @@ const ViewWorkout = props => {
     const [ showModal, setShowModal ] = useState(false)
     
     const showDeleteModalHandler = () => {
-        console.log("Clicked Delete Workout")
         setShowModal(true)
     }
 
     const closeDeleteModalHandler = () => {
-        console.log("Closed Delete Modal")
         setShowModal(false)
     }
 
@@ -64,7 +62,7 @@ const ViewWorkout = props => {
             <Button
                 type = "text"
                 text = "Delete Workout"
-                onClick = { showDeleteModalHandler}
+                onClick = { showDeleteModalHandler }
             />
             <Button
                 link = {`/workout/${workoutID}/edit`}

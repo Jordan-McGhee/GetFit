@@ -12,6 +12,7 @@ Backend
             ~ createWorkout: remove placeholder code to find user
             ~ add ID to exercises --DONE
             ~ updateWorkout: add code block to validate logged in user is the workoutCreator
+            ~ deleting workouts not removing from attached user
         - homepage-controllers
             ~ update code for logged in user
 

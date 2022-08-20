@@ -1,5 +1,3 @@
-import { DUMMY_WORKOUT } from "../../../DUMMY/DUMMY_DATA";
-
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -32,8 +30,8 @@ const EditWorkout = props => {
             try {
                 const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}/view`)
 
-                console.log(responseData.message)
-                console.log(responseData.workout)
+                // console.log(responseData.message)
+                // console.log(responseData.workout)
 
                 setLoadedWorkout(responseData.workout)
                 setLoadedExercises(responseData.workout.exercises)
@@ -49,8 +47,8 @@ const EditWorkout = props => {
 
     }, [ sendRequest, workoutID ])
 
-    console.log(`Before exerciseInputs: ${loadedExercises}`)
-    console.log(`Input Count: ${inputCount}`)
+    // console.log(`Before exerciseInputs: ${loadedExercises}`)
+    // console.log(`Input Count: ${inputCount}`)
 
     let newInput = 
         <ExerciseInput

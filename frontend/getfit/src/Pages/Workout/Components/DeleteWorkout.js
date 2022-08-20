@@ -58,7 +58,7 @@ const DeleteWorkout = (props) => {
             // error = { hasError }
             // clearError = { clearError }
         >
-            <p>Are you sure you want to delete ${workout.workoutTitle}. This can't be undone.</p>
+            <p>Are you sure you want to delete <span>{workout.workoutTitle}</span>. This can't be undone.</p>
             
         </Modal>
     )
