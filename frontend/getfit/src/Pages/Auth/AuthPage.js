@@ -19,11 +19,6 @@ const AuthPage = () => {
         }
     }
 
-    const formSubmitHandler = event => {
-        event.preventDefault()
-
-    }
-
     let loginForm
 
     // render different versions of form conditionally based on if the user is logging in or signing up
@@ -95,6 +90,25 @@ const AuthPage = () => {
     }
 
     let formIsValid
+    
+    const formSubmitHandler = event => {
+        event.preventDefault()
+
+        // iterate over inputs and append to form data
+        // conditional check for logging in or signing up to determine how many inputs to iterate over
+        
+        let target = event.target
+
+        let formData = {
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+        }
+
+        
+
+    }
 
     return (
         <React.Fragment>
