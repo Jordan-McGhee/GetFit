@@ -153,6 +153,8 @@ const NewWorkout = () => {
     const newWorkoutFooter = (
         <div>
             <Button
+                // link = {"/"}
+                onClick = { discardHandler }
                 type = "button"
                 text = "Discard"
             />
@@ -170,43 +172,31 @@ const NewWorkout = () => {
 
             <ErrorModal error = { hasError } onClear = { clearError } />
 
-            <Card header = {"New Workout"} >
+            <form onSubmit={ submitHandler }>
 
-                <form onSubmit={ submitHandler }>
-                    <Input
-                        id = "workoutTitle"
-                        label = "Workout Title"
-                        type = "text"
-                        placeholder = "Enter a title."
-                        errorText = "Please enter a title!"
-                    />
+                <Card header = {"New Workout"} footer = { newWorkoutFooter }>
 
-                    { exerciseInputsList }
-                    
-                    { exerciseInputsList.length < 10 &&
-                        <Button
-                            type = "button"
-                            onClick = { addExerciseInput }
-                            text = "Add Another Exercise"
+                        <Input
+                            id = "workoutTitle"
+                            label = "Workout Title"
+                            type = "text"
+                            placeholder = "Enter a title."
+                            errorText = "Please enter a title!"
                         />
-                    }
 
-                    <footer>
-                        <Button
-                            // link = {"/"}
-                            onClick = { discardHandler }
-                            type = "button"
-                            text = "Discard"
-                        />
-                        <Button 
-                            type = "submit"
-                            text = "Create Workout"
-                        />
-                    </footer>
+                        { exerciseInputsList }
+                        
+                        { exerciseInputsList.length < 10 &&
+                            <Button
+                                type = "button"
+                                onClick = { addExerciseInput }
+                                text = "Add Another Exercise"
+                            />
+                        }
 
-                </form>
+                </Card>
 
-            </Card>
+            </form>
 
         </React.Fragment>
     )

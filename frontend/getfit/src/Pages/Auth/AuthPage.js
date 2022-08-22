@@ -4,12 +4,15 @@ import Input from "../../Components/FormElements/Input";
 import Button from "../../Components/FormElements/Button";
 import Card from "../../Components/UIElements/Card";
 
+import { useFetch } from "../../Hooks/useFetch";
+
 const AuthPage = () => {
     
     // need to have state for logging in/signing up
     // signup and login forms
     
     const [ isLoggingIn, setIsLoggingIn ] = useState(false)
+    const { hasError, sendRequest, clearError } = useFetch()
 
     const changeLoginHandler = () => {
         if (isLoggingIn) {
@@ -91,47 +94,102 @@ const AuthPage = () => {
 
     let formIsValid
     
-    const formSubmitHandler = event => {
+    const formSubmitHandler = async event => {
         event.preventDefault()
+
+        console.log("Entered Form Submit")
 
         // iterate over inputs and append to form data
         // conditional check for logging in or signing up to determine how many inputs to iterate over
         
         let target = event.target
+        
+        let formData, url
 
-        let formData = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
+        if (isLoggingIn) {
+            formData = {
+                email: "",
+                password: ""
+            }
+
+            formData.email = target[0].value
+            formData.password = target[1].value
+
+            url = 'http://localhost:5000/auth/login'
+
+        } else {
+            formData = {
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: ""
+            }
+
+            formData.firstName = target[0].value
+            formData.lastName = target[1].value
+            formData.email = target[2].value
+            formData.password = target[3].value
+
+            url = 'http://localhost:5000/auth/signup'
         }
 
-        
+
+
+        console.log(formData)
+        console.log(JSON.stringify(formData))
+
+        let responseData
+
+        try {
+            responseData = await sendRequest(
+                // URL
+                url,
+                // METHOD
+                "POST",
+                // HEADERS
+                {
+                    'Content-Type': 'application/json'
+                },
+                // BODY
+                JSON.stringify(formData)
+            )
+        } catch(err) {
+
+        }
 
     }
+
+    const cardFooter = (
+        <div>
+            <Button
+                type = "button"
+                text = { isLoggingIn ? "I need an account" : "I already have an account"}
+                onClick = { changeLoginHandler }
+            />
+
+            <Button
+                type = "submit"
+                text = { isLoggingIn ? "Log In" : "Sign Up"}
+                disabled = { formIsValid }
+            />
+    </div>
+    )
 
     return (
         <React.Fragment>
 
             
-
+        <form onSubmit={ formSubmitHandler }>
             <Card
                 header = { isLoggingIn ? "Log In" : "Create Account"}
-                footer = {
-                    <Button
-                        type = "submit"
-                        text = { isLoggingIn ? "Log In" : "Sign Up"}
-                        disabled = { !formIsValid }
-                    />
-                }
+                footer = { cardFooter }
             >
-
-                <form onSubmit={ formSubmitHandler }>
 
                     { loginForm }
 
-                </form>
             </Card>
+        </form>
+
         </React.Fragment>
     )
 

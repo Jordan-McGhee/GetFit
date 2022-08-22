@@ -13,6 +13,8 @@ const signUp = async (req, res, next) => {
 
     // check to see if there are any errors and throw error if so
     if (!errors.isEmpty()) {
+
+        console.log(errors)
         return next(
             new HttpError(
                 "There's something wrong with the information you entered. Please make sure you entered a valid email and password.",
