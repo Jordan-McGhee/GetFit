@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Input from "../../Components/FormElements/Input";
 import Button from "../../Components/FormElements/Button";
 import Card from "../../Components/UIElements/Card";
+import ErrorModal from "../../Components/UIElements/ErrorModal";
 
 import { useFetch } from "../../Hooks/useFetch";
+import { useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../Context/auth-context";
 
 const AuthPage = () => {
+
+    // import our context in order to update it upon signing in/logging up
+    const auth = useContext(AuthContext)
+    const navigate = useNavigate()
     
     // need to have state for logging in/signing up
     // signup and login forms
@@ -153,10 +161,13 @@ const AuthPage = () => {
                 // BODY
                 JSON.stringify(formData)
             )
+
+            // assume form submission was successful if we reach this point. Login and navigate to the home page if so
+            auth.login()
+            navigate('/')
         } catch(err) {
 
         }
-
     }
 
     const cardFooter = (
@@ -178,17 +189,18 @@ const AuthPage = () => {
     return (
         <React.Fragment>
 
-            
-        <form onSubmit={ formSubmitHandler }>
-            <Card
-                header = { isLoggingIn ? "Log In" : "Create Account"}
-                footer = { cardFooter }
-            >
+            <ErrorModal error = { hasError } onClear = { clearError } />
 
-                    { loginForm }
+            <form onSubmit={ formSubmitHandler }>
+                <Card
+                    header = { isLoggingIn ? "Log In" : "Create Account"}
+                    footer = { cardFooter }
+                >
 
-            </Card>
-        </form>
+                        { loginForm }
+
+                </Card>
+            </form>
 
         </React.Fragment>
     )

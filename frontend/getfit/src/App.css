@@ -43,6 +43,7 @@ a:visited {
 
 .nav-content nav ul li:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 
