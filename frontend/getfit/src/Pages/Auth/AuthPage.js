@@ -141,11 +141,6 @@ const AuthPage = () => {
             url = 'http://localhost:5000/auth/signup'
         }
 
-
-
-        console.log(formData)
-        console.log(JSON.stringify(formData))
-
         let responseData
 
         try {
@@ -162,8 +157,8 @@ const AuthPage = () => {
                 JSON.stringify(formData)
             )
 
-            // assume form submission was successful if we reach this point. Login and navigate to the home page if so
-            auth.login()
+            // assume form submission was successful if we reach this point. Login and navigate to the home page if so. Also grab userID from the backend's response
+            auth.login(responseData.userID, responseData.token)
             navigate('/')
         } catch(err) {
 

@@ -18,20 +18,24 @@ import { AuthContext } from "./Context/auth-context";
 function App() {
 
     // manage whether we are logged in or not app-wide with useState
-    const [ isLoggedIn, setIsLoggedIn ] = useState(false)
+    const [ token, setToken ] = useState(null)
+    const [ userID, setUserID ] = useState(null)
 
     // useCallback so these functions are only called once
-    const login = useCallback(() => {
-      setIsLoggedIn(true)
+    const login = useCallback((uID, userToken) => {
+      setUserID(uID)
+      setToken(userToken)
+      console.log(token)
     }, [])
     
     const logout = useCallback(() => {
-      setIsLoggedIn(false)
+      setUserID(null)
+      setToken(null)
     }, [])
 
   let routes
 
-  if (isLoggedIn) {
+  if (token) {
     routes = (
       <Routes>
         <Route path="/" element={ <HomePage /> } />
@@ -55,7 +59,16 @@ function App() {
 
 
   return (
-    <AuthContext.Provider value = { { isLoggedIn, login, logout} }>
+    <AuthContext.Provider
+      value = { {
+        // !! = double bang - will update value to true if it's truthy
+        isLoggedIn: !!token,
+        token: token,
+        userID: userID,
+        login: login,
+        logout: logout
+      } }
+    >
       <MainNav />
       { routes }
     </AuthContext.Provider>

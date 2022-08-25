@@ -7,6 +7,11 @@ const jwt = require('jsonwebtoken')
 module.exports = (req, res, next) => {
     // will be Authorization : 'Bearer TOKEN' so we need split and grab the second item in the newly created array
 
+    // on certain requests, the browser sets the method to Options automatically. This code is a workaround and will allow our POST requests to continue
+    if (req.method === "OPTIONS") {
+        return next()
+    }
+
     try {
         const token = req.headers.authorization.split('')[1]
 
