@@ -1,5 +1,5 @@
 import React from "react"
-import Card from "../../../Components/UIElements/Card"
+import Card from "../../Components/UIElements/Card"
 
 const MainLiftItem = (props) => {
     let exerciseName

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Card from "../../../Components/UIElements/Card"
+import Card from "../../Components/UIElements/Card"
 
 const WorkoutItem = (props) => {
 

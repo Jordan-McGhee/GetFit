@@ -1,6 +1,6 @@
 import React from "react";
 
-import Input from "../../../../Components/FormElements/Input";
+import Input from "../../../Components/FormElements/Input";
 
 const MainLiftInputs = (props) => {
 

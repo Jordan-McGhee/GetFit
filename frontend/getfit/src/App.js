@@ -4,11 +4,11 @@ import { Route, Routes, Navigate } from "react-router-dom"
 // COMPONENT IMPORTS
 import './App.css';
 import MainNav from "./Nav/MainNav";
-import HomePage from "./Pages/Home/HomePage";
+import HomePage from "./Home/HomePage";
 import NewWorkout from "./Pages/Workout/Pages/NewWorkout";
 import ViewWorkout from "./Pages/Workout/Pages/ViewWorkout";
 import EditWorkout from "./Pages/Workout/Pages/EditWorkout"
-import AuthPage from "./Pages/Auth/AuthPage";
+import AuthPage from "./Pages/AuthPage/AuthPage";
 import WorkoutsPage from "./Pages/Workout/Pages/WorkoutsPage";
 import NotFound from "./Pages/404 Not Found/NotFound";
 

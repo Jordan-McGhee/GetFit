@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react"
 
 // component imports
-import Button from "../../Components/FormElements/Button"
-import Card from "../../Components/UIElements/Card"
+import Button from "../Components/FormElements/Button"
+import Card from "../Components/UIElements/Card"
 import MainLiftList from "./Components/MainLiftList"
 import WorkoutList from "./Components/WorkoutList"
-import LoadingSpinner from "../../Components/UIElements/LoadingSpinner"
-import ErrorModal from "../../Components/UIElements/ErrorModal"
-import Modal from "../../Components/UIElements/Modal"
+import LoadingSpinner from "../Components/UIElements/LoadingSpinner"
+import ErrorModal from "../Components/UIElements/ErrorModal"
 
 // hook imports
-import { useFetch } from "../../Hooks/useFetch"
+import { useFetch } from "../Hooks/useFetch"
 import UpdateMainLiftModal from "./Components/MainLiftForm/UpdateMainLiftModal"
 
 const HomePage = (props) => {

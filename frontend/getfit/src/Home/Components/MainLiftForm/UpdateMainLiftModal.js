@@ -1,7 +1,7 @@
 import React from "react"
-import Modal from "../../../../Components/UIElements/Modal"
-import Button from "../../../../Components/FormElements/Button"
-import { useFetch } from "../../../../Hooks/useFetch"
+import Modal from "../../../Components/UIElements/Modal"
+import Button from "../../../Components/FormElements/Button"
+import { useFetch } from "../../../Hooks/useFetch"
 import { useNavigate } from "react-router-dom"
 import MainLiftInputs from "./MainLiftInputs"
 
