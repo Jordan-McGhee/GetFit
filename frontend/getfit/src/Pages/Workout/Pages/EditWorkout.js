@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { useFetch } from "../../../Hooks/useFetch";
@@ -10,7 +10,12 @@ import Card from "../../../Components/UIElements/Card";
 import LoadingSpinner from "../../../Components/UIElements/LoadingSpinner";
 import ErrorModal from "../../../Components/UIElements/ErrorModal";
 
+import { AuthContext } from "../../../Context/auth-context";
+
 const EditWorkout = props => {
+
+    // AUTH
+    const auth = useContext(AuthContext)
 
     let exerciseInputs = []
 
@@ -28,7 +33,16 @@ const EditWorkout = props => {
         const fetchWorkout = async () => {
 
             try {
-                const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}/view`)
+                const responseData = await sendRequest(
+                    // URL
+                    `http://localhost:5000/workout/${workoutID}/view`,
+                    // METHOD
+                    'GET',
+                    // HEADERS
+                    {
+                        Authorization: 'Bearer ' + auth.token
+                    }
+                )
 
                 // console.log(responseData.message)
                 // console.log(responseData.workout)

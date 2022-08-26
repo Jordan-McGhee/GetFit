@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // component imports
 import Button from "../../../Components/FormElements/Button";
@@ -10,8 +10,11 @@ import DeleteWorkout from "../Components/DeleteWorkout";
 // hook imports
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../../Hooks/useFetch";
+import { AuthContext } from "../../../Context/auth-context";
 
 const ViewWorkout = props => {
+
+    const auth = useContext(AuthContext)
 
     const [ loadedWorkout, setLoadedWorkout ] = useState(null)
 
@@ -24,7 +27,16 @@ const ViewWorkout = props => {
         const fetchWorkout = async () => {
 
             try {
-                const responseData = await sendRequest(`http://localhost:5000/workout/${workoutID}/view`)
+                const responseData = await sendRequest(
+                    // URL
+                    `http://localhost:5000/workout/${workoutID}/view`,
+                    // METHOD
+                    'GET',
+                    // HEADERS
+                    {
+                        Authorization: 'Bearer ' + auth.token
+                    }
+                )
 
                 // console.log(responseData.message)
                 // console.log(responseData.workout)
@@ -39,7 +51,7 @@ const ViewWorkout = props => {
 
         fetchWorkout()
 
-    }, [ sendRequest, workoutID ])
+    }, [ sendRequest, workoutID, auth.token ])
 
     const workoutHeader = (
         <h1>

@@ -25,7 +25,6 @@ function App() {
     const login = useCallback((uID, userToken) => {
       setUserID(uID)
       setToken(userToken)
-      console.log(token)
     }, [])
     
     const logout = useCallback(() => {
@@ -33,13 +32,15 @@ function App() {
       setToken(null)
     }, [])
 
+    console.log(`Token: ${token}`)
+
   let routes
 
   if (token) {
     routes = (
       <Routes>
         <Route path="/" element={ <HomePage /> } />
-        <Route path="/auth" element = { <AuthPage />} />
+        {/* <Route path="/auth" element = { <AuthPage />} /> */}
         <Route path="/workout/all" element = { <WorkoutsPage /> } />
         <Route path="/workout/create" element = { <NewWorkout /> } />
         <Route path="/workout/:workoutID/view" element = { <ViewWorkout /> } />

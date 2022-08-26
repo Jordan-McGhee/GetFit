@@ -13,12 +13,12 @@ module.exports = (req, res, next) => {
     }
 
     try {
-        const token = req.headers.authorization.split('')[1]
+        const token = req.headers.authorization.split(' ')[1]
 
         // for if authorization isn't set at all and so .split() failed
         if (!token) {
             throw new Error(
-                'Authentication failed. Please try again!', 401
+                'Authentication failed. No authorization! Please try again!', 401
             )
         }
 
@@ -36,7 +36,7 @@ module.exports = (req, res, next) => {
     } catch (err) {
         // .split() worked, but the token is incorrect
         const error = new HttpError(
-            'Authentication failed. Please try again!', 401
+            'Authentication failed. IN ERROR BLOCK. Please try again!', 401
         )
     
         return next(error)

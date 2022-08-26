@@ -105,7 +105,7 @@ const AuthPage = () => {
     const formSubmitHandler = async event => {
         event.preventDefault()
 
-        console.log("Entered Form Submit")
+        // console.log("Entered Form Submit")
 
         // iterate over inputs and append to form data
         // conditional check for logging in or signing up to determine how many inputs to iterate over

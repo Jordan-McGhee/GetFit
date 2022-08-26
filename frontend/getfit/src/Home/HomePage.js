@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 
 // component imports
 import Button from "../Components/FormElements/Button"
@@ -11,8 +11,11 @@ import ErrorModal from "../Components/UIElements/ErrorModal"
 // hook imports
 import { useFetch } from "../Hooks/useFetch"
 import UpdateMainLiftModal from "./Components/MainLiftForm/UpdateMainLiftModal"
+import { AuthContext } from "../Context/auth-context"
 
 const HomePage = (props) => {
+
+    const auth = useContext(AuthContext)
 
     const [ loadedUser, setLoadedUser ] = useState(null)
     const [ loadedUserLifts, setLoadedUserLifts ] = useState({})
@@ -29,7 +32,16 @@ const HomePage = (props) => {
             
             try {
 
-                const responseData = await sendRequest(`http://localhost:5000`)
+                const responseData = await sendRequest(
+                    // URL
+                    `http://localhost:5000`,
+                    // METHOD
+                    'GET',
+                    // HEADERS
+                    {
+                        Authorization: 'Bearer ' + auth.token
+                    }
+                )
 
                 setLoadedUser(responseData.user)
                 setLoadedUserLifts(responseData.user.mainLiftMaxes)

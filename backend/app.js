@@ -51,7 +51,6 @@ app.use("/auth", authRoutes)
 
 // checks for user token before allowing anyone to access following routes/middleware
 app.use(checkAuth)
-
 app.use("/", homepageRoutes)
 app.use("/user", userRoutes)
 app.use("/workout", workoutRoutes)

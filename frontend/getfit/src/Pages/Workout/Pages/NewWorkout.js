@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { useFetch } from "../../../Hooks/useFetch"
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,12 @@ import Card from "../../../Components/UIElements/Card";
 import ExerciseInput from "../Components/ExerciseInput";
 import ErrorModal from "../../../Components/UIElements/ErrorModal";
 
+import { AuthContext } from "../../../Context/auth-context";
+
 const NewWorkout = () => {
+
+    // AUTH
+    const auth = useContext(AuthContext)
 
     // EXERCISE INPUT CODE
     // starting list of inputs for newWorkout form
@@ -123,7 +128,8 @@ const NewWorkout = () => {
                 "POST",
                 // HEADERS
                 {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token
                 },
                 // BODY
                 JSON.stringify({
