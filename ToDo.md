@@ -14,7 +14,7 @@ Backend
             ~ updateWorkout: add code block to validate logged in user is the workoutCreator
             ~ deleting workouts not removing from attached user
         - homepage-controllers
-            ~ update code for logged in user
+            ~ update code for logged in user --DONE
 
 Frontend
     - add a modal --DONE
@@ -37,6 +37,7 @@ Frontend
     - MODAL LIST:
         ~ discard changes/delete workout
         ~ when user wants to change their lifts
+        ~ alter MainLiftModal to update appropriately and useEffect maybe on HomePage to re-render when necessary?
 
     - AuthPage.js
         ~ add button to change between login/signup
@@ -70,6 +71,7 @@ Frontend
 
     - ALL FORMS
         ~ change number entry format
+        ~ Make sure all fetch requests have the token added
 
     - WorkoutsPage
         ~ Add sorting based on frequency, recency and something else maybe idk

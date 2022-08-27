@@ -8,6 +8,8 @@ const Workout = require("../models/workout-model")
 
 const createWorkout = async (req, res, next) => {
 
+    const { userID } = req.body.userData
+
     // looks into req object and checks for any validation errors that were picked up. Returns an object
     const errors = validationResult(req)
 
@@ -21,7 +23,7 @@ const createWorkout = async (req, res, next) => {
     let user
 
     try {
-        user = await User.findById("62df2accc886aa06f5636310")
+        user = await User.findById(userID)
     } catch(err) {
         console.log(`Error finding user: ${err}`)
         const error = new HttpError(

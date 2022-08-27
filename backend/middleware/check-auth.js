@@ -28,7 +28,7 @@ module.exports = (req, res, next) => {
         const decodedToken = jwt.verify(token, 'secret_key')
 
         // add our userID to the req body and can now be used in following middleware
-        req.userData = { userID: decodedToken.userID }
+        req.body.userData = { userID: decodedToken.userID }
         
         // call next and allow the request to continue through the rest of our API
         next();

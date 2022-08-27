@@ -66,17 +66,17 @@ const HomePage = (props) => {
     const closeMainLiftModalHandler = () => {
         setShowMainLiftModal(false)
 
-        // this function is runs every time the modal is opened, whether they update the lifts or not
-        // used to refresh the page after the user u
-        window.location.reload(false);
+        // // this function is runs every time the modal is opened, whether they update the lifts or not
+        // // used to refresh the page after the user u
+        // window.location.reload(false);
     }
 
     // FOOTER BUTTONS FOR LISTS ON HOME PAGE
     const workoutFooter = (
         <Button
             type = "button"
-            text = "View More"
-            link = {`/workout/all`}
+            text = { loadedWorkouts.length > 0 ? "View More" : "Create a Workout"}
+            link = {loadedWorkouts.length > 0 ? `/workout/all` : `/workout/create`}
         />
     )
 
@@ -109,8 +109,9 @@ const HomePage = (props) => {
             }
 
             <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter } className = "homepage-workouts-list">
+
+                { loadedWorkouts.length > 0 ? <WorkoutList workouts = { loadedWorkouts } /> : <p>You don't have any workouts yet. Add one?</p>}
                 
-                <WorkoutList workouts = { loadedWorkouts } />
             </Card>
 
             <Card header = { <h1>Your Main Lifts</h1> } footer = { mainLiftsFooter } className = "homepage-main-lifts-list">

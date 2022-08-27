@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
 import Modal from "../../../Components/UIElements/Modal"
 import Button from "../../../Components/FormElements/Button"
 import { useFetch } from "../../../Hooks/useFetch"
 import { useNavigate } from "react-router-dom"
 import MainLiftInputs from "./MainLiftInputs"
+import { AuthContext } from "../../../Context/auth-context"
 
 const UpdateMainLiftModal = (props) => {
+
+    const auth = useContext(AuthContext)
 
     const { hasError, sendRequest, clearError } = useFetch()
 
@@ -36,7 +39,8 @@ const UpdateMainLiftModal = (props) => {
                 "POST",
                 // HEADERS
                 {
-                    'Content-Type': "application/json"
+                    'Content-Type': "application/json",
+                    Authorization: 'Bearer ' + auth.token
                 },
                 // BODY
                 JSON.stringify({
@@ -52,8 +56,8 @@ const UpdateMainLiftModal = (props) => {
             console.log(`Error updating main lifts: ${err}`)
         }
         
-        { props.onCancel() }
-        navigate("/")
+        props.onCancel()
+        // navigate("/")
     }
 
     const footer = (
@@ -77,8 +81,8 @@ const UpdateMainLiftModal = (props) => {
             // footer = { footer }
             show = { props.show }
             onSubmit = { submitDeleteHandler }
-            // error = { hasError }
-            // clearError = { clearError }
+            error = { hasError }
+            clearError = { clearError }
         >
             {/* inputs for each part of userMainLifts */}
 

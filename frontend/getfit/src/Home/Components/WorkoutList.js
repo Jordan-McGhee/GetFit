@@ -1,7 +1,7 @@
 import React from "react"
 import WorkoutItem from "./WorkoutItem"
 
-const WorkoutsList = (props) => {
+const WorkoutList = (props) => {
 
     let workouts = props.workouts
 
@@ -24,4 +24,4 @@ const WorkoutsList = (props) => {
     )
 }
 
-export default WorkoutsList
+export default WorkoutList

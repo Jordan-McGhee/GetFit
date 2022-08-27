@@ -7,11 +7,14 @@ const Workout = require("../models/workout-model")
 
 const getHomePage = async (req, res, next) => {
 
-    // UPDATE CODE TO PULL DATA FOR LOGGED IN USER!!!!
+    const { userID } = req.body.userData
+
+    // console.log(req.body)
+
     let loggedInUser
 
     try {
-        loggedInUser = await User.findById("62df2accc886aa06f5636310")
+        loggedInUser = await User.findById(userID)
     } catch(err) {
         console.log(`Error finding user: ${err}`)
         return next(
@@ -21,11 +24,13 @@ const getHomePage = async (req, res, next) => {
         )
     }
 
-    // find workouts for the logged in user
     let workouts
+
+    // find workouts for the logged in user
 
     try {
         workouts = await Workout.find({ workoutCreator: loggedInUser._id})
+
     } catch(err) {
         console.log(`Error finding workouts for user. ${err}`)
         return next(
@@ -33,15 +38,11 @@ const getHomePage = async (req, res, next) => {
                 "Could not find workouts for this user. Please try again!", 500
             )
         )
-    }
-
-    if (!workouts) {
-        workouts = []
-    }
+        }
 
     // console.log("Reached backend HomePage route")
 
-    res.json({ message: "Found user and their workouts!", user: loggedInUser, workouts: workouts })
+    res.json({ message: "Found user and their workouts!", user: loggedInUser, workouts: workouts, mainLiftMaxes: loggedInUser.mainLiftMaxes })
 }
 
 exports.getHomePage = getHomePage
