@@ -142,8 +142,10 @@ const deleteWorkout = async (req, res, next) => {
 
     let workout
 
+    let workoutID = req.params.workoutID
+
     try {
-        workout = await Workout.findById(req.params.workoutID).populate("workoutCreator")
+        workout = await Workout.findById(workoutID).populate('workoutCreator')
     } catch(err) {
         console.log(`Error trying to find workout ${err}`)
         const error = new HttpError(
@@ -161,7 +163,6 @@ const deleteWorkout = async (req, res, next) => {
         return next(error)
     }
 
-    // console.log(`Workout Creator Workouts: ${workout.workoutCreator.workouts}`)
 
     try {
 

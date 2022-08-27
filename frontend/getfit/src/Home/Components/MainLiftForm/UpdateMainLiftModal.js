@@ -16,7 +16,7 @@ const UpdateMainLiftModal = (props) => {
 
     let navigate = useNavigate()
 
-    const submitDeleteHandler = async (event) => {
+    const submitUpdateHandler = async (event) => {
         event.preventDefault()
 
         console.log(event.target)
@@ -80,7 +80,7 @@ const UpdateMainLiftModal = (props) => {
             header = {`Update User Info`}
             // footer = { footer }
             show = { props.show }
-            onSubmit = { submitDeleteHandler }
+            onSubmit = { submitUpdateHandler }
             error = { hasError }
             clearError = { clearError }
         >

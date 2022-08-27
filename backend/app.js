@@ -48,7 +48,6 @@ app.use((req, res, next) => {
 
 
 app.use("/auth", authRoutes)
-
 // checks for user token before allowing anyone to access following routes/middleware
 app.use(checkAuth)
 app.use("/", homepageRoutes)
