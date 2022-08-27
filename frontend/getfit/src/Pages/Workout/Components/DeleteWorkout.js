@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import Modal from "../../../Components/UIElements/Modal"
 import Button from "../../../Components/FormElements/Button"
 import { useFetch } from "../../../Hooks/useFetch"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../../../Context/auth-context"
 
 const DeleteWorkout = (props) => {
+
+    const auth = useContext(AuthContext)
 
     const { hasError, sendRequest, clearError } = useFetch()
 
@@ -22,9 +25,11 @@ const DeleteWorkout = (props) => {
                 // URL
                 `http://localhost:5000/workout/${workout._id}`,
                 // METHOD
-                "DELETE"
+                "DELETE",
                 // HEADERS
-
+                {
+                    Authorization: 'Bearer ' + auth.token
+                }
                 // BODY
             )
         } catch(err) {
@@ -55,8 +60,8 @@ const DeleteWorkout = (props) => {
             header = {`Confirm Delete Workout`}
             footer = { footer }
             show = { props.show }
-            // error = { hasError }
-            // clearError = { clearError }
+            error = { hasError }
+            clearError = { clearError }
         >
             <p>Are you sure you want to delete <span>{workout.workoutTitle}</span>. This can't be undone.</p>
             
