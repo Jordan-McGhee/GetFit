@@ -27,6 +27,7 @@ Frontend
     - add an all workouts page to align with Navbar --DONE
     - 404 Not Found Page
     - modals for confirming delete/discard
+    - refreshing navigates back to home page. FIX
 
     - Input
         ~ Move validation to individual components that use the input? --DONE
@@ -80,3 +81,4 @@ Frontend
     - DeleteWorkout
         ~ Figure out how to close Modal and have Error Modal if there is one
         ~ change to ConfirmDelete/Discard? Use it for discarding a workout form?
+        ~ Make sure error modal pops up if there is an issue

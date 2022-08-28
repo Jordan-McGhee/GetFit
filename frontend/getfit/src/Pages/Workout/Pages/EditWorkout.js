@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useFetch } from "../../../Hooks/useFetch";
 
@@ -16,6 +16,8 @@ const EditWorkout = props => {
 
     // AUTH
     const auth = useContext(AuthContext)
+
+    let navigate = useNavigate()
 
     let exerciseInputs = []
 
@@ -77,6 +79,7 @@ const EditWorkout = props => {
     }
 
     const submitHandler = async (event) => {
+
         event.preventDefault()
 
         let target = event.target
@@ -146,7 +149,8 @@ const EditWorkout = props => {
                 "PATCH",
                 // HEADERS
                 {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token
                 },
                 // BODY
                 JSON.stringify({
@@ -158,6 +162,8 @@ const EditWorkout = props => {
             console.log("Error updating workout")
             console.log(err)
         }
+
+        navigate(`/workout/${workoutID}/view`)
     }
 
     return (

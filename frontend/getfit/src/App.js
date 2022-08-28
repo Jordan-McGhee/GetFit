@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import { Route, Routes, Navigate } from "react-router-dom"
 
 // COMPONENT IMPORTS
@@ -15,24 +15,13 @@ import NotFound from "./Pages/404 Not Found/NotFound";
 // CONTEXT
 import { AuthContext } from "./Context/auth-context";
 
+// AUTH HOOK
+import { useAuth } from "./Hooks/useAuth"
+
 function App() {
 
-    // manage whether we are logged in or not app-wide with useState
-    const [ token, setToken ] = useState(null)
-    const [ userID, setUserID ] = useState(null)
+  const { token, userID, login, logout } = useAuth()
 
-    // useCallback so these functions are only called once
-    const login = useCallback((uID, userToken) => {
-      setUserID(uID)
-      setToken(userToken)
-    }, [])
-    
-    const logout = useCallback(() => {
-      setUserID(null)
-      setToken(null)
-    }, [])
-
-    console.log(`Token: ${token}`)
 
   let routes
 
@@ -40,7 +29,7 @@ function App() {
     routes = (
       <Routes>
         <Route path="/" element={ <HomePage /> } />
-        {/* <Route path="/auth" element = { <AuthPage />} /> */}
+        <Route path="/auth" element = { <Navigate to ="/" replace = { true } />} />
         <Route path="/workout/all" element = { <WorkoutsPage /> } />
         <Route path="/workout/create" element = { <NewWorkout /> } />
         <Route path="/workout/:workoutID/view" element = { <ViewWorkout /> } />
