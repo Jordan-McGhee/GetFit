@@ -1,50 +1,50 @@
 Backend
     - Models:
-        ~ update user model to have body weight and lifts be an array? So we can potentially add charts to show change over time
+        <!-- ~ update user model to have body weight and lifts be an array? So we can potentially add charts to show change over time --DONE -->
         ~ add a routine model to hold multiple workouts?
 
-    - Controllers:
+    <!-- - Controllers: --DONE -->
         — user-controller:
-            ~ route to add mainlifts to newly created user --DONE
+            <!-- ~ route to add mainlifts to newly created user --DONE -->
         - auth-controller:
-            ~ add placeholder functions to create user & login --DONE
+            <!-- ~ add placeholder functions to create user & login --DONE -->
         - workout-controller:
-            ~ createWorkout: remove placeholder code to find user
-            ~ add ID to exercises --DONE
-            ~ updateWorkout: add code block to validate logged in user is the workoutCreator
-            ~ deleting workouts not removing from attached user
+            <!-- ~ createWorkout: remove placeholder code to find user --DONE -->
+            <!-- ~ add ID to exercises --DONE -->
+            <!-- ~ updateWorkout: add code block to validate logged in user is the workoutCreator --DONE -->
+            <!-- ~ deleting workouts not removing from attached user --DONE -->
         - homepage-controllers
-            ~ update code for logged in user --DONE
+            <!-- ~ update code for logged in user --DONE -->
 
 Frontend
     - add a modal --DONE
-    - conditional formatting for new account ("There's nothing here!")
-    - Add all pages and routes to app.js --DONE
-    - Router not directing to NewWorkout.js Fix this!!!! --DONE
-        ~ issue is with input component --DONE
-    - add LoadingSpinner --DONE
+    <!-- - conditional formatting for new account ("There's nothing here!") --DONE -->
+    <!-- - Add all pages and routes to app.js --DONE -->
+    <!-- - Router not directing to NewWorkout.js Fix this!!!! --DONE -->
+        <!-- ~ issue is with input component --DONE -->
+    <!-- - add LoadingSpinner --DONE -->
     - Update routes with .env variable
-    - add an all workouts page to align with Navbar --DONE
-    - 404 Not Found Page
-    - modals for confirming delete/discard
+    <!-- - add an all workouts page to align with Navbar --DONE -->
+    <!-- - 404 Not Found Page --DONE -->
+    <!-- - modals for confirming delete/discard --DONE -->
     - refreshing navigates back to home page. FIX
 
     - Input
-        ~ Move validation to individual components that use the input? --DONE
+        <!-- ~ Move validation to individual components that use the input? --DONE -->
 
     - CARD
-        ~ Add a footer for buttons --DONE
+        <!-- ~ Add a footer for buttons --DONE -->
 
     - MODAL LIST:
         ~ discard changes/delete workout
-        ~ when user wants to change their lifts
-        ~ alter MainLiftModal to update appropriately and useEffect maybe on HomePage to re-render when necessary?
+        <!-- ~ when user wants to change their lifts --DONE -->
+        <!-- ~ alter MainLiftModal to update appropriately and useEffect maybe on HomePage to re-render when necessary? --DONE -->
 
     - AuthPage.js
-        ~ add button to change between login/signup
+        <!-- ~ add button to change between login/signup --DONE -->
 
     - NewWorkout.js
-        ~ redirect to view workout page after creating workout
+        <!-- ~ redirect to view workout page after creating workout --DONE -->
         ~ change form to not allow submission if there are any errors
         ~ change add another exercise button to disabled if previous inputs have errors
         ~ add remove exercise button conditionally if there are at least 3 exercises
@@ -56,7 +56,7 @@ Frontend
         ~ add ability to add/remove more inputs in the edit
 
     - ViewWorkout.js
-        ~ update code to include loading spinner and errors
+        ~ update code to include loading spinner and errors --DONE
 
     - ExerciseInput.js
         ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database --DONE

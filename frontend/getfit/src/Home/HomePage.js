@@ -65,10 +65,10 @@ const HomePage = (props) => {
 
     const closeMainLiftModalHandler = () => {
         setShowMainLiftModal(false)
+    }
 
-        // // this function is runs every time the modal is opened, whether they update the lifts or not
-        // // used to refresh the page after the user u
-        // window.location.reload(false);
+    const updateMainLiftsHandler = (data) => {
+        setLoadedUserLifts(data)
     }
 
     // FOOTER BUTTONS FOR LISTS ON HOME PAGE
@@ -103,8 +103,10 @@ const HomePage = (props) => {
                 showMainLiftModal &&
                 <UpdateMainLiftModal
                     user = { loadedUser }
+                    mainLifts = { loadedUserLifts }
                     show = { showMainLiftModal }
                     onCancel = { closeMainLiftModalHandler }
+                    onUpdate = { updateMainLiftsHandler }
                 />
             }
 

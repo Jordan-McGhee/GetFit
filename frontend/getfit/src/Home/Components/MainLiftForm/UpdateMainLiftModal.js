@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import Modal from "../../../Components/UIElements/Modal"
 import Button from "../../../Components/FormElements/Button"
 import { useFetch } from "../../../Hooks/useFetch"
-import { useNavigate } from "react-router-dom"
 import MainLiftInputs from "./MainLiftInputs"
 import { AuthContext } from "../../../Context/auth-context"
 
@@ -13,14 +12,10 @@ const UpdateMainLiftModal = (props) => {
     const { hasError, sendRequest, clearError } = useFetch()
 
     const user = props.user
-
-    let navigate = useNavigate()
+    const mainLifts = props.mainLifts
 
     const submitUpdateHandler = async (event) => {
         event.preventDefault()
-
-        console.log(event.target)
-        console.log(`Length of Target: ${event.target.length}`)
 
         const formData = {
             age: event.target[0].value,
@@ -28,7 +23,14 @@ const UpdateMainLiftModal = (props) => {
             benchPress: event.target[2].value,
             squat: event.target[3].value,
             deadlift: event.target[4].value,
-            overHeadPress: event.target[5].value,
+            overHeadPress: event.target[5].value
+        }
+
+        const mainLiftMaxes = {
+            benchPress: event.target[2].value,
+            squat: event.target[3].value,
+            deadlift: event.target[4].value,
+            overHeadPress: event.target[5].value
         }
 
         try {
@@ -56,8 +58,8 @@ const UpdateMainLiftModal = (props) => {
             console.log(`Error updating main lifts: ${err}`)
         }
         
+        props.onUpdate(mainLiftMaxes)
         props.onCancel()
-        // navigate("/")
     }
 
     const footer = (
@@ -86,7 +88,7 @@ const UpdateMainLiftModal = (props) => {
         >
             {/* inputs for each part of userMainLifts */}
 
-            <MainLiftInputs user = { user } />
+            <MainLiftInputs user = { user } mainLifts = { mainLifts } />
 
             <footer>
                 <Button

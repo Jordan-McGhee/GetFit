@@ -5,7 +5,7 @@ import Input from "../../../Components/FormElements/Input";
 const MainLiftInputs = (props) => {
 
     const user = props.user
-    const mainLifts = user.mainLiftMaxes
+    const mainLifts = props.mainLifts
 
     return (
         <div>
