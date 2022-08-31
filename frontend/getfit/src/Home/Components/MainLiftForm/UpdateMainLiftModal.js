@@ -59,7 +59,6 @@ const UpdateMainLiftModal = (props) => {
         }
         
         props.onUpdate(mainLiftMaxes)
-        props.onCancel()
     }
 
     const footer = (

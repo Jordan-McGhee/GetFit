@@ -52,6 +52,7 @@ const NewWorkout = () => {
     }
 
 
+    // FETCH CODE
     const { hasError, sendRequest, clearError } = useFetch()
 
     const submitHandler = async (event) => {
@@ -167,10 +168,10 @@ const NewWorkout = () => {
             <Button 
                 type = "submit"
                 text = "Create Workout"
+                // disabled
             />
         </div>
     )
-
 
     return (
         

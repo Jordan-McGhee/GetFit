@@ -69,6 +69,7 @@ const HomePage = (props) => {
 
     const updateMainLiftsHandler = (data) => {
         setLoadedUserLifts(data)
+        setShowMainLiftModal(false)
     }
 
     // FOOTER BUTTONS FOR LISTS ON HOME PAGE

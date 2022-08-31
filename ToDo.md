@@ -48,7 +48,7 @@ Frontend
         ~ change form to not allow submission if there are any errors
         ~ change add another exercise button to disabled if previous inputs have errors
         ~ add remove exercise button conditionally if there are at least 3 exercises
-        ~ add form submission and work on passing values to backend/database
+        <!-- ~ add form submission and work on passing values to backend/database --DONE -->
 
     - EditWorkout.js
         ~ fix form to be able to change values and save changes
@@ -65,14 +65,14 @@ Frontend
     - HomePage.js
         ~ fix fetch hook to communicate to backend --DONE
         ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component --DONE
-        ~ modal pop-up to update user's main lifts list
-        ~ add dropdown for exercises to show each one
-        ~ maybe refactor closeMainLiftModalHandler to refresh the page differently?
+        ~ modal pop-up to update user's main lifts list --DONE
+        ~ add dropdown for exercises to show each one 
+        ~ maybe refactor closeMainLiftModalHandler to refresh the page differently? --DONE
         ~ modal make age a date instead of number entry
 
     - ALL FORMS
         ~ change number entry format
-        ~ Make sure all fetch requests have the token added
+        ~ Make sure all fetch requests have the token added --DONE
 
     - WorkoutsPage
         ~ Add sorting based on frequency, recency and something else maybe idk
@@ -80,5 +80,5 @@ Frontend
 
     - DeleteWorkout
         ~ Figure out how to close Modal and have Error Modal if there is one
-        ~ change to ConfirmDelete/Discard? Use it for discarding a workout form?
-        ~ Make sure error modal pops up if there is an issue
+        ~ change to ConfirmDelete/Discard? Use it for discarding a workout form? --DONE
+        ~ Make sure error modal pops up if there is an issue --DONE
