@@ -142,7 +142,7 @@ const NewWorkout = () => {
         } catch(err) {
 
         }
-
+        
         // reset form inputs after
         setExerciseInputsList(exerciseInputs)
         setInputCount(1)
