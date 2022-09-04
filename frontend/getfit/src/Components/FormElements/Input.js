@@ -6,7 +6,7 @@ const Input = props => {
 
     const [ inputTouched, setInputTouched ] = useState(false)
 
-    const inputIsValid = inputValue !== "" && inputValue !== 0
+    const inputIsValid = inputValue !== "" && inputValue !== 0 && inputTouched
 
     const inputHasError = !inputIsValid && inputTouched
 
@@ -29,6 +29,7 @@ const Input = props => {
             onChange = { changeHandler }
             onBlur = { blurHandler }
             value = { inputValue }
+            isValid = { inputIsValid }
             // value = { props.value || inputValue } ?? 
         />
 
