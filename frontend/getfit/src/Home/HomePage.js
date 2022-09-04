@@ -76,7 +76,7 @@ const HomePage = (props) => {
     const workoutFooter = (
         <Button
             type = "button"
-            text = { loadedWorkouts.length > 0 ? "View More" : "Create a Workout"}
+            text = { loadedWorkouts.length > 0 ? "View All Workouts" : "Create a Workout"}
             link = {loadedWorkouts.length > 0 ? `/workout/all` : `/workout/create`}
         />
     )

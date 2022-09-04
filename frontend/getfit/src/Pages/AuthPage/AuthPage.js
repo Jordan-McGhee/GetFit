@@ -4,6 +4,7 @@ import Input from "../../Components/FormElements/Input";
 import Button from "../../Components/FormElements/Button";
 import Card from "../../Components/UIElements/Card";
 import ErrorModal from "../../Components/UIElements/ErrorModal";
+import LoadingSpinner from "../../Components/UIElements/LoadingSpinner";
 
 import { useFetch } from "../../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +21,7 @@ const AuthPage = () => {
     // signup and login forms
     
     const [ isLoggingIn, setIsLoggingIn ] = useState(false)
-    const { hasError, sendRequest, clearError } = useFetch()
+    const { isLoading, hasError, sendRequest, clearError } = useFetch()
 
     const changeLoginHandler = () => {
         if (isLoggingIn) {
@@ -185,6 +186,11 @@ const AuthPage = () => {
         <React.Fragment>
 
             <ErrorModal error = { hasError } onClear = { clearError } />
+
+            { 
+                isLoading &&
+                <LoadingSpinner asOverlay />
+            }
 
             <form onSubmit={ formSubmitHandler }>
                 <Card

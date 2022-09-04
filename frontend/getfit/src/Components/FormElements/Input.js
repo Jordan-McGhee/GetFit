@@ -29,7 +29,7 @@ const Input = props => {
             onChange = { changeHandler }
             onBlur = { blurHandler }
             value = { inputValue }
-            isValid = { inputIsValid }
+            // isValid = { inputIsValid }
             // value = { props.value || inputValue } ?? 
         />
 
