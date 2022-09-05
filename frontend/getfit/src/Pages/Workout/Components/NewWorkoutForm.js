@@ -1,17 +1,14 @@
-import React, { useState, useContext } from "react";
-
-import { useFetch } from "../../../Hooks/useFetch"
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 import Button from "../../../Components/FormElements/Button";
-import Input from "../../../Components/FormElements/Input";
 import Card from "../../../Components/UIElements/Card";
-import ExerciseInput from "../Components/ExerciseInput";
-import ErrorModal from "../../../Components/UIElements/ErrorModal";
+import Input from "../../../Components/FormElements/Input";
+import ExerciseInput from "./ExerciseInput";
 
 import { AuthContext } from "../../../Context/auth-context";
+import { useFetch } from "../../../Hooks/useFetch";
 
-const NewWorkout = () => {
+const NewWorkoutForm = (props) => {
 
     // AUTH
     const auth = useContext(AuthContext)
@@ -24,23 +21,32 @@ const NewWorkout = () => {
         <ExerciseInput inputNumber = { 3 } key = { 3 } />
     ]
 
-    // states to update the array of exerciseInputs and input counter to pass via props to individual imports
+    // STATES
     const [ exerciseInputsList, setExerciseInputsList ] = useState(exerciseInputs)
-    const [ inputCount, setInputCount ] = useState(1)
+    const [ inputCount, setInputCount ] = useState(0)
+    const [ formIsValid, setFormIsValid ] = useState(false)
 
-    // newInput to push to inputs array
-    let newInput =
+    let newInput = 
         <ExerciseInput
-            inputNumber = { exerciseInputs.length + inputCount }
-            key = { exerciseInputs.length + inputCount }
+            inputNumber = { exerciseInputs.length + inputCount + 1}
+            key = { exerciseInputs.length + inputCount + 1}
         />
 
     // addInput handler function
     const addExerciseInput = () => {
         setExerciseInputsList([ ...exerciseInputsList, newInput ])
         setInputCount(inputCount + 1)
-        console.log(exerciseInputsList)
     }
+
+    const removeExerciseInput = () => {
+        setExerciseInputsList((prevExerciseInputsList) => {
+            prevExerciseInputsList.pop()
+
+            return prevExerciseInputsList
+        })
+        setInputCount(inputCount - 1)
+    }
+
 
     // NAVIGATION CODE
     // state will grab the newly created workout's ID and we can use navigate to redirect to the view page upon creation
@@ -168,45 +174,18 @@ const NewWorkout = () => {
             <Button 
                 type = "submit"
                 text = "Create Workout"
-                disabled
+                // disabled
             />
         </div>
     )
 
     return (
-        
-        <React.Fragment>
+        <form>
+            <Card>
 
-            <ErrorModal error = { hasError } onClear = { clearError } />
-
-            <form onSubmit={ submitHandler }>
-
-                <Card header = {"New Workout"} footer = { newWorkoutFooter }>
-
-                        <Input
-                            id = "workoutTitle"
-                            label = "Workout Title"
-                            type = "text"
-                            placeholder = "Enter a title."
-                            errorText = "Please enter a title!"
-                        />
-
-                        { exerciseInputsList }
-                        
-                        { exerciseInputsList.length < 10 &&
-                            <Button
-                                type = "button"
-                                onClick = { addExerciseInput }
-                                text = "Add Another Exercise"
-                            />
-                        }
-
-                </Card>
-
-            </form>
-
-        </React.Fragment>
+            </Card>
+        </form>
     )
 }
 
-export default NewWorkout
+export default NewWorkoutForm
