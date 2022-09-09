@@ -29,18 +29,19 @@ const Input = props => {
             onChange = { changeHandler }
             onBlur = { blurHandler }
             value = { inputValue }
+            className = { inputHasError && 'border border-red-600'} 
             // isValid = { inputIsValid }
             // value = { props.value || inputValue } ?? 
         />
 
     return (
-        <div className="">
-            <label htmlFor={ props.id } name = { props.id}>
+        <div className="flex">
+            <label htmlFor={ props.id } name = { props.id} className = "text-lg font-semibold mr-4">
                 { props.label }
             </label>
             
             { element }
-            { inputHasError && <p>{ props.errorText }</p> }
+            { inputHasError && <p className="text-red-700">{ props.errorText }</p> }
         </div>
     )
 }

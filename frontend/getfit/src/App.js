@@ -58,6 +58,7 @@ function App() {
         login: login,
         logout: logout
       } }
+      className = 'text-gray-3'
     >
       <MainNav />
       { routes }

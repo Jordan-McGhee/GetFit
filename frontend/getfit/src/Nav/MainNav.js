@@ -14,7 +14,7 @@ const MainNav = () => {
             <header className="nav-header">
                 <div className="nav-content">
                     <NavLink to="/">
-                        <h1>GetFit</h1>
+                        <h1 className="text-4xl font-bold">GetFit</h1>
                     </NavLink>
     
                     <nav>

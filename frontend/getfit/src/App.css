@@ -4,7 +4,6 @@ ul, li {
 
 * {
   margin: 0%;
-  /* border: 0px; */
   padding: 0;
 }
 
@@ -18,10 +17,6 @@ a:visited {
 }
 
 /* NAVBAR STYLING */
-
-.nav-header {
-  border-bottom: 1px solid black;
-}
 
 .nav-content {
   display: flex;

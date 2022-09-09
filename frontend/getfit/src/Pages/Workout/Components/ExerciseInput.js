@@ -5,7 +5,7 @@ import Input from "../../../Components/FormElements/Input";
 const ExerciseInput = props => {
     return (
 
-        <div>
+        <div className="flex">
 
             <Input
                 id = {`exercise${props.inputNumber}-name`}
