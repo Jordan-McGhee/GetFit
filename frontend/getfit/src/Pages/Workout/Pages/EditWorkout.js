@@ -78,10 +78,13 @@ const EditWorkout = props => {
         setInputCount(inputCount + 1)
     }
 
+    const [ formHasErrors, setFormHasErrors ] = useState(false)
+
     const submitHandler = async (event) => {
 
         event.preventDefault()
 
+        let errors = []
         let target = event.target
 
         // similar code to what's in NewWorkout
@@ -101,24 +104,27 @@ const EditWorkout = props => {
             exercises: []
         }
 
-        formData.workoutTitle = target[0].value
+        target[0].value ? formData.workoutTitle = target[0].value : errors.push('Please enter a title for your workout!')
+
+        // variable to track which exercise we are inputting
+        let count = 1
 
         for (let i = 1; i < target.length-3; i++) {
             // first input for exercise
             if (i%4 === 1) {
-                exercise.exerciseName = target[i].value
+                target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter a name for exercise ${count}!`)
                 // console.log(`Exercise Title: ${target[i].value} index: ${i}`)
             // second input
             } else if (i%4 === 2) {
-                exercise.sets = target[i].value
+                target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter the set count for exercise ${count}!`)
                 // console.log(`Exercise Sets: ${target[i].value} index: ${i}`)
             // third input
             } else if (i%4 === 3) {
-                exercise.reps = target[i].value
+                target[i].value ? exercise.reps = target[i].value : errors.push(`Please enter the rep count for exercise ${count}!`)
                 // console.log(`Exercise Reps: ${target[i].value} index: ${i}`)
             // last input, push to exercise array and reset exercise object
             } else {
-                exercise.weightUsed.push(target[i].value)
+                target[i].value ? exercise.weightUsed.push(target[i].value) : errors.push(`Please enter the weight you used for exercise ${count}!`)
                 // console.log(`Exercise Weight Used: ${exercise.weightUsed} index: ${i}`)
                 // console.log(`Full Exercise:
                 //     ${exercise.exerciseName}
@@ -129,6 +135,7 @@ const EditWorkout = props => {
 
                 // Add newly created exercise to array in formData object
                 formData.exercises.push(exercise)
+                count++
 
                 // reset exercise variable. Only really necessary for the weightUsed array
                 exercise = {
@@ -138,6 +145,14 @@ const EditWorkout = props => {
                     weightUsed: []
                 }
             }
+        }
+
+        // if there are any errors, prevent form submission
+        if (errors.length > 0) {
+            // console.log(errors)
+            setFormHasErrors(true)
+            // console.log(formHasErrors)
+            return
         }
 
         // send request to backend to update
@@ -166,6 +181,10 @@ const EditWorkout = props => {
         navigate(`/workout/${workoutID}/view`)
     }
 
+    const clearFormErrorHandler = () => {
+        setFormHasErrors(false)
+    }
+
     return (
 
         <React.Fragment>
@@ -178,7 +197,13 @@ const EditWorkout = props => {
             </div>
         }
 
+            { 
+                !isLoading && formHasErrors &&
+                <ErrorModal error = { 'Could not update workout! Please make sure the form is filled out correctly.' } onClear = { clearFormErrorHandler }/>
+            }
+
             { !isLoading && loadedWorkout && (
+                
                 <Card header = { <h2>Edit Workout: {loadedWorkout.workoutTitle}</h2>}>
                     <form onSubmit={ submitHandler }>
 

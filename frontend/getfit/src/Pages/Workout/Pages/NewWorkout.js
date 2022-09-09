@@ -51,12 +51,16 @@ const NewWorkout = () => {
         navigate(-1)
     }
 
-
     // FETCH CODE
     const { hasError, sendRequest, clearError } = useFetch()
 
+    // errors in the form, will add to this array and prevent form submission if there are any
+    const [ formHasErrors, setFormHasErrors ] = useState(false)
+
     const submitHandler = async (event) => {
         event.preventDefault()
+
+        let errors = []
 
         let target = event.target
 
@@ -78,25 +82,36 @@ const NewWorkout = () => {
         // grab first input value for workout title
         // loop over exercise inputs and add them to exercise object
         // push newly created exercise object into formData.exercises array and reset as I iterate
+        
+        target[0].value ? formData.workoutTitle = target[0].value : errors.push('Please enter a title for your workout!')
 
-        formData.workoutTitle = target[0].value
+        // variable to track which exercise we are inputting
+        let count = 1
 
         for (let i = 1; i < target.length-3; i++ ) {
             // first input for exercise
             if (i%4 === 1) {
-                exercise.exerciseName = target[i].value
+                target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter a name for exercise ${count}!`)
+
+                // exercise.exerciseName = target[i].value
                 // console.log(`Exercise Title: ${target[i].value}`)
             // second input
             } else if (i%4 === 2) {
-                exercise.sets = target[i].value
+                target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter the set count for exercise ${count}!`)
+
+                // exercise.sets = target[i].value
                 // console.log(`Exercise Sets: ${target[i].value}`)
             // third input
             } else if (i%4 === 3) {
-                exercise.reps = target[i].value
+                target[i].value ? exercise.reps = target[i].value : errors.push(`Please enter the rep count for exercise ${count}!`)
+
+                // exercise.reps = target[i].value
                 // console.log(`Exercise Reps: ${target[i].value}`)
             // last input, push to exercise array and reset exercise object
             } else {
-                exercise.weightUsed.push(target[i].value)
+                target[i].value ? exercise.weightUsed.push(target[i].value) : errors.push(`Please enter the weight you used for exercise ${count}!`)
+
+                // exercise.weightUsed.push(target[i].value)
                 // console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
                 // console.log(`Full Exercise:
                 //     ${exercise.exerciseName}
@@ -107,6 +122,7 @@ const NewWorkout = () => {
 
                 // Add newly created exercise to array in formData object
                 formData.exercises.push(exercise)
+                count++
 
                 // reset exercise variable. Only really necessary for the weightUsed array
                 exercise = {
@@ -116,6 +132,14 @@ const NewWorkout = () => {
                     weightUsed: []
                 }
             }
+        }
+
+        // if there are any errors, prevent form submission
+        if (errors.length > 0) {
+            // console.log(errors)
+            setFormHasErrors(true)
+            // console.log(formHasErrors)
+            return
         }
 
         let responseData
@@ -156,6 +180,11 @@ const NewWorkout = () => {
         setTimeout(navigateHandler, 500)
     }
 
+    const clearFormErrorHandler = () => {
+        setFormHasErrors(false)
+    }
+
+
     // footer for form card
     const newWorkoutFooter = (
         <div>
@@ -178,6 +207,12 @@ const NewWorkout = () => {
         <React.Fragment>
 
             <ErrorModal error = { hasError } onClear = { clearError } />
+
+            { 
+                formHasErrors &&
+                <ErrorModal error = { 'Could not create workout! Please make sure the form is filled out correctly.' } onClear = { clearFormErrorHandler }/>
+            }
+            
 
             <form onSubmit={ submitHandler }>
 
