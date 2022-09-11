@@ -80,6 +80,7 @@ const ViewWorkout = props => {
                 link = {`/workout/${workoutID}/edit`}
                 type = "text"
                 text = "Edit Workout"
+                className = "bg-red-600"
             />
         </div>
     )

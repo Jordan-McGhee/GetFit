@@ -15,7 +15,7 @@ const Button = props => {
         )
     } else {
         return (
-            <button className="button border border-gray-1 rounded-md shadow hover:cursor-pointer" style={ props.style } type = { props.type } onClick = { props.onClick }>
+            <button className="button border border-gray-1 rounded-md shadow hover:cursor-pointer m-1" style={ props.style } type = { props.type } onClick = { props.onClick }>
                 { props.text }
             </button>
         )

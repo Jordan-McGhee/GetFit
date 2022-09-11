@@ -8,7 +8,7 @@ const Card = props => {
 
     if ( props.header ) {
         header = 
-            <header>
+            <header className='font-bold text-lg'>
             { props.header }
             </header>
     }
