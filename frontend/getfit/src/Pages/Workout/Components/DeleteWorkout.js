@@ -51,6 +51,7 @@ const DeleteWorkout = (props) => {
                 text = "Delete"
                 type = "submit"
                 onClick = { submitDeleteHandler }
+                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer m-1"
             />
         </div>
     )

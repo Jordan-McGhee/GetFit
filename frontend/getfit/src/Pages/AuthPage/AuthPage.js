@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../Context/auth-context";
 
+import "./AuthPage.css"
+
 const AuthPage = () => {
 
     // import our context in order to update it upon signing in/logging up
@@ -67,7 +69,7 @@ const AuthPage = () => {
                     type = "text"
                     label = "First Name"
                     placeholder = "Enter your first name"
-                    errorText = "Name can't be blank!"
+                    errorText = "First name can't be blank!"
                 />
                 
                 {/* last name */}
@@ -76,7 +78,7 @@ const AuthPage = () => {
                     type = "text"
                     label = "Last Name"
                     placeholder = "Enter your last name"
-                    errorText = "Name can't be blank!"
+                    errorText = "Last name can't be blank!"
                 />
 
                 {/* email */}
@@ -183,7 +185,7 @@ const AuthPage = () => {
     )
 
     return (
-        <React.Fragment>
+        <div className = "max-w-lg auth-form flex-auto">
 
             <ErrorModal error = { hasError } onClear = { clearError } />
 
@@ -203,7 +205,7 @@ const AuthPage = () => {
                 </Card>
             </form>
 
-        </React.Fragment>
+        </div>
     )
 
 }

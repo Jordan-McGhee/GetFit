@@ -19,6 +19,7 @@ const Input = props => {
         setInputTouched(true)
     }
 
+    // const inputClasses = (inputHasError && 'border border-red-600')
 
 
     const element = 
@@ -29,19 +30,19 @@ const Input = props => {
             onChange = { changeHandler }
             onBlur = { blurHandler }
             value = { inputValue }
-            className = { inputHasError && 'border border-red-600'} 
+            className = { 'appearance-none block w-full max-w-2xl bg-white text-black border rounded p-3 my-3 leading-tight focus:outline-none focus:bg-white' } 
             // isValid = { inputIsValid }
             // value = { props.value || inputValue } ?? 
         />
 
     return (
-        <div className="flex">
-            <label htmlFor={ props.id } name = { props.id} className = "text-lg font-semibold mr-4">
+        <div className="">
+            <label htmlFor={ props.id } name = { props.id} className = "text-lg font-semibold mr-4 block uppercase tracking-wide">
                 { props.label }
             </label>
             
             { element }
-            { inputHasError && <p className="text-red-700">{ props.errorText }</p> }
+            { inputHasError && <p className="text-red-700 text-s italic">{ props.errorText }</p> }
         </div>
     )
 }

@@ -248,6 +248,7 @@ const EditWorkout = props => {
                                 link = {`/workout/${workoutID}/view`}
                                 type = "text"
                                 text = "Discard Changes"
+                                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer m-1"
                             />
                             <Button
                                 type = "submit"

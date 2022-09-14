@@ -75,12 +75,12 @@ const ViewWorkout = props => {
                 type = "text"
                 text = "Delete Workout"
                 onClick = { showDeleteModalHandler }
+                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer m-1"
             />
             <Button
                 link = {`/workout/${workoutID}/edit`}
                 type = "text"
                 text = "Edit Workout"
-                className = "bg-red-600"
             />
         </div>
     )
