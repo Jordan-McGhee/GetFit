@@ -13,7 +13,7 @@ const ErrorModal = props => {
                 <Button
                     type = "button"
                     text = "Okay"
-                    onClick={props.onClear}
+                    onClick={ props.onClear }
                 />
             }
         >

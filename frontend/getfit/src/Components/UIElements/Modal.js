@@ -36,9 +36,9 @@ const ModalOverlay = props => {
 
     const content = (
         <Card
-            className= { `modal ${props.className}` }
+            className= { `modal ${props.className} flex flex-col p-6 rounded-lg my-2 border border-gray-2 bg-white scale-90 m-auto max-w-lg` }
             // className = 'flex flex-col p-6 rounded-lg my-2 border border-gray-2'
-            style={ props.style }
+            // style={ props.style }
             header = { header }
             footer = { footer }
         >
@@ -46,9 +46,11 @@ const ModalOverlay = props => {
             <form onSubmit={ props.onSubmit ? props.onSubmit : event => event.preventDefault() }>
 
                 {/* form content passed in via props */}
-                <div className={ `modal__content ${ props.contentClass}`}>
+                {/* <div className={ `modal__content ${ props.contentClass}`}>
                     { props.children}
-                </div>
+                </div> */}
+
+                { props.children}
 
             </form>
             

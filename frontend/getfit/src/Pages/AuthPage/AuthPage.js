@@ -205,7 +205,7 @@ const AuthPage = () => {
                         { loginForm }
 
                     <p className = 'my-2'
-                    onClick = { changeLoginHandler }>{ isLoggingIn ? "Need an account?" : "Already have an account?"} <span className="italic underline hover:cursor-pointer">Click here.</span></p>
+                    onClick = { changeLoginHandler }>{ isLoggingIn ? "Need an account?" : "Already have an account?"} <span className="italic border-b-2 hover:cursor-pointer">Click here</span>.</p>
                 </Card>
             </form>
 
