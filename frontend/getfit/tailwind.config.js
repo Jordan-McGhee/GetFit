@@ -15,8 +15,6 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms')({
-    //   strategy: 'solid'
-    // })
+    require('@tailwindcss/forms')
   ]
 }

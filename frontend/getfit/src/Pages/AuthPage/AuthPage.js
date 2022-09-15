@@ -180,12 +180,13 @@ const AuthPage = () => {
                 type = "submit"
                 text = { isLoggingIn ? "Log In" : "Sign Up"}
                 disabled = { formIsValid }
+                className = "ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer"
             />
     </div>
     )
 
     return (
-        <div className = "max-w-lg auth-form flex-auto">
+        <div className = "max-w-lg auth-form flex-auto shadow-xl shadow-gray-1">
 
             <ErrorModal error = { hasError } onClear = { clearError } />
 
@@ -198,6 +199,7 @@ const AuthPage = () => {
                 <Card
                     header = { isLoggingIn ? "Log In" : "Create Account"}
                     footer = { cardFooter }
+                    // className = "flex flex-col p-6 rounded-lg m-2"
                 >
 
                         { loginForm }

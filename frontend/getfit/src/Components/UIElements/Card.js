@@ -8,20 +8,20 @@ const Card = props => {
 
     if ( props.header ) {
         header = 
-            <header className='font-bold text-lg'>
+            <header className= { props.className || 'font-bold text-3xl border-b-2 mb-4 py-2 '}>
             { props.header }
             </header>
     }
 
     if ( props.footer ) {
         footer = 
-            <footer>
+            <footer className='flex justify-end mt-3 rounded-b-lg'>
                 { props.footer }
             </footer>
     }
 
     return(
-        <div className={`card ${props.className}`} style={props.style}>
+        <div className={ props.className || `flex flex-col p-6 rounded-lg my-2 border border-gray-2`} style={props.style}>
             
             { header ? header : null }
 

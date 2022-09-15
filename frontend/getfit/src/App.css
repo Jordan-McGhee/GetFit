@@ -18,42 +18,49 @@ a:visited {
 
 /* NAVBAR STYLING */
 
-.nav-content {
+/* .nav-header {
+  background-color: azure;
+  min-height: 3rem;
+} */
+
+/* .nav-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 96%;
   height: 6rem;
   margin: auto;
-}
+} */
 
-.nav-content nav ul {
+/* .nav-content nav ul {
   display: flex;
-}
+} */
 
-.nav-content nav ul li {
+/* .nav-content nav ul li {
   margin-left: 2rem;
   font-size: large;
-}
+} */
 
-.nav-content nav ul li:hover {
+/* .nav-content nav ul li:hover {
   transform: scale(1.1);
   cursor: pointer;
-}
+} */
 
 
-/* HOMEPAGE STYLING */
+/* HOMEPAGE STYLING
 .homepage-container {
   display: flex;
   width: 98%;
   margin: auto;
-  /* border: 1px solid red; */
-}
+  border: 1px solid red;
+} */
 
+/*
 .homepage-workouts-list {
   width: 70%;
-}
+} */
 
+/*
 .homepage-main-lifts-list {
   width: 25%;
-}
+} */
