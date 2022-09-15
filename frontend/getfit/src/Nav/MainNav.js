@@ -48,7 +48,7 @@ const MainNav = () => {
         )
     } else {
         navLinks = (
-            <header className="bg-gray-3 p-6 flex mb-4">
+            <header className="bg-gray-3 p-6 flex">
                 <h1 className="text-4xl font-bold m-auto">GetFit</h1>
             </header>
         )

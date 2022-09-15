@@ -42,7 +42,7 @@ const Input = props => {
             </label>
             
             { element }
-            { inputHasError && <p className="text-red-700 text-s italic">{ props.errorText }</p> }
+            { inputHasError && <p className="text-red-700 text-s italic mt-.5">{ props.errorText }</p> }
         </div>
     )
 }

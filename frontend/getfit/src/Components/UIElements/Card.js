@@ -15,13 +15,13 @@ const Card = props => {
 
     if ( props.footer ) {
         footer = 
-            <footer className='flex justify-end mt-3 rounded-b-lg'>
+            <footer className='flex justify-end mt-3 shrink border-top-2'>
                 { props.footer }
             </footer>
     }
 
     return(
-        <div className={ props.className || `flex flex-col p-6 rounded-lg my-2 border border-gray-2`} style={props.style}>
+        <div className={ props.className || `flex flex-col p-6 rounded-lg my-2 border border-gray-2 bg-white`} style={props.style}>
             
             { header ? header : null }
 

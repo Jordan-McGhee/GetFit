@@ -197,7 +197,7 @@ const NewWorkout = () => {
             <Button 
                 type = "submit"
                 text = "Create Workout"
-                disabled
+                className = 'ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer'
             />
         </div>
     )
@@ -233,6 +233,7 @@ const NewWorkout = () => {
                                 type = "button"
                                 onClick = { addExerciseInput }
                                 text = "Add Another Exercise"
+                                className = 'max-w-xs button border border-gray-1 rounded-md shadow hover:cursor-pointer'
                             />
                         }
 

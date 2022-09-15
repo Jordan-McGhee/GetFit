@@ -28,7 +28,7 @@ const MainLiftList = (props) => {
 
     return (
         <div>
-            <ul>
+            <ul className="flex overflow-x-auto">
                 { items }
             </ul>
         </div>

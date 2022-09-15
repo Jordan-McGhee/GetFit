@@ -16,7 +16,10 @@ const MainLiftItem = (props) => {
 
     return (
         <li>
-            <Card className = {"nestedCard"} header = { exerciseName }>
+            <Card
+            // className = {"nestedCard"}
+            className = 'mx-2'
+            header = { exerciseName }>
                 <h1>{ props.weight }</h1>
             </Card>
         </li>

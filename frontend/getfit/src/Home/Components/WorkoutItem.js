@@ -14,7 +14,7 @@ const WorkoutItem = (props) => {
         <li>
             <Link to = {`/workout/${props.id}/view`}>
                 <Card
-                    className = {"nestedCard"}
+                    // className = {"nestedCard"}
                     // header = { header }
                     header = { props.workoutTitle }
                 >

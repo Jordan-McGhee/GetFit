@@ -37,6 +37,7 @@ const ModalOverlay = props => {
     const content = (
         <Card
             className= { `modal ${props.className}` }
+            // className = 'flex flex-col p-6 rounded-lg my-2 border border-gray-2'
             style={ props.style }
             header = { header }
             footer = { footer }
