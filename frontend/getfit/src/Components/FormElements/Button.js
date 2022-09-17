@@ -7,15 +7,15 @@ const Button = props => {
 
     if (props.link) {
         return (
-            <button className={ props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105" } style={ props.style } type = { props.type }>
-                <Link to= { props.link }>
+            <Link to= { props.link } className = { props.linkClass }>
+                <button className={ props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105" } type = { props.type }>
                     { props.text }
-                </Link>
-            </button>
+                </button>
+            </Link>
         )
     } else {
         return (
-            <button className= { props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105" } style={ props.style } type = { props.type } onClick = { props.onClick }>
+            <button className= { props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105" } type = { props.type } onClick = { props.onClick }>
                 { props.text }
             </button>
         )

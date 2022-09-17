@@ -67,6 +67,7 @@ const UpdateMainLiftModal = (props) => {
                 text = "Nevermind"
                 type = "button"
                 onClick = { props.onCancel }
+                className = "button border border-gray-1 mr-2 rounded-md shadow hover:cursor-pointer hover:scale-105 bg-red-500 text-white/75 hover:text-white hover:bg-red-600"
             />
 
             <Button
@@ -79,7 +80,7 @@ const UpdateMainLiftModal = (props) => {
     return (
         <Modal
             header = {`Update User Info`}
-            // footer = { footer }
+            footer = { footer }
             show = { props.show }
             onSubmit = { submitUpdateHandler }
             error = { hasError }
@@ -88,19 +89,6 @@ const UpdateMainLiftModal = (props) => {
             {/* inputs for each part of userMainLifts */}
 
             <MainLiftInputs user = { user } mainLifts = { mainLifts } />
-
-            <footer>
-                <Button
-                    text = "Nevermind"
-                    type = "button"
-                    onClick = { props.onCancel }
-                />
-
-                <Button
-                    text = "Save Changes"
-                    type = "submit"
-                />
-            </footer>
 
         </Modal>
     )

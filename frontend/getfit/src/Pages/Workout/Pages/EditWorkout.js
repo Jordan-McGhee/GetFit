@@ -116,7 +116,7 @@ const EditWorkout = props => {
                 // console.log(`Exercise Title: ${target[i].value} index: ${i}`)
             // second input
             } else if (i%4 === 2) {
-                target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter the set count for exercise ${count}!`)
+                target[i].value ? exercise.sets = target[i].value : errors.push(`Please enter the set count for exercise ${count}!`)
                 // console.log(`Exercise Sets: ${target[i].value} index: ${i}`)
             // third input
             } else if (i%4 === 3) {
@@ -195,7 +195,7 @@ const EditWorkout = props => {
                 link = {`/workout/${workoutID}/view`}
                 type = "text"
                 text = "Discard"
-                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer mr-2 border-none hover:scale-105"
+                className = "bg-red-500 text-white/75 hover:text-white hover:bg-red-600 button rounded-md shadow hover:cursor-pointer mr-2 border-none hover:scale-105"
             />
             <Button
                 type = "submit"

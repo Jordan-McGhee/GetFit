@@ -90,7 +90,7 @@ const ViewWorkout = props => {
                 type = "text"
                 text = "Delete Workout"
                 onClick = { showDeleteModalHandler }
-                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer mr-2 hover:scale-105 border-none"
+                className = "bg-red-500 text-white/75 hover:text-white hover:bg-red-600 button rounded-md shadow hover:cursor-pointer mr-2 hover:scale-105 border-none"
             />
 
             <Button
@@ -124,16 +124,16 @@ const ViewWorkout = props => {
             <Card
                 header = { workoutHeader }
                 footer = { workoutFooter }
-                className = "p-6 rounded-lg border border-gray-2 text-xl bg-white"
+                className = "p-6 rounded-lg border border-gray-2 text-xl bg-white shadow-lg"
                 headerClass = 'font-bold text-3xl border-b-2 mb-4 pb-2'
             >
 
-                <ul>
+                <ul className="list-decimal">
 
                     {/* ITERATE OVER EXERCISES TO DISPLAY THEM */}
                     { loadedWorkout && loadedWorkout.exercises.map(exercise => (
-                        <li key = { exercise.id } className = 'mb-2 pb-2'>
-                            <h4 className="font-semibold text-xl text-black/80">
+                        <li key = { exercise.id } className = 'mb-2 ml-6 pb-2'>
+                            <h4 className="font-semibold text-xl text-black border-b w-fit pr-2">
                                 { exercise.exerciseName }
                             </h4>
 

@@ -45,7 +45,7 @@ const DeleteWorkout = (props) => {
                 text = "Delete"
                 type = "submit"
                 onClick = { submitDeleteHandler }
-                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer mr-2 hover:scale-105"
+                className = "bg-red-500 text-white/75 hover:text-white hover:bg-red-600 button rounded-md shadow hover:cursor-pointer mr-2 hover:scale-105"
             />
 
             <Button
@@ -64,7 +64,7 @@ const DeleteWorkout = (props) => {
             error = { hasError }
             clearError = { clearError }
         >
-            <p className="break-words">Are you sure you want to delete {workout.workoutTitle}? <br></br> <br></br><span className="italic font-bold">This can't be undone.</span></p>
+            <p className="break-words">Are you sure you want to delete {workout.workoutTitle}? <br></br> <span className="italic font-bold">This can't be undone.</span></p>
             
         </Modal>
     )

@@ -191,7 +191,7 @@ const NewWorkout = () => {
                 onClick = { discardHandler }
                 type = "button"
                 text = "Discard"
-                className = 'bg-red-500 button rounded-md shadow hover:cursor-pointer ml-2 hover:scale-105'
+                className = 'bg-red-500 text-white/75 hover:text-white hover:bg-red-600 button rounded-md shadow hover:cursor-pointer ml-2 hover:scale-105'
             />
             <Button 
                 type = "submit"
