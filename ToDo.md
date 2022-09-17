@@ -25,6 +25,7 @@ Frontend
     <!-- - add LoadingSpinner --DONE -->
     - Update routes with .env variable
     - prevent auth form submission if invalid
+    - add a drop down to view all workouts?
     <!-- - add an all workouts page to align with Navbar --DONE -->
     <!-- - 404 Not Found Page --DONE -->
     <!-- - modals for confirming delete/discard --DONE -->

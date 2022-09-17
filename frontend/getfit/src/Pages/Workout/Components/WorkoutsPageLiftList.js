@@ -17,6 +17,7 @@ const WorkoutsPageLiftList = (props) => {
             id = { workout._id }
             workoutTitle = { workout.workoutTitle }
             exercises = { workout.exercises }
+            dateCreated = { workout.created_at }
             // add other stuff later
         />
     ))

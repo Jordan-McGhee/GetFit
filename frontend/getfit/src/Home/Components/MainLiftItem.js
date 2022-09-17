@@ -18,9 +18,10 @@ const MainLiftItem = (props) => {
         <li>
             <Card
             // className = {"nestedCard"}
-            className = 'mx-2'
+            className = 'mx-2 p-6 rounded-lg border border-gray-2 overflow-x-auto scroll-pt-8 w-52 text-xl'
+            headerClass = 'font-bold text-xl border-b mb-4 pb-2'
             header = { exerciseName }>
-                <h1>{ props.weight }</h1>
+                <h1>{ props.weight } lbs</h1>
             </Card>
         </li>
     )

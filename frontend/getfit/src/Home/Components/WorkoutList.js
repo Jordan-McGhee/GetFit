@@ -11,6 +11,7 @@ const WorkoutList = (props) => {
             id = { workout._id }
             workoutTitle = { workout.workoutTitle }
             exercises = { workout.exercises }
+            dateCreated = { workout.created_at }
         />
     ))
 

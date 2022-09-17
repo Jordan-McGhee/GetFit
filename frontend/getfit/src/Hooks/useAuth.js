@@ -56,7 +56,6 @@ export const useAuth = () => {
         } else {
 
             // clear all timers if we reach else block
-            logout()
             clearTimeout(logoutTimer)
         }
     }, [token, logout, tokenExpirationDate])
