@@ -15,7 +15,7 @@ const ExerciseInput = props => {
                 errorText = "Please enter a name!"
                 value = { props.exerciseName || null }
             />
-            <div className="flex">
+            <div className="flex justify-between max-w-2xl mb-4">
                 
                 <Input
                     id = {`exercise${props.inputNumber}-sets`}

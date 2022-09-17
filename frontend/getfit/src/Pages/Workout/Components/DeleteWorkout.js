@@ -42,16 +42,16 @@ const DeleteWorkout = (props) => {
     const footer = (
         <div>
             <Button
-                text = "Nevermind"
-                type = "button"
-                onClick = { props.onCancel }
-            />
-
-            <Button
                 text = "Delete"
                 type = "submit"
                 onClick = { submitDeleteHandler }
-                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer m-1"
+                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer mr-2 hover:scale-105"
+            />
+
+            <Button
+                text = "Nevermind"
+                type = "button"
+                onClick = { props.onCancel }
             />
         </div>
     )
@@ -64,7 +64,7 @@ const DeleteWorkout = (props) => {
             error = { hasError }
             clearError = { clearError }
         >
-            <p>Are you sure you want to delete <span>{workout.workoutTitle}</span>. This can't be undone.</p>
+            <p className="break-words">Are you sure you want to delete {workout.workoutTitle}? <br></br> <br></br><span className="italic font-bold">This can't be undone.</span></p>
             
         </Modal>
     )

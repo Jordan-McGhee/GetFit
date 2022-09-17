@@ -11,6 +11,7 @@ import DeleteWorkout from "../Components/DeleteWorkout";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../../Hooks/useFetch";
 import { AuthContext } from "../../../Context/auth-context";
+import convertDate from "../../../DateConversion/convertDate";
 
 const ViewWorkout = props => {
 
@@ -53,11 +54,7 @@ const ViewWorkout = props => {
 
     }, [ sendRequest, workoutID, auth.token ])
 
-    const workoutHeader = (
-        <h1>
-            { loadedWorkout && loadedWorkout.workoutTitle}
-        </h1>
-    )
+
 
     const [ showModal, setShowModal ] = useState(false)
     
@@ -69,14 +66,33 @@ const ViewWorkout = props => {
         setShowModal(false)
     }
 
+
+    const date = loadedWorkout && loadedWorkout.created_at
+
+    const convertedDate = convertDate(date)
+
+    const workoutHeader = (
+        <div className="flex items-baseline justify-between truncate max-w-full">
+            <p className="truncate">
+                { loadedWorkout && loadedWorkout.workoutTitle}
+            </p>
+
+            <p className="text-sm italic font-normal text-black/60">
+                { convertedDate }
+            </p>
+
+        </div>
+    )
+
     const workoutFooter = (
         <div>
             <Button
                 type = "text"
                 text = "Delete Workout"
                 onClick = { showDeleteModalHandler }
-                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer m-1"
+                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer mr-2 hover:scale-105 border-none"
             />
+
             <Button
                 link = {`/workout/${workoutID}/edit`}
                 type = "text"
@@ -105,21 +121,26 @@ const ViewWorkout = props => {
                 />
             }
 
-            <Card header = { workoutHeader } footer = { workoutFooter } >
+            <Card
+                header = { workoutHeader }
+                footer = { workoutFooter }
+                className = "p-6 rounded-lg border border-gray-2 text-xl bg-white"
+                headerClass = 'font-bold text-3xl border-b-2 mb-4 pb-2'
+            >
 
                 <ul>
 
                     {/* ITERATE OVER EXERCISES TO DISPLAY THEM */}
                     { loadedWorkout && loadedWorkout.exercises.map(exercise => (
-                        <li key = { exercise.id }>
-                            <h4>
+                        <li key = { exercise.id } className = 'mb-2 pb-2'>
+                            <h4 className="font-semibold text-xl text-black/80">
                                 { exercise.exerciseName }
                             </h4>
 
-                            <div>
-                                <p>{ exercise.sets } Sets</p>
-                                <p>{ exercise.reps } Reps</p>
-                                <p>{ exercise.weightUsed } Last Weight</p>
+                            <div className="flex md:w-1/2 justify-between my-2">
+                                <p>{ exercise.sets } Sets x { exercise.reps } Reps</p>
+                                {/* <p>{ exercise.reps } Reps</p> */}
+                                <p>Last Weight: { exercise.weightUsed } </p>
                             </div>
                         </li>
                     ))}

@@ -16,6 +16,10 @@ a:visited {
   color: black;
 }
 
+.view-workout-list:last-child {
+  border-bottom: none;
+}
+
 /* NAVBAR STYLING */
 
 /* .nav-header {

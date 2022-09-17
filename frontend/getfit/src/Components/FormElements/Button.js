@@ -7,7 +7,7 @@ const Button = props => {
 
     if (props.link) {
         return (
-            <button className={ props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer" } style={ props.style } type = { props.type }>
+            <button className={ props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105" } style={ props.style } type = { props.type }>
                 <Link to= { props.link }>
                     { props.text }
                 </Link>
@@ -15,7 +15,7 @@ const Button = props => {
         )
     } else {
         return (
-            <button className= { props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer" } style={ props.style } type = { props.type } onClick = { props.onClick }>
+            <button className= { props.className || "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105" } style={ props.style } type = { props.type } onClick = { props.onClick }>
                 { props.text }
             </button>
         )

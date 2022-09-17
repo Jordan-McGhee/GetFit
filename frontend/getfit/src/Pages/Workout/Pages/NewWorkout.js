@@ -93,25 +93,23 @@ const NewWorkout = () => {
             if (i%4 === 1) {
                 target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter a name for exercise ${count}!`)
 
-                // exercise.exerciseName = target[i].value
-                // console.log(`Exercise Title: ${target[i].value}`)
+                // console.log(`Exercise Title: ${target[i].value} | ${exercise.exerciseName}`)
+
             // second input
             } else if (i%4 === 2) {
-                target[i].value ? exercise.exerciseName = target[i].value : errors.push(`Please enter the set count for exercise ${count}!`)
+                target[i].value ? exercise.sets = target[i].value : errors.push(`Please enter the set count for exercise ${count}!`)
 
-                // exercise.sets = target[i].value
                 // console.log(`Exercise Sets: ${target[i].value}`)
             // third input
             } else if (i%4 === 3) {
                 target[i].value ? exercise.reps = target[i].value : errors.push(`Please enter the rep count for exercise ${count}!`)
 
-                // exercise.reps = target[i].value
                 // console.log(`Exercise Reps: ${target[i].value}`)
+
             // last input, push to exercise array and reset exercise object
             } else {
                 target[i].value ? exercise.weightUsed.push(target[i].value) : errors.push(`Please enter the weight you used for exercise ${count}!`)
 
-                // exercise.weightUsed.push(target[i].value)
                 // console.log(`Exercise Weight Used: ${exercise.weightUsed}`)
                 // console.log(`Full Exercise:
                 //     ${exercise.exerciseName}
@@ -193,11 +191,12 @@ const NewWorkout = () => {
                 onClick = { discardHandler }
                 type = "button"
                 text = "Discard"
+                className = 'bg-red-500 button rounded-md shadow hover:cursor-pointer ml-2 hover:scale-105'
             />
             <Button 
                 type = "submit"
                 text = "Create Workout"
-                className = 'ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer'
+                className = 'ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105'
             />
         </div>
     )
@@ -233,7 +232,7 @@ const NewWorkout = () => {
                                 type = "button"
                                 onClick = { addExerciseInput }
                                 text = "Add Another Exercise"
-                                className = 'max-w-xs button border border-gray-1 rounded-md shadow hover:cursor-pointer'
+                                className = 'max-w-xs button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105 mb-4'
                             />
                         }
 

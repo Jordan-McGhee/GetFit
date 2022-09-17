@@ -185,6 +185,25 @@ const EditWorkout = props => {
         setFormHasErrors(false)
     }
 
+    const header = (
+        loadedWorkout && <h2 className="truncate">Editing Workout: {loadedWorkout.workoutTitle}</h2>
+    )
+
+    const footer = (
+        <footer>
+            <Button
+                link = {`/workout/${workoutID}/view`}
+                type = "text"
+                text = "Discard"
+                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer mr-2 border-none hover:scale-105"
+            />
+            <Button
+                type = "submit"
+                text = "Save Changes"
+            />
+        </footer>
+    )
+
     return (
 
         <React.Fragment>
@@ -204,7 +223,7 @@ const EditWorkout = props => {
 
             { !isLoading && loadedWorkout && (
                 
-                <Card header = { <h2>Edit Workout: {loadedWorkout.workoutTitle}</h2>}>
+                <Card header = { header } footer = { footer }>
                     <form onSubmit={ submitHandler }>
 
                         {
@@ -240,21 +259,9 @@ const EditWorkout = props => {
                             type = "button"
                             onClick = { addExerciseInput }
                             text = "Add Another Exercise"
+                            className = "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105 mb-4"
                             />
                         }
-
-                        <footer>
-                            <Button
-                                link = {`/workout/${workoutID}/view`}
-                                type = "text"
-                                text = "Discard Changes"
-                                className = "bg-red-500 button rounded-md shadow hover:cursor-pointer m-1"
-                            />
-                            <Button
-                                type = "submit"
-                                text = "Save Changes"
-                            />
-                        </footer>
                         
                     </form>
                 </Card>
