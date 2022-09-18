@@ -17,7 +17,9 @@ const MainNav = () => {
 
     if (auth.isLoggedIn) {
         navLinks = (
-            <header className="bg-gray-3 p-6 m-auto border-b-2 fixed w-full">
+            <header className="bg-gray-3 p-6 m-auto border-b-2 ">
+
+                <div className="m-auto max-w-3xl">
 
                 {/* MOBILE MENUS */}
 
@@ -122,6 +124,8 @@ const MainNav = () => {
                         </ul>
                     </nav>
                 </div>
+
+                </div>
             </header>
         )
     } else {
@@ -136,7 +140,7 @@ const MainNav = () => {
 
 
     return (
-        <div>
+        <div className="sticky top-0">
             {navLinks}
         </div>
     )

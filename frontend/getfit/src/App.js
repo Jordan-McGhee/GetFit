@@ -40,7 +40,7 @@ function App() {
   } else {
     routes = (
       <Routes>
-        <Route path="/auth" element = { <AuthPage />} />
+        <Route className ='' path="/auth" element = { <AuthPage />} />
         <Route path="*" element = {<Navigate to="/auth" replace = { true } />} />
       </Routes>
     )
@@ -59,10 +59,15 @@ function App() {
         logout: logout
       } }
     >
-      <MainNav />
-        <div className="bg-white-2 min-h-screen pt-24 pb-6 px-6">
-          { routes }
-        </div>
+      <div className="bg-white-2">
+        <MainNav />
+          <div className="min-h-screen pb-6 px-6">
+            <div className="max-w-3xl m-auto">
+              { routes }
+            </div>
+            
+          </div>
+      </div>
     </AuthContext.Provider>
   );
 }

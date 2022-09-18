@@ -124,11 +124,11 @@ const ViewWorkout = props => {
             <Card
                 header = { workoutHeader }
                 footer = { workoutFooter }
-                className = "p-6 rounded-lg border border-gray-2 text-xl bg-white shadow-lg"
+                className = "p-6 rounded-lg border border-gray-2 text-xl bg-white shadow-lg mt-6"
                 headerClass = 'font-bold text-3xl border-b-2 mb-4 pb-2'
             >
 
-                <ul className="list-decimal">
+                <ul >
 
                     {/* ITERATE OVER EXERCISES TO DISPLAY THEM */}
                     { loadedWorkout && loadedWorkout.exercises.map(exercise => (

@@ -18,6 +18,7 @@ Backend
 
 Frontend
     - add a modal --DONE
+    - Add user's first name to Navbar
     <!-- - conditional formatting for new account ("There's nothing here!") --DONE -->
     <!-- - Add all pages and routes to app.js --DONE -->
     <!-- - Router not directing to NewWorkout.js Fix this!!!! --DONE -->
@@ -57,6 +58,7 @@ Frontend
         ~ fix form to be able to change values and save changes
             - maybe have the state update in the component that is using Input/ExerciseInput?
         ~ add ability to add/remove more inputs in the edit
+        ~ Bug preventing submission of workout FIX!!!!
 
     - ViewWorkout.js
         ~ update code to include loading spinner and errors --DONE

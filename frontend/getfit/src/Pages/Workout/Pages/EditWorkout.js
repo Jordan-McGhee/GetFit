@@ -200,6 +200,7 @@ const EditWorkout = props => {
             <Button
                 type = "submit"
                 text = "Save Changes"
+                className = "ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105"
             />
         </footer>
     )
@@ -223,8 +224,9 @@ const EditWorkout = props => {
 
             { !isLoading && loadedWorkout && (
                 
-                <Card header = { header } footer = { footer }>
-                    <form onSubmit={ submitHandler }>
+                
+                <form onSubmit={ submitHandler }>
+                    <Card header = { header } footer = { footer }>
 
                         {
                             loadedWorkout && 
@@ -262,9 +264,8 @@ const EditWorkout = props => {
                             className = "button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105 mb-4"
                             />
                         }
-                        
+                        </Card>
                     </form>
-                </Card>
             )}
 
         </React.Fragment>
