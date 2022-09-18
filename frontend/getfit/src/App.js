@@ -60,7 +60,7 @@ function App() {
       } }
     >
       <MainNav />
-        <div className="bg-white-2 min-h-screen p-6">
+        <div className="bg-white-2 min-h-screen pt-24 pb-6 px-6">
           { routes }
         </div>
     </AuthContext.Provider>

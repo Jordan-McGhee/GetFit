@@ -21,7 +21,7 @@ const Card = props => {
     }
 
     return(
-        <div className={ props.className || `flex flex-col p-6 rounded-lg my-2 border border-gray-2 bg-white shadow-lg`} style={props.style}>
+        <div className={ props.className || `flex flex-col p-6 rounded-lg my-4 border border-gray-2 bg-white shadow-lg`} style={props.style}>
             
             { header ? header : null }
 

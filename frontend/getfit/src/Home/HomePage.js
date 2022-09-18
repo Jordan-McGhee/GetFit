@@ -111,16 +111,12 @@ const HomePage = (props) => {
                 />
             }
 
-            <Card header = { <h1>Your Main Lifts</h1> } footer = { mainLiftsFooter }
-            // className = "homepage-main-lifts-list"
-            >
+            <Card header = { <h1>Your Main Lifts</h1> } footer = { mainLiftsFooter } >
                 
                 <MainLiftList lifts = { loadedUserLifts } />
             </Card>
 
-            <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter } 
-            // className = "homepage-workouts-list"
-            >
+            <Card header = { <h1>Latest Workouts</h1> } footer = { workoutFooter } >
 
                 { loadedWorkouts.length > 0 ? <WorkoutList workouts = { loadedWorkouts } /> : <p>You don't have any workouts yet. Add one?</p>}
                 
