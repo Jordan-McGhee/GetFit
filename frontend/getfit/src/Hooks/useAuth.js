@@ -30,7 +30,7 @@ export const useAuth = () => {
             expirationDate: expirationDate.toISOString()
         }))
 
-        console.log(`Token Expiration Date: ${expirationDate}`)
+        // console.log(`Token Expiration Date: ${expirationDate}`)
     }, [])
 
     const logout = useCallback(() => {

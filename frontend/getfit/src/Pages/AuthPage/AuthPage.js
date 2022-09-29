@@ -22,8 +22,10 @@ const AuthPage = () => {
     // need to have state for logging in/signing up
     // signup and login forms
     
-    const [ isLoggingIn, setIsLoggingIn ] = useState(false)
+    const [ isLoggingIn, setIsLoggingIn ] = useState(true)
     const { isLoading, hasError, sendRequest, clearError } = useFetch()
+    
+    const  [ isGuest, setIsGuest ] = useState(false)
 
     const changeLoginHandler = () => {
         if (isLoggingIn) {
@@ -102,8 +104,6 @@ const AuthPage = () => {
 
         )
     }
-
-    let formIsValid
     
     const formSubmitHandler = async event => {
         event.preventDefault()
@@ -118,13 +118,25 @@ const AuthPage = () => {
         let formData, url
 
         if (isLoggingIn) {
-            formData = {
-                email: "",
-                password: ""
-            }
 
-            formData.email = target[0].value
-            formData.password = target[1].value
+            if (isGuest) {
+
+                console.log("Entered Guest Block of Log In")
+                formData = {
+                    email: 'test@test.com',
+                    password: '12345678'
+                }
+            } else {
+                formData = {
+                    email: "",
+                    password: ""
+                }
+    
+                formData.email = target[0].value
+                formData.password = target[1].value
+    
+                
+            }
 
             url = 'http://localhost:5000/auth/login'
 
@@ -176,10 +188,18 @@ const AuthPage = () => {
                 onClick = { changeLoginHandler }
             /> */}
 
+            { isLoggingIn && 
+                <Button
+                    type = 'submit'
+                    text = 'Log In As Guest'
+                    onClick = { () => setIsGuest(true) }
+                    className = 'button border border-gray-2 rounded-md shadow hover:cursor-pointer bg-sky-500 text-white hover:bg-sky-900'
+                />
+            }
+
             <Button
                 type = "submit"
                 text = { isLoggingIn ? "Log In" : "Sign Up"}
-                disabled = { formIsValid }
                 className = "ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer"
             />
     </div>
