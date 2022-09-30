@@ -193,14 +193,14 @@ const AuthPage = () => {
                     type = 'submit'
                     text = 'Log In As Guest'
                     onClick = { () => setIsGuest(true) }
-                    className = 'button border border-gray-2 rounded-md shadow hover:cursor-pointer bg-sky-500 text-white hover:bg-sky-900'
+                    className = 'button border border-gray-2 rounded-md shadow hover:cursor-pointer bg-sky-500 text-white hover:bg-sky-900 hover:scale-105'
                 />
             }
 
             <Button
                 type = "submit"
                 text = { isLoggingIn ? "Log In" : "Sign Up"}
-                className = "ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer"
+                className = "ml-2 button border border-gray-1 rounded-md shadow hover:cursor-pointer hover:scale-105"
             />
     </div>
     )
