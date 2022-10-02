@@ -43,16 +43,18 @@ const ModalOverlay = props => {
             footer = { footer }
         >
 
-            <form onSubmit={ props.onSubmit ? props.onSubmit : event => event.preventDefault() }>
+            {/* <form onSubmit={ props.onSubmit ? props.onSubmit : event => event.preventDefault() }>
 
                 {/* form content passed in via props */}
                 {/* <div className={ `modal__content ${ props.contentClass}`}>
                     { props.children}
                 </div> */}
 
-                { props.children}
+                
 
-            </form>
+            {/* </form> */} 
+
+            { props.children}
             
         </Card>
     )

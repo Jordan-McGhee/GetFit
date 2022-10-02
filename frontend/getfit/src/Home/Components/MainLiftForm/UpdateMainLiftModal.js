@@ -17,6 +17,8 @@ const UpdateMainLiftModal = (props) => {
     const submitUpdateHandler = async (event) => {
         event.preventDefault()
 
+        console.log(`Entered Body Weight: ${event.target[1].value}`)
+
         const formData = {
             age: event.target[0].value,
             bodyWeight: event.target[1].value,
@@ -73,6 +75,7 @@ const UpdateMainLiftModal = (props) => {
             <Button
                 text = "Save Changes"
                 type = "submit"
+                onClick = { () => console.log('Clicked')}
             />
         </div>
     )
@@ -80,15 +83,21 @@ const UpdateMainLiftModal = (props) => {
     return (
         <Modal
             header = {`Update User Info`}
-            footer = { footer }
+            // footer = { footer }
             show = { props.show }
-            onSubmit = { submitUpdateHandler }
+            // onSubmit = { submitUpdateHandler }
             error = { hasError }
             clearError = { clearError }
         >
-            {/* inputs for each part of userMainLifts */}
 
-            <MainLiftInputs user = { user } mainLifts = { mainLifts } />
+            <form onSubmit={ submitUpdateHandler }>
+
+                {/* inputs for each part of userMainLifts */}
+                <MainLiftInputs user = { user } mainLifts = { mainLifts } />
+
+                { footer }
+
+            </form>
 
         </Modal>
     )
