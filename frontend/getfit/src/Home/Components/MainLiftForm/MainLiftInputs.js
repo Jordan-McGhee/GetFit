@@ -11,24 +11,24 @@ const MainLiftInputs = (props) => {
         <div>
 
             {/* AGE */}
-            <Input
+            {/* <Input
                 id = 'age'
                 label = "Your Age"
                 type = "number"
                 placeholder = "Enter your age."
                 errorText = "Please enter your age!"
                 value = { user.age || null }
-            />
+            /> */}
 
             {/* BODYWEIGHT */}
-            <Input
+            {/* <Input
                 id = 'bodyWeight'
                 label = "Your Bodyweight"
                 type = "number"
                 placeholder = "Enter how much you weight."
                 errorText = "Please enter your weight!"
                 value = { user.bodyWeight || null }
-            />
+            /> */}
 
             {/* BENCH PRESS */}
             <Input

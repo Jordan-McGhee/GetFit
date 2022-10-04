@@ -23,11 +23,12 @@ const updateUserInfo = async (req, res, next) => {
     }
 
     // grab lifts to update user from req.body
-    const { age, bodyWeight, benchPress, squat, deadlift, overHeadPress } = req.body
+    // const { age, bodyWeight, benchPress, squat, deadlift, overHeadPress } = req.body
+    const { benchPress, squat, deadlift, overHeadPress } = req.body
 
     // update age & bodyweight from user input
-    user.age = age
-    user.bodyWeight = bodyWeight
+    // user.age = age
+    // user.bodyWeight = bodyWeight
 
     // update lifts from user input
     user.mainLiftMaxes.benchPress = benchPress

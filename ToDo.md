@@ -1,7 +1,9 @@
+<!-- **REMOVE AGE AND BODYWEIGHT FROM APP** -- DONE -->
+
 Backend
     - Models:
         <!-- ~ update user model to have body weight and lifts be an array? So we can potentially add charts to show change over time --DONE -->
-        ~ add a routine model to hold multiple workouts?
+        <!-- ~ add a routine model to hold multiple workouts? -- NAH -->
 
     <!-- - Controllers: --DONE -->
         — user-controller:
@@ -18,20 +20,20 @@ Backend
 
 Frontend
     - add a modal --DONE
-    - Add user's first name to Navbar
+    <!-- - Add user's first name to Navbar -- NAH -->
     <!-- - conditional formatting for new account ("There's nothing here!") --DONE -->
     <!-- - Add all pages and routes to app.js --DONE -->
     <!-- - Router not directing to NewWorkout.js Fix this!!!! --DONE -->
         <!-- ~ issue is with input component --DONE -->
     <!-- - add LoadingSpinner --DONE -->
     - Update routes with .env variable
-    - prevent auth form submission if invalid
-    - add a drop down to view all workouts and dropdown to view list of previous weights used in ViewWorkout?
-    - update color theme
+    <!-- - prevent auth form submission if invalid -- DONE -->
+    <!-- - add a drop down to view all workouts and dropdown to view list of previous weights used in ViewWorkout? -- NAH -->
+    <!-- - update color theme -- NAH -->
     <!-- - add an all workouts page to align with Navbar --DONE -->
     <!-- - 404 Not Found Page --DONE -->
     <!-- - modals for confirming delete/discard --DONE -->
-    - refreshing navigates back to home page. FIX
+    <!-- - refreshing navigates back to home page. FIX -- DONE -->
 
     - Input
         <!-- ~ Move validation to individual components that use the input? --DONE -->
@@ -40,7 +42,7 @@ Frontend
         <!-- ~ Add a footer for buttons --DONE -->
 
     - MODAL LIST:
-        ~ discard changes/delete workout
+        <!-- ~ discard changes/delete workout -- DONE -->
         <!-- ~ when user wants to change their lifts --DONE -->
         <!-- ~ alter MainLiftModal to update appropriately and useEffect maybe on HomePage to re-render when necessary? --DONE -->
 
@@ -49,41 +51,41 @@ Frontend
 
     - NewWorkout.js
         <!-- ~ redirect to view workout page after creating workout --DONE -->
-        ~ change form to not allow submission if there are any errors
-        ~ change add another exercise button to disabled if previous inputs have errors
-        ~ add remove exercise button conditionally if there are at least 3 exercises
+        <!-- ~ change form to not allow submission if there are any errors -- DONE -->
+        <!-- ~ change add another exercise button to disabled if previous inputs have errors -- NAH -->
+        <!-- ~ add remove exercise button conditionally if there are at least 3 exercises -- NAH -->
         <!-- ~ add form submission and work on passing values to backend/database --DONE -->
 
     - EditWorkout.js
-        ~ fix form to be able to change values and save changes
-            - maybe have the state update in the component that is using Input/ExerciseInput?
-        ~ add ability to add/remove more inputs in the edit
-        ~ Bug preventing submission of workout FIX!!!!
+        <!-- ~ fix form to be able to change values and save changes -- DONE -->
+            <!-- - maybe have the state update in the component that is using Input/ExerciseInput? -->
+        <!-- ~ add ability to add/remove more inputs in the edit -- DONE -->
+        <!-- ~ Bug preventing submission of workout FIX!!!! -- DONE -->
 
     - ViewWorkout.js
         ~ update code to include loading spinner and errors --DONE
 
     - ExerciseInput.js
-        ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database --DONE
-        ~ figure out button to add another exercise input to form --DONE
+        <!-- ~ figure out how to keep track of how many exercise inputs there are and use that to save exercises to database --DONE -->
+        <!-- ~ figure out button to add another exercise input to form --DONE -->
 
     - HomePage.js
-        ~ fix fetch hook to communicate to backend --DONE
-        ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component --DONE
-        ~ modal pop-up to update user's main lifts list --DONE
-        ~ add dropdown for exercises to show each one 
-        ~ maybe refactor closeMainLiftModalHandler to refresh the page differently? --DONE
-        ~ modal make age a date instead of number entry
+        <!-- ~ fix fetch hook to communicate to backend --DONE -->
+        <!-- ~ Make WorkoutList only show the most recent 3 - View More button navigates to Workouts-Page component --DONE -->
+        <!-- ~ modal pop-up to update user's main lifts list --DONE -->
+        <!-- ~ add dropdown for exercises to show each one -- NAH  -->
+        <!-- ~ maybe refactor closeMainLiftModalHandler to refresh the page differently? --DONE -->
+        <!-- ~ modal make age a date instead of number entry -- REMOVED AGE  -->
 
     - ALL FORMS
-        ~ change number entry format
-        ~ Make sure all fetch requests have the token added --DONE
+        ~ change number entry format 
+        <!-- ~ Make sure all fetch requests have the token added --DONE -->
 
     - WorkoutsPage
-        ~ Add sorting based on frequency, recency and something else maybe idk
-        ~ Figure out what to add to differentiate the workout list here and the home page
+        <!-- ~ Add sorting based on frequency, recency and something else maybe idk -- NAH  -->
+        <!-- ~ Figure out what to add to differentiate the workout list here and the home page -- DONE -->
 
     - DeleteWorkout
-        ~ Figure out how to close Modal and have Error Modal if there is one
-        ~ change to ConfirmDelete/Discard? Use it for discarding a workout form? --DONE
-        ~ Make sure error modal pops up if there is an issue --DONE
+        <!-- ~ Figure out how to close Modal and have Error Modal if there is one -- DONE -->
+        <!-- ~ change to ConfirmDelete/Discard? Use it for discarding a workout form? --DONE -->
+        <!-- ~ Make sure error modal pops up if there is an issue --DONE -->

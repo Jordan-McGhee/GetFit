@@ -48,6 +48,21 @@ const WorkoutsPage = () => {
 
     }, [ sendRequest ])
 
+    // const [ sortNewFirst, setSortNewFirst ] = useState(false)
+
+    const cardHeader = (
+        <div>
+
+            <h1>Your Workouts</h1>
+            {/* <Button
+                type = "button"
+                text = { sortNewFirst ? "Show Oldest First" : "Show Newest First"}
+                onClick = { () => setSortNewFirst(!sortNewFirst)}
+            /> */}
+
+        </div> 
+    )
+
     const cardFooter = (
         <Button
             type = "button"
@@ -67,10 +82,11 @@ const WorkoutsPage = () => {
                 </div>
             }
 
-            <Card header = { <h1>Your Workouts</h1> } footer = { cardFooter } >
+            <Card header = { cardHeader } footer = { cardFooter } >
 
                 { loadedWorkouts.length > 0 ?
-                    <WorkoutsPageLiftList workouts = { loadedWorkouts }/>
+                    // <WorkoutsPageLiftList workouts = { sortNewFirst ? loadedWorkouts.reverse() : loadedWorkouts }/>
+                    <WorkoutsPageLiftList workouts = { loadedWorkouts.reverse() }/>
                     : 
                     <p>You don't have any workouts yet. Add One?</p>
                 }

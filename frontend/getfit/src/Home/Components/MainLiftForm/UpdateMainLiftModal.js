@@ -20,20 +20,20 @@ const UpdateMainLiftModal = (props) => {
         console.log(`Entered Body Weight: ${event.target[1].value}`)
 
         const formData = {
-            age: event.target[0].value,
-            bodyWeight: event.target[1].value,
-            benchPress: event.target[2].value,
-            squat: event.target[3].value,
-            deadlift: event.target[4].value,
-            overHeadPress: event.target[5].value
+            // age: event.target[0].value,
+            // bodyWeight: event.target[1].value,
+            benchPress: event.target[0].value,
+            squat: event.target[1].value,
+            deadlift: event.target[2].value,
+            overHeadPress: event.target[3].value
         }
 
-        const mainLiftMaxes = {
-            benchPress: event.target[2].value,
-            squat: event.target[3].value,
-            deadlift: event.target[4].value,
-            overHeadPress: event.target[5].value
-        }
+        // const mainLiftMaxes = {
+        //     benchPress: event.target[2].value,
+        //     squat: event.target[3].value,
+        //     deadlift: event.target[4].value,
+        //     overHeadPress: event.target[5].value
+        // }
 
         try {
             await sendRequest(
@@ -48,8 +48,8 @@ const UpdateMainLiftModal = (props) => {
                 },
                 // BODY
                 JSON.stringify({
-                    age: formData.age,
-                    bodyWeight: formData.bodyWeight,
+                    // age: formData.age,
+                    // bodyWeight: formData.bodyWeight,
                     benchPress: formData.benchPress,
                     squat: formData.squat,
                     deadlift: formData.deadlift,
@@ -60,11 +60,11 @@ const UpdateMainLiftModal = (props) => {
             console.log(`Error updating main lifts: ${err}`)
         }
         
-        props.onUpdate(mainLiftMaxes)
+        props.onUpdate(formData)
     }
 
     const footer = (
-        <div>
+        <div className='flex justify-end mt-3 shrink border-top-2'>
             <Button
                 text = "Nevermind"
                 type = "button"
