@@ -5,8 +5,7 @@ const mongoose = require("mongoose")
 const HttpError = require("./models/http-error")
 
 // FOR CONNECTING TO MONGODB SERVER
-const password = "KIV8qYHrFoWOPhPy"
-const url = `mongodb+srv://JordanMcGhee:${password}@getfit.itq1bft.mongodb.net/GetFit?retryWrites=true&w=majority`
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@getfit.itq1bft.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 
 // connecting to database
 mongoose.connect(url).then(() =>{

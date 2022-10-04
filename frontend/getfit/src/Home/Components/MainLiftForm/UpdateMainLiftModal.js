@@ -17,8 +17,6 @@ const UpdateMainLiftModal = (props) => {
     const submitUpdateHandler = async (event) => {
         event.preventDefault()
 
-        console.log(`Entered Body Weight: ${event.target[1].value}`)
-
         const formData = {
             // age: event.target[0].value,
             // bodyWeight: event.target[1].value,
@@ -38,7 +36,7 @@ const UpdateMainLiftModal = (props) => {
         try {
             await sendRequest(
                 // URL
-                `http://localhost:5000/user/${user._id}/updateInfo`,
+                `${process.env.REACT_APP_BACKEND_URL}/user/${user._id}/updateInfo`,
                 // METHOD
                 "POST",
                 // HEADERS
@@ -75,7 +73,6 @@ const UpdateMainLiftModal = (props) => {
             <Button
                 text = "Save Changes"
                 type = "submit"
-                onClick = { () => console.log('Clicked')}
             />
         </div>
     )

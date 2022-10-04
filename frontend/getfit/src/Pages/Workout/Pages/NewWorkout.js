@@ -146,7 +146,7 @@ const NewWorkout = () => {
         try {
             responseData = await sendRequest(
                 // URL
-                "http://localhost:5000/workout/",
+                `${process.env.REACT_APP_BACKEND_URL}/workout`,
                 // METHOD
                 "POST",
                 // HEADERS

@@ -18,12 +18,10 @@ const DeleteWorkout = (props) => {
     const submitDeleteHandler = async (event) => {
         event.preventDefault()
 
-        console.log("Entered submitHandler")
-
         try {
             await sendRequest(
                 // URL
-                `http://localhost:5000/workout/${workout._id}`,
+                `${process.env.REACT_APP_BACKEND_URL}/workout/${workout._id}`,
                 // METHOD
                 "DELETE",
                 // HEADERS

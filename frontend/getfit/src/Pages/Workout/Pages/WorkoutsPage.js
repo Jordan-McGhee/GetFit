@@ -26,7 +26,7 @@ const WorkoutsPage = () => {
             try {
                 const responseData = await sendRequest(
                     // URL
-                    `http://localhost:5000/`,
+                    `${process.env.REACT_APP_BACKEND_URL}/`,
                     // METHOD
                     `GET`,
                     // HEADERS

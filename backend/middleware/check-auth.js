@@ -25,7 +25,7 @@ module.exports = (req, res, next) => {
         // use jsonwebtoken package to verify the token matches the user
         // returns an object that has the parts of the user object that we added to the token payload in our auth controllers
         // if this didn't fail, then we know the user was authenticated and can move forward
-        const decodedToken = jwt.verify(token, 'secret_key')
+        const decodedToken = jwt.verify(token, process.env.TOKEN_KEY)
 
         // add our userID to the req body and can now be used in following middleware
         req.body.userData = { userID: decodedToken.userID }

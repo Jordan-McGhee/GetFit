@@ -37,7 +37,7 @@ const EditWorkout = props => {
             try {
                 const responseData = await sendRequest(
                     // URL
-                    `http://localhost:5000/workout/${workoutID}/view`,
+                    `${process.env.REACT_APP_BACKEND_URL}/workout/${workoutID}/view`,
                     // METHOD
                     'GET',
                     // HEADERS
@@ -159,7 +159,7 @@ const EditWorkout = props => {
         try {
             await sendRequest(
                 // URL
-                `http://localhost:5000/workout/${workoutID}`,
+                `${process.env.REACT_APP_BACKEND_URL}/workout/${workoutID}`,
                 // METHOD
                 "PATCH",
                 // HEADERS

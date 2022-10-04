@@ -94,7 +94,7 @@ const signUp = async (req, res, next) => {
             // data from newUser
             { userID: newUser.id, email: newUser.email },
             // key phrase, will change and hide later
-            "secret_key",
+            process.env.TOKEN_KEY,
             // token will automatically expire in an hour for better security
             { expiresIn: '1h'}
         )
@@ -177,14 +177,14 @@ const login = async (req, res, next) => {
                 // data from existingUser
                 { userID: existingUser.id, email: existingUser.email },
                 // key phrase, will change and hide later
-                "secret_key",
+                process.env.TOKEN_KEY,
                 // token will automatically expire in an hour for better security
                 { expiresIn: '1h'}
             )
     
         } catch(err) {
             const error = new HttpError(
-                "Creating token failed. Please try again!", 500
+                `Creating token failed. Please try again! Token: ${process.env.TOKEN_KEY}`, 500
             )
     
             console.log(err)

@@ -121,7 +121,7 @@ const AuthPage = () => {
 
             if (isGuest) {
 
-                console.log("Entered Guest Block of Log In")
+                // console.log("Entered Guest Block of Log In")
                 formData = {
                     email: 'test@test.com',
                     password: '12345678'
@@ -138,7 +138,7 @@ const AuthPage = () => {
                 
             }
 
-            url = 'http://localhost:5000/auth/login'
+            url = `${process.env.REACT_APP_BACKEND_URL}/auth/login`
 
         } else {
             formData = {
@@ -153,7 +153,7 @@ const AuthPage = () => {
             formData.email = target[2].value
             formData.password = target[3].value
 
-            url = 'http://localhost:5000/auth/signup'
+            url = `${process.env.REACT_APP_BACKEND_URL}/auth/signup`
         }
 
         let responseData
