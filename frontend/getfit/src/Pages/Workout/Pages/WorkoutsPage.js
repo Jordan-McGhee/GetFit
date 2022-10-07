@@ -86,7 +86,7 @@ const WorkoutsPage = () => {
 
                 { loadedWorkouts.length > 0 ?
                     // <WorkoutsPageLiftList workouts = { sortNewFirst ? loadedWorkouts.reverse() : loadedWorkouts }/>
-                    <WorkoutsPageLiftList workouts = { loadedWorkouts.reverse() }/>
+                    <WorkoutsPageLiftList workouts = { loadedWorkouts }/>
                     : 
                     <p>You don't have any workouts yet. Add One?</p>
                 }

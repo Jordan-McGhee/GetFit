@@ -39,7 +39,6 @@ const NewWorkout = () => {
     const addExerciseInput = () => {
         setExerciseInputsList([ ...exerciseInputsList, newInput ])
         setInputCount(inputCount + 1)
-        console.log(exerciseInputsList)
     }
 
     // NAVIGATION CODE

@@ -50,7 +50,7 @@ export const useAuth = () => {
 
             // get the difference between the expiration date and current time in milliseconds to pass to setTimeout
             const remainingTime = tokenExpirationDate.getTime() - new Date().getTime()
-            console.log(remainingTime)
+            // console.log(remainingTime)
 
             logoutTimer = setTimeout(logout, remainingTime)
         } else {

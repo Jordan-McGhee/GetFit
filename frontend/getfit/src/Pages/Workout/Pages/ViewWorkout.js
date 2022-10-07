@@ -137,10 +137,9 @@ const ViewWorkout = props => {
                                 { exercise.exerciseName }
                             </h4>
 
-                            <div className="flex md:w-1/2 justify-between my-2">
+                            <div className="flex md:w-3/5 justify-between my-2">
                                 <p>{ exercise.sets } Sets x { exercise.reps } Reps</p>
-                                {/* <p>{ exercise.reps } Reps</p> */}
-                                <p>Last Weight: { exercise.weightUsed } </p>
+                                <p>{ exercise.weightUsed[ exercise.weightUsed.length - 1 ] === '0' ? `Body Weight` : `Last Weight: ${ exercise.weightUsed }`} </p>
                             </div>
                         </li>
                     ))}
