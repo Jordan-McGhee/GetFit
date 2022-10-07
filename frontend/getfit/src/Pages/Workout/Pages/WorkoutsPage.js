@@ -46,7 +46,7 @@ const WorkoutsPage = () => {
 
         fetchWorkoutPage()
 
-    }, [ sendRequest ])
+    }, [ sendRequest, auth.token ])
 
     // const [ sortNewFirst, setSortNewFirst ] = useState(false)
 

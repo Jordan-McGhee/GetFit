@@ -55,7 +55,7 @@ const HomePage = (props) => {
 
         fetchHomePage()
 
-    }, [ sendRequest ])
+    }, [ sendRequest, auth.token ])
 
 
     // MODAL CODE FOR UPDATE MAIN LIFTS

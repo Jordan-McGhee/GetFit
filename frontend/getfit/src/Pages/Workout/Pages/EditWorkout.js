@@ -61,7 +61,7 @@ const EditWorkout = props => {
 
         fetchWorkout()
 
-    }, [ sendRequest, workoutID ])
+    }, [ sendRequest, workoutID, auth.token ])
 
     // console.log(`Before exerciseInputs: ${loadedExercises}`)
     // console.log(`Input Count: ${inputCount}`)

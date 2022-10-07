@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 
 // component imports
-import Card from "../../../Components/UIElements/Card"
 import WorkoutsPageLiftItems from "./WorkoutsPageLiftItems"
 
 
